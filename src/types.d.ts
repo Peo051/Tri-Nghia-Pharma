@@ -1,4 +1,8 @@
-export interface Product {
+/**
+ * Compatibility model for the unchanged ZaUI Fashion commerce components.
+ * The canonical Opodis domain model lives in src/domain/product.ts.
+ */
+export interface TemplateProduct {
   id: number;
   name: string;
   price: number;
@@ -9,6 +13,8 @@ export interface Product {
   sizes?: Size[];
   colors?: Color[];
 }
+
+export type Product = TemplateProduct;
 
 export interface Category {
   id: number;
@@ -34,7 +40,7 @@ export type SelectedOptions = {
 
 export interface CartItem {
   id: number;
-  product: Product;
+  product: TemplateProduct;
   options: SelectedOptions;
   quantity: number;
 }

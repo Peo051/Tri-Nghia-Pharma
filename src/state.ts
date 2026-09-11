@@ -1,8 +1,36 @@
 import { atom } from "jotai";
-import { atomFamily, unwrap } from "jotai/utils";
-import { Cart, Category, Color, Product } from "@/types";
-import { requestWithFallback } from "@/utils/request";
+import { atomFamily } from "jotai/utils";
+import { Cart, Category, Color, Product as TemplateProduct } from "@/types";
+import { Product as OpodisProduct } from "@/domain/product";
+import banners from "@/mock/banners.json";
+import categories from "@/mock/categories.json";
+import { products } from "@/mock/products";
 import { getUserInfo } from "zmp-sdk";
+
+function toTemplateProduct(
+  product: OpodisProduct,
+  index: number
+): TemplateProduct {
+  return {
+    id: index + 1,
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    category: {
+      id: index + 1,
+      name: product.category,
+      image: product.image,
+    },
+    details: [
+      {
+        title: "Mô tả sản phẩm",
+        content: `${product.shortDescription}\n\n${product.description}`,
+      },
+    ],
+  };
+}
+
+const templateProducts = products.map(toTemplateProduct);
 
 export const userState = atom(() =>
   getUserInfo({
@@ -10,35 +38,17 @@ export const userState = atom(() =>
   })
 );
 
-export const bannersState = atom(() =>
-  requestWithFallback<string[]>("/banners", [])
-);
+export const bannersState = atom<string[]>(banners);
 
 export const tabsState = atom(["Tất cả", "Nam", "Nữ", "Trẻ em"]);
 
 export const selectedTabIndexState = atom(0);
 
-export const categoriesState = atom(() =>
-  requestWithFallback<Category[]>("/categories", [])
-);
+export const categoriesState = atom<Category[]>(categories);
 
-export const categoriesStateUpwrapped = unwrap(
-  categoriesState,
-  (prev) => prev ?? []
-);
+export const categoriesStateUpwrapped = categoriesState;
 
-export const productsState = atom(async (get) => {
-  const categories = await get(categoriesState);
-  const products = await requestWithFallback<
-    (Product & { categoryId: number })[]
-  >("/products", []);
-  return products.map((product) => ({
-    ...product,
-    category: categories.find(
-      (category) => category.id === product.categoryId
-    )!,
-  }));
-});
+export const productsState = atom<TemplateProduct[]>(templateProducts);
 
 export const flashSaleProductsState = atom((get) => get(productsState));
 
@@ -70,10 +80,7 @@ export const colorsState = atom<Color[]>([
 export const selectedColorState = atom<Color | undefined>(undefined);
 
 export const productState = atomFamily((id: number) =>
-  atom(async (get) => {
-    const products = await get(productsState);
-    return products.find((product) => product.id === id);
-  })
+  atom((get) => get(productsState).find((product) => product.id === id))
 );
 
 export const cartState = atom<Cart>([]);
