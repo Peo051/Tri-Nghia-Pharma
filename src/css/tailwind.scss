@@ -3,14 +3,71 @@
 @tailwind utilities;
 
 :root {
-  --primary: #3459a7;
-  --secondary: #ebedef;
-  --background: #ffffff;
-  --foreground: #0d0d0d;
-  --section: #f7f7f8;
-  --inactive: #a9adb2;
-  --tabIndicator: #212121;
-  --subtitle: #6f7071;
-  --danger: #f50000;
-  --skeleton: #ebedef;
+  /* Opodis Pharma Brand Design Tokens */
+  --primary: #3F873F;
+  --primary-dark: #2D6A2E;
+  --primary-soft: #EAF4EA;
+  --background: #FFFFFF;
+  --section: #F7F9F7;
+  --foreground: #1F2937;
+  --subtitle: #6B7280;
+  --border: #E5E7EB;
+
+  /* Additional Tokens */
+  --secondary: #EAF4EA;
+  --inactive: #9CA3AF;
+  --tabIndicator: #3F873F;
+  --danger: #EF4444;
+  --skeleton: #E5E7EB;
+}
+
+/* Opodis Typography Scale */
+.text-page-title {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+.text-section-title {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.text-product-name {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.text-product-category {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.text-product-price {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.text-body-custom {
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--foreground);
+}
+
+.text-body-muted {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--subtitle);
 }

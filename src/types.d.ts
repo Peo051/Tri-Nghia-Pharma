@@ -9,6 +9,8 @@ export interface TemplateProduct {
   originalPrice?: number;
   image: string;
   category: Category;
+  packing?: string;
+  indication?: string;
   details?: Detail[];
   sizes?: Size[];
   colors?: Color[];

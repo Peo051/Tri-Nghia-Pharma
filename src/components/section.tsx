@@ -10,12 +10,12 @@ export interface SectionProps {
 
 export default function Section(props: PropsWithChildren<SectionProps>) {
   return (
-    <div className="bg-background pt-1">
-      <div className="flex items-center justify-between px-2">
-        <div className="text-sm font-medium p-2 truncate">{props.title}</div>
+    <section className="bg-background py-2">
+      <div className="flex items-center justify-between px-4 pb-1">
+        <h2 className="text-section-title truncate">{props.title}</h2>
         {props.viewMoreTo && (
           <TransitionLink
-            className="text-sm font-medium text-primary flex items-center space-x-1 p-2 cursor-pointer flex-none"
+            className="text-[13px] font-semibold text-primary flex items-center space-x-1 cursor-pointer flex-none hover:text-primary-dark transition-colors"
             to={props.viewMoreTo}
           >
             <span>Xem thêm</span>

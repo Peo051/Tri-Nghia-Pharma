@@ -691,3 +691,111 @@ export function SearchIconLarge() {
     </svg>
   );
 }
+
+export function ProductNavIcon(props: { active?: boolean }) {
+  if (props.active) {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="16"
+          rx="4"
+          fill="var(--primary)"
+          fillOpacity="0.15"
+          stroke="var(--primary)"
+          strokeWidth="2"
+        />
+        <path
+          d="M12 8V16M8 12H16"
+          stroke="var(--primary)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="16"
+        rx="4"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M12 8V16M8 12H16"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function AboutNavIcon(props: { active?: boolean }) {
+  if (props.active) {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+          fill="var(--primary)"
+          fillOpacity="0.15"
+          stroke="var(--primary)"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M12 8V13M12 16.5H12.01"
+          stroke="var(--primary)"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 8V13M12 16.5H12.01"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}

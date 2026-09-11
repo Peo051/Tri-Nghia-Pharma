@@ -1,77 +1,71 @@
-import { CartIcon, CategoryIcon, HomeIcon, ProfileIcon } from "./vectors";
-import HorizontalDivider from "./horizontal-divider";
-import { useAtomValue } from "jotai";
-import { cartState } from "@/state";
+import { AboutNavIcon, ProductNavIcon } from "./vectors";
 import TransitionLink from "./transition-link";
+import { useLocation } from "react-router-dom";
 
-const NAV_ITEMS = [
+interface NavItem {
+  name: string;
+  path: string;
+  icon: React.ComponentType<{ active?: boolean }>;
+  isActiveRoute: (pathname: string) => boolean;
+}
+
+const NAV_ITEMS: NavItem[] = [
   {
-    name: "Trang chủ",
+    name: "Sản phẩm",
     path: "/",
-    icon: HomeIcon,
+    icon: ProductNavIcon,
+    isActiveRoute: (pathname) => pathname === "/" || pathname.startsWith("/product"),
   },
   {
-    name: "Danh mục",
-    path: "/categories",
-    icon: CategoryIcon,
-  },
-  {
-    name: "Giỏ hàng",
-    path: "/cart",
-    icon: (props) => {
-      const cart = useAtomValue(cartState);
-
-      return (
-        <div className="relative">
-          {cart.length > 0 && (
-            <div className="absolute top-0 left-[18px] h-4 px-1.5 pt-[1.5px] pb-[0.5px] rounded-full bg-[#FF3333] text-white text-[10px] leading-[14px] font-medium shadow-[0_0_0_2px_white]">
-              {cart.length > 9 ? "9+" : cart.length}
-            </div>
-          )}
-          <CartIcon {...props} />
-        </div>
-      );
-    },
-  },
-  {
-    name: "Thành viên",
-    path: "/profile",
-    icon: ProfileIcon,
+    name: "Giới thiệu",
+    path: "/about",
+    icon: AboutNavIcon,
+    isActiveRoute: (pathname) => pathname.startsWith("/about"),
   },
 ];
 
 export default function Footer() {
+  const location = useLocation();
+
   return (
-    <>
-      <HorizontalDivider />
-      <div
-        className="w-full px-4 pt-2 grid"
+    <footer className="w-full flex-none bg-background border-t border-border z-30 shadow-[0_-2px_8px_rgba(0,0,0,0.03)]">
+      <nav
+        aria-label="Điều hướng chính"
+        className="w-full max-w-lg mx-auto px-4 pt-1.5 grid"
         style={{
           gridTemplateColumns: `repeat(${NAV_ITEMS.length}, 1fr)`,
-          paddingBottom: `max(16px, env(safe-area-inset-bottom)`,
+          paddingBottom: `max(12px, env(safe-area-inset-bottom))`,
         }}
       >
         {NAV_ITEMS.map((item) => {
+          const isActive = item.isActiveRoute(location.pathname);
+
           return (
             <TransitionLink
               to={item.path}
               key={item.path}
-              className="flex flex-col items-center space-y-0.5 p-1 pb-0.5 cursor-pointer active:scale-105"
+              className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-all duration-200 cursor-pointer ${
+                isActive ? "text-primary font-semibold" : "text-subtitle font-normal hover:text-foreground"
+              }`}
             >
-              {({ isActive }) => (
-                <>
-                  <div className="w-6 h-6 flex justify-center items-center">
-                    <item.icon active={isActive} />
-                  </div>
-                  <div className={`text-2xs ${isActive ? "text-primary" : ""}`}>
-                    {item.name}
-                  </div>
-                </>
-              )}
+              <div
+                className={`w-9 h-7 flex items-center justify-center rounded-pill transition-colors ${
+                  isActive ? "bg-primary-soft" : "bg-transparent"
+                }`}
+              >
+                <item.icon active={isActive} />
+              </div>
+              <span
+                className={`text-[12px] leading-4 mt-0.5 tracking-tight ${
+                  isActive ? "text-primary font-semibold" : "text-subtitle"
+                }`}
+              >
+                {item.name}
+              </span>
             </TransitionLink>
           );
         })}
-      </div>
-    </>
+      </nav>
+    </footer>
   );
 }
