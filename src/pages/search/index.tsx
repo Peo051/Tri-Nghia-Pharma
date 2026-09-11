@@ -5,11 +5,8 @@ import { ProductItemSkeleton } from "@/components/skeleton";
 import { SearchIconLarge } from "@/components/vectors";
 import { useAtom, useAtomValue } from "jotai";
 import { Suspense, useEffect, useRef, useState } from "react";
-import {
-  keywordState,
-  recommendedProductsState,
-  searchResultState,
-} from "@/state";
+import { keywordState, searchResultState } from "@/state";
+import { products } from "@/mock/products";
 
 export function SearchResult() {
   const searchResult = useAtomValue(searchResultState);
@@ -57,12 +54,10 @@ export function SearchResultSkeleton() {
 }
 
 export function RecommendedProducts() {
-  const recommendedProducts = useAtomValue(recommendedProductsState);
-
   return (
     <Section title="Gợi ý sản phẩm">
       <div className="py-2 px-4 flex space-x-2 overflow-x-auto">
-        {recommendedProducts.map((product) => (
+        {products.map((product) => (
           <div
             className="flex-none"
             style={{ flexBasis: "calc((100vw - 48px) / 2)" }}

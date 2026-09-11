@@ -1,4 +1,4 @@
-import { Product } from "@/types";
+import { Product } from "@/domain/product";
 import { formatPrice } from "@/utils/format";
 import TransitionLink from "./transition-link";
 import { useState } from "react";
@@ -37,13 +37,10 @@ export default function ProductItem(props: ProductItemProps) {
           />
           <div className="py-2">
             <div className="text-3xs text-subtitle truncate">
-              {props.product.category.name}
+              {props.product.category}
             </div>
             <div className="text-xs h-9 line-clamp-2">{props.product.name}</div>
             <div className="mt-0.5 text-sm font-medium">
-              {formatPrice(props.product.price)}
-            </div>
-            <div className="text-3xs text-subtitle line-through">
               {formatPrice(props.product.price)}
             </div>
           </div>

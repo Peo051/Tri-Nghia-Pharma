@@ -1,18 +1,12 @@
 import ProductGrid from "@/components/product-grid";
-import { useAtomValue } from "jotai";
-import { useMemo } from "react";
-import { productsState } from "@/state";
+import { getRelatedProducts } from "@/utils/products";
 
 export interface RelatedProductsProps {
-  currentProductId: number;
+  currentProductId: string;
 }
 
 export default function RelatedProducts(props: RelatedProductsProps) {
-  const products = useAtomValue(productsState);
-  const otherProducts = useMemo(
-    () => products.filter((product) => product.id !== props.currentProductId),
-    [products, props.currentProductId]
-  );
+  const relatedProducts = getRelatedProducts(props.currentProductId, 4);
 
-  return <ProductGrid replace products={otherProducts} />;
+  return <ProductGrid replace products={relatedProducts} />;
 }
