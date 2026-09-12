@@ -89,7 +89,13 @@ export default function CartItem(props: CartItemProps) {
             }
           }}
         />
-        <img src={props.product.image} className="w-14 h-14 rounded-lg" />
+        <div className="w-14 h-14 rounded-xl bg-section/80 border border-border/80 p-1 flex items-center justify-center overflow-hidden flex-none">
+          <img
+            src={props.product.image}
+            alt={props.product.name}
+            className="w-full h-full object-contain"
+          />
+        </div>
         <div className="py-4 pr-4 flex-1 border-b-[0.5px] border-black/10">
           <div className="text-sm">{props.product.name}</div>
           {displayOptions && (

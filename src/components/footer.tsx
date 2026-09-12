@@ -1,77 +1,99 @@
-import { CartIcon, CategoryIcon, HomeIcon, ProfileIcon } from "./vectors";
-import HorizontalDivider from "./horizontal-divider";
-import { useAtomValue } from "jotai";
-import { cartState } from "@/state";
+import {
+  AboutNavIcon,
+  CartIcon,
+  CategoryIcon,
+  HomeIcon,
+  ProfileIcon,
+} from "./vectors";
 import TransitionLink from "./transition-link";
+import { useLocation } from "react-router-dom";
 
-const NAV_ITEMS = [
+interface NavItem {
+  name: string;
+  path: string;
+  icon: React.ComponentType<{ active?: boolean }>;
+  isActiveRoute: (pathname: string) => boolean;
+}
+
+const NAV_ITEMS: NavItem[] = [
   {
     name: "Trang chủ",
     path: "/",
     icon: HomeIcon,
+    isActiveRoute: (pathname) => pathname === "/" || pathname.startsWith("/product"),
   },
   {
     name: "Danh mục",
-    path: "/categories",
+    path: "/catalog",
     icon: CategoryIcon,
+    isActiveRoute: (pathname) =>
+      pathname.startsWith("/catalog") ||
+      pathname.startsWith("/categories") ||
+      pathname.startsWith("/category/"),
   },
   {
     name: "Giỏ hàng",
     path: "/cart",
-    icon: (props) => {
-      const cart = useAtomValue(cartState);
-
-      return (
-        <div className="relative">
-          {cart.length > 0 && (
-            <div className="absolute top-0 left-[18px] h-4 px-1.5 pt-[1.5px] pb-[0.5px] rounded-full bg-[#FF3333] text-white text-[10px] leading-[14px] font-medium shadow-[0_0_0_2px_white]">
-              {cart.length > 9 ? "9+" : cart.length}
-            </div>
-          )}
-          <CartIcon {...props} />
-        </div>
-      );
-    },
+    icon: CartIcon,
+    isActiveRoute: (pathname) => pathname.startsWith("/cart"),
   },
   {
-    name: "Thành viên",
-    path: "/profile",
+    name: "Khách hàng",
+    path: "/customer",
     icon: ProfileIcon,
+    isActiveRoute: (pathname) =>
+      pathname.startsWith("/customer") || pathname.startsWith("/profile"),
+  },
+  {
+    name: "Giới thiệu",
+    path: "/about",
+    icon: AboutNavIcon,
+    isActiveRoute: (pathname) => pathname.startsWith("/about"),
   },
 ];
 
 export default function Footer() {
+  const location = useLocation();
+
   return (
-    <>
-      <HorizontalDivider />
-      <div
-        className="w-full px-4 pt-2 grid"
+    <footer className="sticky bottom-0 z-30 w-full flex-none border-t border-border/80 bg-white/95 shadow-[0_-4px_16px_rgba(17,105,54,0.08)] backdrop-blur-md">
+      <nav
+        aria-label="Điều hướng chính"
+        className="w-full max-w-lg mx-auto px-1.5 pt-1.5 grid"
         style={{
           gridTemplateColumns: `repeat(${NAV_ITEMS.length}, 1fr)`,
-          paddingBottom: `max(16px, env(safe-area-inset-bottom)`,
+          paddingBottom: `max(8px, env(safe-area-inset-bottom))`,
         }}
       >
         {NAV_ITEMS.map((item) => {
+          const isActive = item.isActiveRoute(location.pathname);
+
           return (
             <TransitionLink
               to={item.path}
               key={item.path}
-              className="flex flex-col items-center space-y-0.5 p-1 pb-0.5 cursor-pointer active:scale-105"
+              className={`flex flex-col items-center justify-center min-h-[52px] py-1 px-0.5 rounded-xl transition-all duration-200 cursor-pointer ${
+                isActive ? "text-primary font-semibold" : "text-subtitle font-normal hover:text-foreground"
+              }`}
             >
-              {({ isActive }) => (
-                <>
-                  <div className="w-6 h-6 flex justify-center items-center">
-                    <item.icon active={isActive} />
-                  </div>
-                  <div className={`text-2xs ${isActive ? "text-primary" : ""}`}>
-                    {item.name}
-                  </div>
-                </>
-              )}
+              <div
+                className={`w-9 h-7 flex items-center justify-center rounded-xl transition-colors ${
+                  isActive ? "bg-primary-soft" : "bg-transparent"
+                }`}
+              >
+                <item.icon active={isActive} />
+              </div>
+              <span
+                className={`text-[10px] leading-4 mt-0.5 tracking-tight whitespace-nowrap ${
+                  isActive ? "text-primary font-semibold" : "text-subtitle"
+                }`}
+              >
+                {item.name}
+              </span>
             </TransitionLink>
           );
         })}
-      </div>
-    </>
+      </nav>
+    </footer>
   );
 }

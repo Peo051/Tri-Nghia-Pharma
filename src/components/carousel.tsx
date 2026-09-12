@@ -57,31 +57,36 @@ export interface CarouselProps {
 
 export default function Carousel(props: CarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ active: !props.disabled }),
+    Autoplay({ active: !props.disabled, delay: 3500 }),
   ]);
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
   return (
-    <div className="overflow-hidden" ref={emblaRef}>
+    <div className="w-full overflow-hidden" ref={emblaRef}>
       <div className="flex">
         {props.slides.map((slide, i) => (
-          <div key={i} className="flex-none basis-full p-4 pb-0">
+          <div key={i} className="flex-none basis-full px-4 pt-3 pb-0">
             {slide}
           </div>
         ))}
       </div>
 
-      <div className="py-4 flex justify-center items-center space-x-2">
-        {scrollSnaps.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => onDotButtonClick(index)}
-            className={`rounded-full w-1 h-1 bg-black/10 ${
-              index === selectedIndex && !props.disabled ? "bg-primary" : ""
-            }`}
-          />
-        ))}
+      <div className="pt-2 pb-1 flex justify-center items-center space-x-1.5">
+        {scrollSnaps.map((_, index) => {
+          const isSelected = index === selectedIndex && !props.disabled;
+          return (
+            <button
+              key={index}
+              type="button"
+              onClick={() => onDotButtonClick(index)}
+              aria-label={`Chuyển banner ${index + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                isSelected ? "w-5 bg-primary" : "w-1.5 bg-black/15 hover:bg-black/25"
+              }`}
+            />
+          );
+        })}
       </div>
     </div>
   );

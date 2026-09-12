@@ -1,5 +1,6 @@
-import { Product } from "@/types";
+import { Product } from "@/domain/product";
 import { formatPrice } from "@/utils/format";
+import { getPrimaryCategory } from "@/utils/products";
 import TransitionLink from "./transition-link";
 import { useState } from "react";
 
@@ -17,34 +18,106 @@ export default function ProductItem(props: ProductItemProps) {
 
   return (
     <TransitionLink
-      className="flex flex-col cursor-pointer group"
+      className="flex flex-col cursor-pointer bg-white rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative"
       to={`/product/${props.product.id}`}
       replace={props.replace}
       onClick={() => setSelected(true)}
     >
       {({ isTransitioning }) => (
         <>
-          <img
-            src={props.product.image}
-            className="w-full aspect-square object-cover rounded-t-lg"
-            style={{
-              viewTransitionName:
-                isTransitioning && selected // only animate the "clicked" product item in related products list
-                  ? `product-image-${props.product.id}`
-                  : undefined,
-            }}
-            alt={props.product.name}
-          />
-          <div className="py-2">
-            <div className="text-3xs text-subtitle truncate">
-              {props.product.category.name}
+          {/* Image Container: edge-to-edge 1:1 aspect ratio, fill the frame, clean background */}
+          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 flex items-center justify-center relative group">
+            {/* Promotion / Discount Badge */}
+            {props.product.discountPercent ? (
+              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-[#c81e1e] text-white text-[10px] font-bold shadow-xs">
+                -{props.product.discountPercent}%
+              </span>
+            ) : props.product.promotionBadge ? (
+              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-primary text-white text-[10px] font-bold shadow-xs">
+                {props.product.promotionBadge}
+              </span>
+            ) : null}
+
+            {props.product.image ? (
+              <img
+                src={props.product.image}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-108"
+                style={{
+                  viewTransitionName:
+                    isTransitioning && selected
+                      ? `product-image-${props.product.id}`
+                      : undefined,
+                }}
+                alt={props.product.name}
+                loading="lazy"
+              />
+            ) : (
+              <span className="text-center text-xs text-subtitle p-2">
+                Hình ảnh đang được cập nhật
+              </span>
+            )}
+          </div>
+
+          {/* Product Content */}
+          <div className="pt-2 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
+                <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase">
+                  {getPrimaryCategory(props.product)}
+                </span>
+                {props.product.volume && (
+                  <span className="text-[10px] text-subtitle/90 bg-section px-1.5 py-0.5 rounded font-normal flex-none">
+                    {props.product.volume.split(" và ")[0]}
+                  </span>
+                )}
+              </div>
+              <h3 className="text-[13.5px] leading-[19px] font-medium text-foreground min-h-[38px]">
+                {props.product.name}
+              </h3>
+
+              {/* Social Proof: Rating & Sold count */}
+              <div className="flex items-center gap-1.5 mt-1 text-[11px] text-subtitle">
+                {props.product.rating && (
+                  <div className="flex items-center text-amber-500 font-bold">
+                    <span>★</span>
+                    <span className="ml-0.5 text-foreground text-[11px]">
+                      {props.product.rating.toFixed(1)}
+                    </span>
+                  </div>
+                )}
+                {props.product.soldCount && (
+                  <>
+                    <span className="text-border">|</span>
+                    <span className="truncate">
+                      Đã bán{" "}
+                      {props.product.soldCount >= 1000
+                        ? `${(props.product.soldCount / 1000).toFixed(1)}k`
+                        : props.product.soldCount}
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
-            <div className="text-xs h-9 line-clamp-2">{props.product.name}</div>
-            <div className="mt-0.5 text-sm font-medium">
-              {formatPrice(props.product.price)}
-            </div>
-            <div className="text-3xs text-subtitle line-through">
-              {formatPrice(props.product.price)}
+
+            {/* Price section with optional strike-through */}
+            <div className="mt-2 pt-0.5 flex items-baseline justify-between gap-1 flex-wrap">
+              {props.product.price != null ? (
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span className="text-[15px] leading-none font-bold text-primary-dark">
+                    {formatPrice(props.product.price)}
+                  </span>
+                  {props.product.originalPrice &&
+                    props.product.originalPrice > props.product.price && (
+                      <span className="text-[11px] leading-none text-subtitle line-through">
+                        {formatPrice(props.product.originalPrice)}
+                      </span>
+                    )}
+                </div>
+              ) : (
+                <span className="inline-flex items-center text-[13px] leading-none font-semibold text-primary">
+                  Liên hệ
+                </span>
+              )}
             </div>
           </div>
         </>

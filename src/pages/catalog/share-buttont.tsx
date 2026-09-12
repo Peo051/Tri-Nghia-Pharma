@@ -1,5 +1,5 @@
 import { ChevronRight, ShareDecor } from "@/components/vectors";
-import { Product } from "@/types";
+import { Product } from "@/domain/product";
 import { openShareSheet } from "zmp-sdk";
 
 export default function ShareButton(props: { product: Product }) {
@@ -8,7 +8,7 @@ export default function ShareButton(props: { product: Product }) {
       type: "zmp_deep_link",
       data: {
         title: props.product.name,
-        thumbnail: props.product.image,
+        thumbnail: props.product.image ?? "",
         path: `/product/${props.product.id}`,
       },
     });

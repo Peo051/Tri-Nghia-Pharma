@@ -1,19 +1,306 @@
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Tahoma", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+}
+
 :not(input):not(textarea) {
   -webkit-user-select: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe Area Insets for Mobile / Zalo Mini App */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .toast-container {
   > div > div {
     padding: 12px 16px;
-    background-color: #212121;
-    color: #FFFFFFF2;
+    background-color: var(--foreground);
+    color: #ffffff;
     border-radius: 8px;
+    font-size: 13px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 }
 
-.zaui-sheet{
+.zaui-sheet {
   .zaui-sheet-content {
     min-height: unset;
   }
+}
+
+/* Enhanced Hover & Interactive States for Popups, Sheets, Pickers, and Modals */
+.zaui-modal-content,
+.zaui-sheet-content {
+  box-shadow: 0 16px 40px -8px rgba(17, 105, 54, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Modal Actions Hover */
+.zaui-modal-content-action,
+.zaui-sheet-content-action {
+  transition: all 0.15s ease-in-out;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4) !important;
+    color: var(--brand-primary, #116936) !important;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Picker & Select Sheet Items Hover */
+.zaui-picker-item {
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4);
+    color: var(--brand-primary, #116936);
+  }
+}
+
+.zaui-picker-item-selected {
+  background-color: var(--brand-primary-soft, #f0f7f4) !important;
+  color: var(--brand-primary, #116936) !important;
+  font-weight: 700;
+}
+
+/* Picker Close & Action Buttons Hover */
+.zaui-picker-close-icon,
+.zaui-modal-close-icon {
+  transition: all 0.15s ease;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+.zaui-picker-action button,
+.zaui-picker-action .zaui-btn {
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--brand-primary-dark, #2d5a3f) !important;
+    box-shadow: 0 4px 12px rgba(17, 105, 54, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Action Sheet Actions Hover */
+.zaui-action-sheet-action-button {
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4) !important;
+    color: var(--brand-primary, #116936) !important;
+  }
+}
+
+/* Toast Hover Enhancement */
+.toast-container > div > div {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* ==========================================================================
+   Page Transitions & Navigation Animations
+   ========================================================================== */
+
+@keyframes pageEnterPush {
+  0% {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageEnterPop {
+  0% {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageEnterTab {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition-wrapper {
+  width: 100%;
+  min-height: 100%;
+  will-change: transform, opacity;
+}
+
+.page-transition-push {
+  animation: pageEnterPush 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-transition-pop {
+  animation: pageEnterPop 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-transition-tab {
+  animation: pageEnterTab 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.page-transition-fade {
+  animation: pageFadeIn 0.18s ease-out both;
+}
+
+/* View Transitions API (Modern Chromium & Safari 18+) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes vtFadeOut {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(-12px, 0, 0);
+    }
+  }
+
+  @keyframes vtFadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(12px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  ::view-transition-old(root) {
+    animation: 180ms cubic-bezier(0.4, 0, 1, 1) both vtFadeOut;
+  }
+
+  ::view-transition-new(root) {
+    animation: 220ms cubic-bezier(0, 0, 0.2, 1) both vtFadeIn;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-push,
+  .page-transition-pop,
+  .page-transition-tab,
+  .page-transition-fade {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Floating Action Buttons Pulse Rings
+   ========================================================================== */
+
+@keyframes floatingPulseRingInner {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+}
+
+@keyframes floatingPulseRingOuter {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.28);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(0.88);
+    opacity: 0.55;
+  }
+}
+
+.floating-pulse-inner {
+  animation: floatingPulseRingInner 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.floating-pulse-outer {
+  animation: floatingPulseRingOuter 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
 }

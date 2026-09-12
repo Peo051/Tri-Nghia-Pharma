@@ -31,6 +31,8 @@ export function useRealHeight(
   return height;
 }
 
+// Legacy commerce hooks remain available only for the old cart route.
+// TODO(phase-5): remove them after the cart route and CartItem are deleted.
 export function useAddToCart(product: Product, editingCartItemId?: number) {
   const [cart, setCart] = useAtom(cartState);
   const editing = useMemo(

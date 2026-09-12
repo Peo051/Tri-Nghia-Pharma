@@ -3,14 +3,121 @@
 @tailwind utilities;
 
 :root {
-  --primary: #3459a7;
-  --secondary: #ebedef;
-  --background: #ffffff;
-  --foreground: #0d0d0d;
-  --section: #f7f7f8;
-  --inactive: #a9adb2;
-  --tabIndicator: #212121;
-  --subtitle: #6f7071;
-  --danger: #f50000;
-  --skeleton: #ebedef;
+  /* Opodis Pharma official palette - Giữ vững bản sắc thương hiệu xanh lá thảo dược */
+  --brand-primary: #116936;
+  --brand-primary-rgb: 17 105 54;
+  --brand-primary-dark: #0d542b;
+  --brand-primary-dark-rgb: 13 84 43;
+  --brand-primary-soft: #f2f8f4;
+  --brand-primary-soft-rgb: 242 248 244;
+  --brand-accent: #2e8b57;
+  --brand-accent-rgb: 46 139 87;
+  --background: #f4f6f8;
+  --background-rgb: 244 246 248;
+  --surface: #ffffff;
+  --surface-rgb: 255 255 255;
+  --surface-soft: #edf1f4;
+  --surface-soft-rgb: 237 241 244;
+  --foreground: #111827;
+  --foreground-rgb: 17 24 39;
+  --text-secondary: #374151;
+  --text-secondary-rgb: 55 65 81;
+  --border: #e2e8e4;
+  --border-rgb: 226 232 228;
+
+  /* Existing template aliases kept for compatibility. */
+  --primary: var(--brand-primary);
+  --primary-rgb: var(--brand-primary-rgb);
+  --primary-dark: var(--brand-primary-dark);
+  --primary-dark-rgb: var(--brand-primary-dark-rgb);
+  --primary-soft: var(--brand-primary-soft);
+  --primary-soft-rgb: var(--brand-primary-soft-rgb);
+  --secondary: #c81e1e;
+  --secondary-rgb: 200 30 30;
+  --accent: var(--brand-accent);
+  --accent-rgb: var(--brand-accent-rgb);
+  --success: #116936;
+  --success-rgb: 17 105 54;
+  --section: var(--surface-soft);
+  --section-rgb: var(--surface-soft-rgb);
+  --subtitle: var(--text-secondary);
+  --subtitle-rgb: var(--text-secondary-rgb);
+
+  /* Functional Tokens */
+  --inactive: #9ca3af;
+  --inactive-rgb: 156 163 175;
+  --tabIndicator: var(--brand-primary);
+  --tabIndicator-rgb: var(--brand-primary-rgb);
+  --danger: #dc2626;
+  --danger-rgb: 220 38 38;
+  --skeleton: #e5e7eb;
+  --skeleton-rgb: 229 231 235;
+}
+
+/* Heading defaults - Tahoma, #116936 */
+h1, h2, h3, h4, h5, h6, .heading-font {
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* Opodis Typography Scale */
+.text-page-title {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+}
+
+.text-section-title {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+}
+
+.text-product-name {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.text-product-category {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.text-product-price {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.text-body-custom {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.text-body-muted {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--subtitle);
 }
