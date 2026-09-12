@@ -38,13 +38,6 @@ export default function ProductItem(props: ProductItemProps) {
               </span>
             ) : null}
 
-            {/* Free Shipping Badge */}
-            {props.product.freeShipping && (
-              <span className="absolute top-2 right-2 z-10 px-1.5 py-0.5 rounded-md bg-emerald-600 text-white text-[9px] font-black shadow-xs flex items-center gap-0.5">
-                <span>🚚</span>
-                <span>Freeship</span>
-              </span>
-            )}
 
             {props.product.image ? (
               <img
