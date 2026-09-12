@@ -1,8 +1,8 @@
 import {
   AboutNavIcon,
+  CartIcon,
   CategoryIcon,
   HomeIcon,
-  OffersNavIcon,
   ProfileIcon,
 } from "./vectors";
 import TransitionLink from "./transition-link";
@@ -32,10 +32,10 @@ const NAV_ITEMS: NavItem[] = [
       pathname.startsWith("/category/"),
   },
   {
-    name: "Ưu đãi",
-    path: "/offers",
-    icon: OffersNavIcon,
-    isActiveRoute: (pathname) => pathname.startsWith("/offers"),
+    name: "Giỏ hàng",
+    path: "/cart",
+    icon: CartIcon,
+    isActiveRoute: (pathname) => pathname.startsWith("/cart"),
   },
   {
     name: "Khách hàng",

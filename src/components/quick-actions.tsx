@@ -2,10 +2,10 @@ import type { ComponentType } from "react";
 import { useToBeImplemented } from "@/hooks";
 import TransitionLink from "./transition-link";
 import {
+  CartIcon,
   CustomerSupportIcon,
   PackageIcon,
   ProfileIcon,
-  VoucherIcon,
 } from "./vectors";
 
 interface QuickAction {
@@ -30,11 +30,11 @@ const QUICK_ACTIONS: QuickAction[] = [
     icon: CustomerSupportIcon,
   },
   {
-    id: "offers",
-    label: "Ưu đãi hiện có",
-    description: "Xem thông tin",
-    icon: VoucherIcon,
-    to: "/offers",
+    id: "cart",
+    label: "Giỏ hàng của bạn",
+    description: "Xem các sản phẩm",
+    icon: CartIcon,
+    to: "/cart",
   },
   {
     id: "loyalty",
