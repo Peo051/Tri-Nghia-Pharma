@@ -33,7 +33,7 @@ const SOLUTION_IDS = new Set([
   "opolux",
   "phytobebe",
   "sp9",
-  "clinsoap",
+  "phytamin",
 ]);
 
 const DISINFECTION_IDS = new Set([
@@ -127,11 +127,17 @@ const HomePage: React.FunctionComponent = () => {
   const handleSelectCategory = (cat: string) => {
     let target = cat;
     const catUpper = cat.toUpperCase();
-    if (catUpper.includes("KHỬ KHUẨN")) {
+    if (catUpper.includes("KHỬ KHUẨN") || catUpper.includes("SÁT KHUẨN")) {
       target = "disinfection";
-    } else if (catUpper.includes("MẸ VÀ BÉ") || catUpper.includes("GIA ĐÌNH")) {
+    } else if (
+      catUpper.includes("DUNG DỊCH") ||
+      catUpper.includes("VỆ SINH") ||
+      catUpper.includes("CHĂM SÓC") ||
+      catUpper.includes("MẸ VÀ BÉ") ||
+      catUpper.includes("GIA ĐÌNH")
+    ) {
       target = "solution";
-    } else if (catUpper.includes("PREMIUM")) {
+    } else if (catUpper.includes("PREMIUM") || catUpper.includes("NỔI BẬT")) {
       target = "featured";
     }
 
@@ -151,13 +157,13 @@ const HomePage: React.FunctionComponent = () => {
       { id: "best-seller", label: "Sản phẩm bán chạy", count: bestSellerProducts.length },
       {
         id: "solution",
-        label: "Dung dịch",
+        label: "Dung dịch vệ sinh & Chăm sóc",
         count: solutionProducts.length,
         activeClassName: "bg-pink-600 text-white font-semibold shadow-sm",
         inactiveClassName:
           "bg-pink-50/90 text-pink-700 hover:bg-pink-100 border border-pink-200/80 font-medium",
       },
-      { id: "disinfection", label: "Khử khuẩn", count: disinfectionProducts.length },
+      { id: "disinfection", label: "Khử khuẩn & Sát khuẩn", count: disinfectionProducts.length },
     ],
     [
       featuredProducts.length,
@@ -269,14 +275,14 @@ const HomePage: React.FunctionComponent = () => {
               />
             </div>
 
-            {/* Khối 3: Dung dịch */}
+            {/* Khối 3: Dung dịch vệ sinh & Chăm sóc */}
             <div>
               <div className="px-4 mb-2.5">
                 <h3 className="text-[16px] font-black text-pink-600">
-                  Dung dịch
+                  Dung dịch <span className="text-pink-600">vệ sinh & chăm sóc</span>
                 </h3>
                 <p className="text-[11.5px] text-subtitle">
-                  Dung dịch vệ sinh, <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> và dịu nhẹ
+                  Dung dịch vệ sinh phụ nữ, nam giới và <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> dịu nhẹ
                 </p>
               </div>
               <ProductRow
@@ -286,11 +292,11 @@ const HomePage: React.FunctionComponent = () => {
               />
             </div>
 
-            {/* Khối 4: Khử khuẩn */}
+            {/* Khối 4: Khử khuẩn & Sát khuẩn */}
             <div>
               <div className="px-4 mb-2.5">
                 <h3 className="text-[16px] font-black text-primary">
-                  Khử khuẩn
+                  Khử khuẩn & Sát khuẩn
                 </h3>
                 <p className="text-[11.5px] text-subtitle">
                   Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt <span className="text-pink-600 font-medium">chuẩn Bộ Y Tế</span>
@@ -317,9 +323,13 @@ const HomePage: React.FunctionComponent = () => {
                       Sản phẩm <span className="text-pink-600">bán chạy</span>
                     </>
                   ) : selectedCategory === "solution" ? (
-                    <span className="text-pink-600">Dung dịch</span>
+                    <>
+                      Dung dịch <span className="text-pink-600">vệ sinh & chăm sóc</span>
+                    </>
                   ) : selectedCategory === "disinfection" ? (
-                    "Khử khuẩn"
+                    <>
+                      Khử khuẩn <span className="text-pink-600">& sát khuẩn</span>
+                    </>
                   ) : (
                     "Tất cả sản phẩm"
                   )}
