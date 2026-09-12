@@ -10,7 +10,7 @@ export default function Points() {
       }}
     >
       <div className="text-xl font-medium opacity-95">20 điểm</div>
-      <div className="opacity-95 text-2xs">HSD: 02/12/2024</div>
+      <div className="opacity-95 text-2xs">HSD: 31/12/2026</div>
       <div className="bg-white rounded-lg mt-2 py-2.5 space-y-2.5 flex flex-col items-center">
         <div className="text-2xs text-subtitle text-center">
           Quét mã để tích điểm
