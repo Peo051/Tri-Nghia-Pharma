@@ -1,0 +1,338 @@
+{
+  "source": "https://opodispharma.com/",
+  "generatedAt": "2026-09-12T08:03:28.359Z",
+  "rawArchive": "src/static/products/",
+  "productionRoot": "src/static/products-app/",
+  "products": [
+    {
+      "id": "clincare",
+      "sourceMain": "src/static/products/clincare/main.jpg",
+      "sourceGallery": [
+        "src/static/products/clincare/01.jpg",
+        "src/static/products/clincare/02.jpg",
+        "src/static/products/clincare/03.jpg"
+      ],
+      "main": "src/static/products-app/clincare/main.webp",
+      "gallery": [
+        "src/static/products-app/clincare/01.webp",
+        "src/static/products-app/clincare/02.webp",
+        "src/static/products-app/clincare/03.webp"
+      ]
+    },
+    {
+      "id": "clincare-2",
+      "sourceMain": "src/static/products/clincare-2/main.png",
+      "sourceGallery": [
+        "src/static/products/clincare-2/01.png",
+        "src/static/products/clincare-2/02.png",
+        "src/static/products/clincare-2/03.png"
+      ],
+      "main": "src/static/products-app/clincare-2/main.webp",
+      "gallery": [
+        "src/static/products-app/clincare-2/01.webp",
+        "src/static/products-app/clincare-2/02.webp",
+        "src/static/products-app/clincare-2/03.webp"
+      ]
+    },
+    {
+      "id": "clincare-4",
+      "sourceMain": "src/static/products/clincare-4/main.png",
+      "sourceGallery": [
+        "src/static/products/clincare-4/01.png",
+        "src/static/products/clincare-4/02.png",
+        "src/static/products/clincare-4/03.png"
+      ],
+      "main": "src/static/products-app/clincare-4/main.webp",
+      "gallery": [
+        "src/static/products-app/clincare-4/01.webp",
+        "src/static/products-app/clincare-4/02.webp",
+        "src/static/products-app/clincare-4/03.webp"
+      ]
+    },
+    {
+      "id": "clincare-sh-2",
+      "sourceMain": "src/static/products/clincare-sh-2/main.png",
+      "sourceGallery": [
+        "src/static/products/clincare-sh-2/01.png",
+        "src/static/products/clincare-sh-2/02.png",
+        "src/static/products/clincare-sh-2/03.png"
+      ],
+      "main": "src/static/products-app/clincare-sh-2/main.webp",
+      "gallery": [
+        "src/static/products-app/clincare-sh-2/01.webp",
+        "src/static/products-app/clincare-sh-2/02.webp",
+        "src/static/products-app/clincare-sh-2/03.webp"
+      ]
+    },
+    {
+      "id": "clinhands-gel",
+      "sourceMain": "src/static/products/clinhands-gel/main.png",
+      "sourceGallery": [
+        "src/static/products/clinhands-gel/01.jpg",
+        "src/static/products/clinhands-gel/02.png",
+        "src/static/products/clinhands-gel/03.png"
+      ],
+      "main": "src/static/products-app/clinhands-gel/main.webp",
+      "gallery": [
+        "src/static/products-app/clinhands-gel/01.webp",
+        "src/static/products-app/clinhands-gel/02.webp",
+        "src/static/products-app/clinhands-gel/03.webp"
+      ]
+    },
+    {
+      "id": "clinsoap",
+      "sourceMain": "src/static/products/clinsoap/main.png",
+      "sourceGallery": [
+        "src/static/products/clinsoap/01.png",
+        "src/static/products/clinsoap/02.png",
+        "src/static/products/clinsoap/03.png"
+      ],
+      "main": "src/static/products-app/clinsoap/main.webp",
+      "gallery": [
+        "src/static/products-app/clinsoap/01.webp",
+        "src/static/products-app/clinsoap/02.webp",
+        "src/static/products-app/clinsoap/03.webp"
+      ]
+    },
+    {
+      "id": "sp3",
+      "sourceMain": "src/static/products/sp3/main.png",
+      "sourceGallery": [
+        "src/static/products/sp3/01.jpg",
+        "src/static/products/sp3/02.png",
+        "src/static/products/sp3/03.png"
+      ],
+      "main": "src/static/products-app/sp3/main.webp",
+      "gallery": [
+        "src/static/products-app/sp3/01.webp",
+        "src/static/products-app/sp3/02.webp",
+        "src/static/products-app/sp3/03.webp"
+      ]
+    },
+    {
+      "id": "opflu",
+      "sourceMain": "src/static/products/opflu/main.jpg",
+      "sourceGallery": [
+        "src/static/products/opflu/01.jpg",
+        "src/static/products/opflu/02.jpg",
+        "src/static/products/opflu/03.jpg"
+      ],
+      "main": "src/static/products-app/opflu/main.webp",
+      "gallery": [
+        "src/static/products-app/opflu/01.webp",
+        "src/static/products-app/opflu/02.webp",
+        "src/static/products-app/opflu/03.webp"
+      ]
+    },
+    {
+      "id": "opodex-70",
+      "sourceMain": "src/static/products/opodex-70/main.png",
+      "sourceGallery": [
+        "src/static/products/opodex-70/01.png",
+        "src/static/products/opodex-70/02.png",
+        "src/static/products/opodex-70/03.png"
+      ],
+      "main": "src/static/products-app/opodex-70/main.webp",
+      "gallery": [
+        "src/static/products-app/opodex-70/01.webp",
+        "src/static/products-app/opodex-70/02.webp",
+        "src/static/products-app/opodex-70/03.webp"
+      ]
+    },
+    {
+      "id": "opolux",
+      "sourceMain": "src/static/products/opolux/main.jpg",
+      "sourceGallery": [
+        "src/static/products/opolux/01.jpg",
+        "src/static/products/opolux/02.jpg",
+        "src/static/products/opolux/03.jpg"
+      ],
+      "main": "src/static/products-app/opolux/main.webp",
+      "gallery": [
+        "src/static/products-app/opolux/01.webp",
+        "src/static/products-app/opolux/02.webp",
+        "src/static/products-app/opolux/03.webp"
+      ]
+    },
+    {
+      "id": "phytamin",
+      "sourceMain": "src/static/products/phytamin/main.png",
+      "sourceGallery": [
+        "src/static/products/phytamin/01.png",
+        "src/static/products/phytamin/02.png",
+        "src/static/products/phytamin/03.png"
+      ],
+      "main": "src/static/products-app/phytamin/main.webp",
+      "gallery": [
+        "src/static/products-app/phytamin/01.webp",
+        "src/static/products-app/phytamin/02.webp",
+        "src/static/products-app/phytamin/03.webp"
+      ]
+    },
+    {
+      "id": "phytasep",
+      "sourceMain": "src/static/products/phytasep/main.png",
+      "sourceGallery": [
+        "src/static/products/phytasep/01.png",
+        "src/static/products/phytasep/02.png",
+        "src/static/products/phytasep/03.png"
+      ],
+      "main": "src/static/products-app/phytasep/main.webp",
+      "gallery": [
+        "src/static/products-app/phytasep/01.webp",
+        "src/static/products-app/phytasep/02.webp",
+        "src/static/products-app/phytasep/03.webp"
+      ]
+    },
+    {
+      "id": "phytobebe",
+      "sourceMain": "src/static/products/phytobebe/main.jpg",
+      "sourceGallery": [
+        "src/static/products/phytobebe/01.jpg",
+        "src/static/products/phytobebe/02.jpg",
+        "src/static/products/phytobebe/03.jpg"
+      ],
+      "main": "src/static/products-app/phytobebe/main.webp",
+      "gallery": [
+        "src/static/products-app/phytobebe/01.webp",
+        "src/static/products-app/phytobebe/02.webp",
+        "src/static/products-app/phytobebe/03.webp"
+      ]
+    },
+    {
+      "id": "sp9",
+      "sourceMain": "src/static/products/sp9/main.png",
+      "sourceGallery": [
+        "src/static/products/sp9/01.png",
+        "src/static/products/sp9/02.png",
+        "src/static/products/sp9/03.png"
+      ],
+      "main": "src/static/products-app/sp9/main.webp",
+      "gallery": [
+        "src/static/products-app/sp9/01.webp",
+        "src/static/products-app/sp9/02.webp",
+        "src/static/products-app/sp9/03.webp"
+      ]
+    },
+    {
+      "id": "sp5",
+      "sourceMain": "src/static/products/sp5/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp5/01.jpg",
+        "src/static/products/sp5/02.jpg",
+        "src/static/products/sp5/03.jpg"
+      ],
+      "main": "src/static/products-app/sp5/main.webp",
+      "gallery": [
+        "src/static/products-app/sp5/01.webp",
+        "src/static/products-app/sp5/02.webp",
+        "src/static/products-app/sp5/03.webp"
+      ]
+    },
+    {
+      "id": "sp4",
+      "sourceMain": "src/static/products/sp4/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp4/01.jpg",
+        "src/static/products/sp4/02.jpg",
+        "src/static/products/sp4/03.jpg"
+      ],
+      "main": "src/static/products-app/sp4/main.webp",
+      "gallery": [
+        "src/static/products-app/sp4/01.webp",
+        "src/static/products-app/sp4/02.webp",
+        "src/static/products-app/sp4/03.webp"
+      ]
+    },
+    {
+      "id": "phytogyno-mom",
+      "sourceMain": "src/static/products/phytogyno-mom/main.png",
+      "sourceGallery": [
+        "src/static/products/phytogyno-mom/01.png",
+        "src/static/products/phytogyno-mom/02.png",
+        "src/static/products/phytogyno-mom/03.png"
+      ],
+      "main": "src/static/products-app/phytogyno-mom/main.webp",
+      "gallery": [
+        "src/static/products-app/phytogyno-mom/01.webp",
+        "src/static/products-app/phytogyno-mom/02.webp",
+        "src/static/products-app/phytogyno-mom/03.webp"
+      ]
+    },
+    {
+      "id": "sp8",
+      "sourceMain": "src/static/products/sp8/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp8/01.jpg",
+        "src/static/products/sp8/02.jpg",
+        "src/static/products/sp8/03.jpg"
+      ],
+      "main": "src/static/products-app/sp8/main.webp",
+      "gallery": [
+        "src/static/products-app/sp8/01.webp",
+        "src/static/products-app/sp8/02.webp",
+        "src/static/products-app/sp8/03.webp"
+      ]
+    },
+    {
+      "id": "sp6",
+      "sourceMain": "src/static/products/sp6/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp6/01.jpg",
+        "src/static/products/sp6/02.jpg",
+        "src/static/products/sp6/03.jpg"
+      ],
+      "main": "src/static/products-app/sp6/main.webp",
+      "gallery": [
+        "src/static/products-app/sp6/01.webp",
+        "src/static/products-app/sp6/02.webp",
+        "src/static/products-app/sp6/03.webp"
+      ]
+    },
+    {
+      "id": "sp7",
+      "sourceMain": "src/static/products/sp7/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp7/01.jpg",
+        "src/static/products/sp7/02.jpg",
+        "src/static/products/sp7/03.jpg"
+      ],
+      "main": "src/static/products-app/sp7/main.webp",
+      "gallery": [
+        "src/static/products-app/sp7/01.webp",
+        "src/static/products-app/sp7/02.webp",
+        "src/static/products-app/sp7/03.webp"
+      ]
+    },
+    {
+      "id": "sp1",
+      "sourceMain": "src/static/products/sp1/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp1/01.jpg",
+        "src/static/products/sp1/02.jpg",
+        "src/static/products/sp1/03.jpg"
+      ],
+      "main": "src/static/products-app/sp1/main.webp",
+      "gallery": [
+        "src/static/products-app/sp1/01.webp",
+        "src/static/products-app/sp1/02.webp",
+        "src/static/products-app/sp1/03.webp"
+      ]
+    },
+    {
+      "id": "sp2",
+      "sourceMain": "src/static/products/sp2/main.jpg",
+      "sourceGallery": [
+        "src/static/products/sp2/01.jpg",
+        "src/static/products/sp2/02.jpg",
+        "src/static/products/sp2/03.jpg"
+      ],
+      "main": "src/static/products-app/sp2/main.webp",
+      "gallery": [
+        "src/static/products-app/sp2/01.webp",
+        "src/static/products-app/sp2/02.webp",
+        "src/static/products-app/sp2/03.webp"
+      ]
+    }
+  ]
+}

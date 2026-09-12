@@ -19,6 +19,7 @@
     "deploy": "zmp deploy",
     "build:css": "postcss src/css/tailwind.css -o src/css/styles.css",
     "sync:opodis": "node scripts/sync-opodis-products.mjs",
+    "optimize:opodis": "node scripts/optimize-opodis-images.mjs",
     "validate:opodis": "node scripts/validate-opodis-products.mjs"
   },
   "dependencies": {

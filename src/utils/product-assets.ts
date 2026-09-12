@@ -1,5 +1,7 @@
+import opodisAssetManifest from "@/data/opodis-assets.json";
+
 const productAssetModules = import.meta.glob(
-  "../static/products/**/*.{jpg,jpeg,png,webp,avif,gif,svg}",
+  "../static/products-app/**/*.{webp,jpg,jpeg,png,avif,gif,svg}",
   {
     eager: true,
     import: "default",
@@ -7,7 +9,18 @@ const productAssetModules = import.meta.glob(
   }
 ) as Record<string, string>;
 
-function normalizeAssetPath(value: string): string | null {
+interface AssetManifestProduct {
+  sourceMain: string;
+  sourceGallery: string[];
+  main: string;
+  gallery: string[];
+}
+
+interface AssetManifest {
+  products: AssetManifestProduct[];
+}
+
+function normalizeAssetPath(value: string, marker: string): string | null {
   const trimmed = value.trim();
 
   if (
@@ -21,7 +34,6 @@ function normalizeAssetPath(value: string): string | null {
   const normalized = trimmed
     .replace(/\\/g, "/")
     .replace(/\/{2,}/g, "/");
-  const marker = "static/products/";
   const markerIndex = normalized.indexOf(marker);
 
   if (markerIndex < 0) {
@@ -32,9 +44,35 @@ function normalizeAssetPath(value: string): string | null {
 }
 
 const productAssetsByPath = new Map<string, string>();
+const sourceToProductionPath = new Map<string, string>();
+
+const assetManifest = opodisAssetManifest as AssetManifest;
+
+for (const product of assetManifest.products) {
+  const sourcePaths = [product.sourceMain, ...product.sourceGallery];
+  const productionPaths = [product.main, ...product.gallery];
+
+  sourcePaths.forEach((sourcePath, index) => {
+    const normalizedSourcePath = normalizeAssetPath(
+      sourcePath,
+      "static/products/"
+    );
+    const normalizedProductionPath = normalizeAssetPath(
+      productionPaths[index] ?? "",
+      "static/products-app/"
+    );
+
+    if (normalizedSourcePath && normalizedProductionPath) {
+      sourceToProductionPath.set(
+        normalizedSourcePath,
+        normalizedProductionPath
+      );
+    }
+  });
+}
 
 for (const [path, url] of Object.entries(productAssetModules)) {
-  const normalizedPath = normalizeAssetPath(path);
+  const normalizedPath = normalizeAssetPath(path, "static/products-app/");
   if (normalizedPath) {
     productAssetsByPath.set(normalizedPath, url);
   }
@@ -56,10 +94,28 @@ function resolveAsset(path: string): string | null {
     return null;
   }
 
-  const normalizedPath = normalizeAssetPath(path);
-  const resolved = normalizedPath
-    ? productAssetsByPath.get(normalizedPath) ?? null
-    : null;
+  const normalizedProductionPath = normalizeAssetPath(
+    path,
+    "static/products-app/"
+  );
+  const normalizedSourcePath = normalizeAssetPath(
+    path,
+    "static/products/"
+  );
+  const productionPath =
+    normalizedProductionPath ??
+    (normalizedSourcePath
+      ? sourceToProductionPath.get(normalizedSourcePath) ?? null
+      : null);
+
+  // Raw gallery entries beyond the three selected production images are
+  // intentionally omitted from the app bundle, so they are not missing
+  // runtime assets and should not produce warnings.
+  if (!productionPath) {
+    return null;
+  }
+
+  const resolved = productAssetsByPath.get(productionPath) ?? null;
 
   if (!resolved) {
     reportMissingAsset(path);

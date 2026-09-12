@@ -9,7 +9,22 @@ const SNAPSHOT_PATH = join(
   "data",
   "opodis-products.json"
 );
-const PRODUCTS_DIR = join(PROJECT_ROOT, "src", "static", "products");
+const ASSET_MANIFEST_PATH = join(
+  PROJECT_ROOT,
+  "src",
+  "data",
+  "opodis-assets.json"
+);
+const RAW_PRODUCTS_DIR = join(PROJECT_ROOT, "src", "static", "products");
+const PRODUCTION_PRODUCTS_DIR = join(
+  PROJECT_ROOT,
+  "src",
+  "static",
+  "products-app"
+);
+
+const RAW_ROOT = "src/static/products/";
+const PRODUCTION_ROOT = "src/static/products-app/";
 const IMAGE_EXTENSIONS = new Set([
   ".avif",
   ".gif",
@@ -19,7 +34,6 @@ const IMAGE_EXTENSIONS = new Set([
   ".svg",
   ".webp",
 ]);
-
 const ARRAY_FIELDS = ["categories", "galleryImages"];
 const RICH_FIELDS = [
   "ingredients",
@@ -29,6 +43,10 @@ const RICH_FIELDS = [
   "warnings",
   "advantages",
 ];
+const MAX_GALLERY_IMAGES = 3;
+const MAX_SINGLE_PRODUCTION_BYTES = 1024 * 1024;
+const TARGET_PRODUCTION_BYTES = 6 * 1024 * 1024;
+const MAX_PRODUCTION_BYTES = 6.5 * 1024 * 1024;
 
 function normalizePath(value) {
   return value.replace(/\\/g, "/").replace(/\/{2,}/g, "/");
@@ -42,23 +60,30 @@ function isForbiddenPath(value) {
   );
 }
 
-function snapshotFilePath(value) {
+function projectRelativePath(value, expectedRoot) {
   if (typeof value !== "string" || isForbiddenPath(value)) {
     return null;
   }
 
   const normalized = normalizePath(value).replace(/^\/+/, "");
-  const relativePath = normalized.startsWith("src/")
-    ? normalized
-    : normalized.startsWith("static/")
-      ? `src/${normalized}`
-      : null;
+  const rootWithoutSrc = expectedRoot.replace(/^src\//, "");
 
-  if (!relativePath?.startsWith("src/static/products/")) {
-    return null;
+  if (normalized.startsWith(expectedRoot)) {
+    return normalized;
   }
 
-  return join(PROJECT_ROOT, ...relativePath.split("/"));
+  if (normalized.startsWith(rootWithoutSrc)) {
+    return `src/${normalized}`;
+  }
+
+  return null;
+}
+
+function toProjectFilePath(value, expectedRoot) {
+  const relativePath = projectRelativePath(value, expectedRoot);
+  return relativePath
+    ? join(PROJECT_ROOT, ...relativePath.split("/"))
+    : null;
 }
 
 async function fileExists(filePath) {
@@ -76,7 +101,14 @@ async function fileExists(filePath) {
 async function listImageFiles(directory) {
   const files = [];
 
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
+  let entries;
+  try {
+    entries = await readdir(directory, { withFileTypes: true });
+  } catch {
+    return files;
+  }
+
+  for (const entry of entries) {
     const entryPath = join(directory, entry.name);
     if (entry.isDirectory()) {
       files.push(...(await listImageFiles(entryPath)));
@@ -99,10 +131,15 @@ function printList(label, values) {
   console.log(`${label}: ${values.length ? values.join(", ") : "None"}`);
 }
 
-async function main() {
-  const snapshot = JSON.parse(await readFile(SNAPSHOT_PATH, "utf8"));
-  const products = Array.isArray(snapshot.products) ? snapshot.products : [];
-  const failures = [];
+function formatMiB(bytes) {
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MiB`;
+}
+
+function collectLargestFile(files) {
+  return [...files].sort((left, right) => right.bytes - left.bytes)[0] ?? null;
+}
+
+function validateSnapshotProducts(products, failures) {
   const ids = products.map((product) => product.id);
   const duplicateIds = [
     ...new Set(ids.filter((id, index) => ids.indexOf(id) !== index)),
@@ -120,16 +157,6 @@ async function main() {
         .filter(Boolean)
     ),
   ].sort((left, right) => left.localeCompare(right, "vi"));
-  const galleryEntries = products.flatMap((product) =>
-    Array.isArray(product.galleryImages)
-      ? product.galleryImages.map((path) => ({ path, product: product.id }))
-      : []
-  );
-  const mainEntries = products
-    .filter((product) => typeof product.image === "string" && product.image)
-    .map((product) => ({ path: product.image, product: product.id }));
-  const missingGalleryAssets = [];
-  const missingMainAssets = [];
 
   if (!products.length) {
     failures.push("product count is zero");
@@ -144,7 +171,10 @@ async function main() {
       failures.push(`missing id or name: ${product.id ?? "unknown"}`);
     }
 
-    if (typeof product.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.id)) {
+    if (
+      typeof product.id !== "string" ||
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.id)
+    ) {
       failures.push(`${product.id ?? "unknown"}: id is not URL-safe`);
     }
 
@@ -186,47 +216,230 @@ async function main() {
     }
   }
 
+  return { duplicateIds, categories };
+}
+
+async function validateRawAssets(products, failures) {
+  const galleryEntries = products.flatMap((product) =>
+    Array.isArray(product.galleryImages)
+      ? product.galleryImages.map((path) => ({ path, product: product.id }))
+      : []
+  );
+  const mainEntries = products
+    .filter((product) => typeof product.image === "string" && product.image)
+    .map((product) => ({ path: product.image, product: product.id }));
+  const missingMainAssets = [];
+  const missingGalleryAssets = [];
+
   for (const entry of mainEntries) {
-    if (isForbiddenPath(entry.path) || !snapshotFilePath(entry.path)) {
-      failures.push(`${entry.product}: invalid main image path`);
+    const filePath = toProjectFilePath(entry.path, RAW_ROOT);
+    if (!filePath) {
+      failures.push(`${entry.product}: invalid raw main image path`);
       missingMainAssets.push(entry.path);
       continue;
     }
 
-    if (!(await fileExists(snapshotFilePath(entry.path)))) {
+    if (!(await fileExists(filePath))) {
       missingMainAssets.push(entry.path);
     }
   }
 
   for (const entry of galleryEntries) {
-    if (isForbiddenPath(entry.path) || !snapshotFilePath(entry.path)) {
-      failures.push(`${entry.product}: invalid gallery image path`);
+    const filePath = toProjectFilePath(entry.path, RAW_ROOT);
+    if (!filePath) {
+      failures.push(`${entry.product}: invalid raw gallery image path`);
       missingGalleryAssets.push(entry.path);
       continue;
     }
 
-    if (!(await fileExists(snapshotFilePath(entry.path)))) {
+    if (!(await fileExists(filePath))) {
       missingGalleryAssets.push(entry.path);
     }
   }
 
-  const imageFiles = await listImageFiles(PRODUCTS_DIR);
-  const totalBytes = imageFiles.reduce((total, file) => total + file.bytes, 0);
-  const largestFiles = [...imageFiles]
-    .sort((left, right) => right.bytes - left.bytes)
-    .slice(0, 10);
+  return {
+    galleryEntries,
+    mainEntries,
+    missingMainAssets,
+    missingGalleryAssets,
+  };
+}
 
-  console.log("Products loaded: " + products.length);
-  console.log(
-    "Main images resolved: " + (mainEntries.length - missingMainAssets.length)
+async function validateProductionAssets(products, manifest, failures) {
+  const entries = Array.isArray(manifest?.products) ? manifest.products : [];
+  const entriesById = new Map();
+  const productionPaths = new Set();
+  const missingMainAssets = [];
+  const missingGalleryAssets = [];
+  const productionMainEntries = [];
+  const productionGalleryEntries = [];
+
+  if (manifest?.productionRoot !== PRODUCTION_ROOT) {
+    failures.push(`manifest productionRoot must be ${PRODUCTION_ROOT}`);
+  }
+
+  for (const entry of entries) {
+    if (!entry?.id || entriesById.has(entry.id)) {
+      failures.push(
+        `invalid or duplicate production manifest id: ${entry?.id ?? "unknown"}`
+      );
+      continue;
+    }
+    entriesById.set(entry.id, entry);
+  }
+
+  for (const product of products) {
+    const entry = entriesById.get(product.id);
+    if (!entry) {
+      failures.push(`${product.id}: missing production asset manifest entry`);
+      continue;
+    }
+
+    const mainPath = toProjectFilePath(entry.main, PRODUCTION_ROOT);
+    const mainEntry = { path: entry.main, product: product.id };
+    productionMainEntries.push(mainEntry);
+    if (!mainPath) {
+      failures.push(`${product.id}: invalid production main image path`);
+      missingMainAssets.push(entry.main);
+    } else {
+      productionPaths.add(mainPath);
+      if (!(await fileExists(mainPath))) {
+        missingMainAssets.push(entry.main);
+      }
+    }
+
+    if (!Array.isArray(entry.gallery)) {
+      failures.push(`${product.id}: production gallery is not an array`);
+      continue;
+    }
+
+    if (entry.gallery.length > MAX_GALLERY_IMAGES) {
+      failures.push(
+        `${product.id}: production gallery has ${entry.gallery.length} images (max ${MAX_GALLERY_IMAGES})`
+      );
+    }
+
+    if (
+      !Array.isArray(entry.sourceGallery) ||
+      entry.sourceGallery.length !== entry.gallery.length
+    ) {
+      failures.push(`${product.id}: sourceGallery and gallery lengths do not match`);
+    }
+
+    entry.gallery.forEach((path) => {
+      productionGalleryEntries.push({ path, product: product.id });
+    });
+    for (const galleryPath of entry.gallery) {
+      const galleryFilePath = toProjectFilePath(
+        galleryPath,
+        PRODUCTION_ROOT
+      );
+      if (!galleryFilePath) {
+        failures.push(`${product.id}: invalid production gallery image path`);
+        missingGalleryAssets.push(galleryPath);
+        continue;
+      }
+
+      productionPaths.add(galleryFilePath);
+      if (!(await fileExists(galleryFilePath))) {
+        missingGalleryAssets.push(galleryPath);
+      }
+    }
+
+    if (!toProjectFilePath(entry.sourceMain, RAW_ROOT)) {
+      failures.push(`${product.id}: invalid sourceMain path in manifest`);
+    }
+    if (
+      Array.isArray(entry.sourceGallery) &&
+      entry.sourceGallery.some((path) => !toProjectFilePath(path, RAW_ROOT))
+    ) {
+      failures.push(`${product.id}: invalid sourceGallery path in manifest`);
+    }
+  }
+
+  for (const productId of entriesById.keys()) {
+    if (!products.some((product) => product.id === productId)) {
+      failures.push(`${productId}: production manifest has no matching product`);
+    }
+  }
+
+  if (
+    productionPaths.size !==
+    productionMainEntries.length + productionGalleryEntries.length
+  ) {
+    failures.push("production manifest contains duplicate asset paths");
+  }
+
+  const productionFiles = await listImageFiles(PRODUCTION_PRODUCTS_DIR);
+  const totalBytes = productionFiles.reduce((total, file) => total + file.bytes, 0);
+  const largestFile = collectLargestFile(productionFiles);
+
+  if (totalBytes > MAX_PRODUCTION_BYTES) {
+    failures.push(
+      `production assets exceed 6.5 MiB: ${formatMiB(totalBytes)}`
+    );
+  }
+
+  if (largestFile && largestFile.bytes > MAX_SINGLE_PRODUCTION_BYTES) {
+    failures.push(
+      `largest production file exceeds 1 MiB: ${largestFile.path} (${largestFile.bytes} bytes)`
+    );
+  }
+
+  return {
+    missingMainAssets,
+    missingGalleryAssets,
+    productionFiles,
+    totalBytes,
+    largestFile,
+    productionMainEntries,
+    productionGalleryEntries,
+  };
+}
+
+async function main() {
+  const failures = [];
+  const snapshot = JSON.parse(await readFile(SNAPSHOT_PATH, "utf8"));
+  const manifest = JSON.parse(await readFile(ASSET_MANIFEST_PATH, "utf8"));
+  const products = Array.isArray(snapshot.products) ? snapshot.products : [];
+  const { duplicateIds, categories } = validateSnapshotProducts(
+    products,
+    failures
   );
-  console.log("Gallery images in snapshot: " + galleryEntries.length);
-  console.log(
-    "Gallery images resolved: " +
-      (galleryEntries.length - missingGalleryAssets.length)
+  const raw = await validateRawAssets(products, failures);
+  const production = await validateProductionAssets(
+    products,
+    manifest,
+    failures
   );
-  printList("Missing main assets", missingMainAssets);
-  printList("Missing gallery assets", missingGalleryAssets);
+  const rawFiles = await listImageFiles(RAW_PRODUCTS_DIR);
+  const rawTotalBytes = rawFiles.reduce((total, file) => total + file.bytes, 0);
+  const rawLargestFile = collectLargestFile(rawFiles);
+
+  console.log(`Products loaded: ${products.length}`);
+  console.log(
+    `Raw main images resolved: ${raw.mainEntries.length - raw.missingMainAssets.length}`
+  );
+  console.log(`Raw gallery entries: ${raw.galleryEntries.length}`);
+  console.log(
+    `Raw gallery images resolved: ${raw.galleryEntries.length - raw.missingGalleryAssets.length}`
+  );
+  console.log(
+    `Production main images resolved: ${production.productionMainEntries.length - production.missingMainAssets.length}`
+  );
+  console.log(
+    `Production gallery entries: ${production.productionGalleryEntries.length}`
+  );
+  console.log(
+    `Production gallery images resolved: ${production.productionGalleryEntries.length - production.missingGalleryAssets.length}`
+  );
+  printList("Missing raw main assets", raw.missingMainAssets);
+  printList("Missing raw gallery assets", raw.missingGalleryAssets);
+  printList("Missing production main assets", production.missingMainAssets);
+  printList(
+    "Missing production gallery assets",
+    production.missingGalleryAssets
+  );
   printList("Duplicate product IDs", duplicateIds);
   console.log("Categories: " + (categories.length ? categories.join(" | ") : "None"));
   console.log(
@@ -250,17 +463,23 @@ async function main() {
     "Products with warnings: " +
       products.filter((product) => Boolean(product.warnings)).length
   );
-  console.log("\nAsset size:");
-  console.log("Total image files: " + imageFiles.length);
-  console.log("Total MB: " + (totalBytes / (1024 * 1024)).toFixed(2));
+
+  console.log("\nRAW:");
+  console.log(`- file count: ${rawFiles.length}`);
+  console.log(`- total: ${formatMiB(rawTotalBytes)}`);
   console.log(
-    "Average bytes/image: " +
-      (imageFiles.length ? Math.round(totalBytes / imageFiles.length) : 0)
+    `- largest: ${rawLargestFile?.path ?? "None"} (${rawLargestFile ? formatMiB(rawLargestFile.bytes) : "0 B"})`
   );
-  console.log("Largest files:");
-  for (const file of largestFiles) {
-    console.log(`- ${file.path}: ${file.bytes} bytes`);
-  }
+
+  console.log("\nPRODUCTION:");
+  console.log(`- file count: ${production.productionFiles.length}`);
+  console.log(`- total: ${formatMiB(production.totalBytes)}`);
+  console.log(
+    `- largest: ${production.largestFile?.path ?? "None"} (${production.largestFile ? formatMiB(production.largestFile.bytes) : "0 B"})`
+  );
+  console.log(
+    `- target <= 6 MiB: ${production.totalBytes <= TARGET_PRODUCTION_BYTES ? "PASS" : "WARN"}`
+  );
 
   console.log("\nValidation:");
   if (failures.length) {
