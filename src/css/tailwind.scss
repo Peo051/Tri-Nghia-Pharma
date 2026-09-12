@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 :root {
-  /* Opodis Pharma official palette. */
+  /* Opodis Pharma official palette - Giữ vững bản sắc thương hiệu xanh lá thảo dược */
   --brand-primary: #116936;
   --brand-primary-rgb: 17 105 54;
-  --brand-primary-dark: #2d5a3f;
-  --brand-primary-dark-rgb: 45 90 63;
-  --brand-primary-soft: #f0f7f4;
-  --brand-primary-soft-rgb: 240 247 244;
-  --brand-accent: #489a0d;
-  --brand-accent-rgb: 72 154 13;
+  --brand-primary-dark: #0d542b;
+  --brand-primary-dark-rgb: 13 84 43;
+  --brand-primary-soft: #f2f8f4;
+  --brand-primary-soft-rgb: 242 248 244;
+  --brand-accent: #2e8b57;
+  --brand-accent-rgb: 46 139 87;
   --background: #ffffff;
   --background-rgb: 255 255 255;
   --surface: #ffffff;
   --surface-rgb: 255 255 255;
-  --surface-soft: #f4f4f4;
-  --surface-soft-rgb: 244 244 244;
-  --foreground: #111111;
-  --foreground-rgb: 17 17 17;
-  --text-secondary: #333333;
-  --text-secondary-rgb: 51 51 51;
-  --border: #e9ebed;
-  --border-rgb: 233 235 237;
+  --surface-soft: #f8faf9;
+  --surface-soft-rgb: 248 250 249;
+  --foreground: #111827;
+  --foreground-rgb: 17 24 39;
+  --text-secondary: #374151;
+  --text-secondary-rgb: 55 65 81;
+  --border: #e5e9e6;
+  --border-rgb: 229 233 230;
 
   /* Existing template aliases kept for compatibility. */
   --primary: var(--brand-primary);
@@ -32,12 +32,12 @@
   --primary-dark-rgb: var(--brand-primary-dark-rgb);
   --primary-soft: var(--brand-primary-soft);
   --primary-soft-rgb: var(--brand-primary-soft-rgb);
-  --secondary: #c05530;
-  --secondary-rgb: 192 85 48;
+  --secondary: #c81e1e;
+  --secondary-rgb: 200 30 30;
   --accent: var(--brand-accent);
   --accent-rgb: var(--brand-accent-rgb);
-  --success: #627d47;
-  --success-rgb: 98 125 71;
+  --success: #116936;
+  --success-rgb: 17 105 54;
   --section: var(--surface-soft);
   --section-rgb: var(--surface-soft-rgb);
   --subtitle: var(--text-secondary);
@@ -48,8 +48,8 @@
   --inactive-rgb: 156 163 175;
   --tabIndicator: var(--brand-primary);
   --tabIndicator-rgb: var(--brand-primary-rgb);
-  --danger: #ef4444;
-  --danger-rgb: 239 68 68;
+  --danger: #dc2626;
+  --danger-rgb: 220 38 38;
   --skeleton: #e5e7eb;
   --skeleton-rgb: 229 231 235;
 }
