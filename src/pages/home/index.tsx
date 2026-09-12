@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { products } from "@/mock/products";
 import { getProductCategories } from "@/utils/products";
 import Hero from "./hero";
+import Banners from "./banners";
 import CategoryFilter from "./category-filter";
 import ProductGrid from "@/components/product-grid";
 
@@ -47,10 +48,13 @@ const HomePage: React.FunctionComponent = () => {
 
   return (
     <div className="w-full min-h-full pb-8">
-      {/* 1. Hero Section */}
+      {/* 1. Promotional Carousel */}
+      <Banners onSelectCategory={setSelectedCategory} />
+
+      {/* 2. Hero Section */}
       <Hero />
 
-      {/* 2. Category Filter */}
+      {/* 3. Category Filter */}
       <div className="mb-4">
         <CategoryFilter
           options={categoryOptions}

@@ -1,3 +1,5 @@
+import triNghiaLogo from "@/static/logo-tringhia.png";
+
 export default function AboutPage() {
   return (
     <div className="w-full min-h-full pb-10 bg-background">
@@ -20,9 +22,21 @@ export default function AboutPage() {
         </div>
 
         <div className="relative z-10">
-          {/* Brand Badge */}
-          <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center text-white font-bold text-lg shadow-sm mb-3">
-            O
+          {/* Brand & Distributor Badge */}
+          <div className="flex items-center space-x-2.5 mb-3">
+            <img
+              src={triNghiaLogo}
+              alt="Logo Trí Nghĩa Pharma"
+              className="w-11 h-11 rounded-full object-contain p-0.5 bg-white border border-primary/20 shadow-xs flex-none"
+            />
+            <div className="flex flex-col">
+              <span className="text-[12px] font-bold text-primary tracking-wider uppercase">
+                TRÍ NGHĨA PHARMA
+              </span>
+              <span className="text-[10px] text-subtitle">
+                Đơn vị phân phối & phát triển
+              </span>
+            </div>
           </div>
 
           <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-pill bg-primary/10 text-primary mb-2">
@@ -162,12 +176,19 @@ export default function AboutPage() {
 
           <div className="w-full h-[0.5px] bg-border/80" />
 
-          <div>
-            <h3 className="font-bold text-foreground">CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU TRÍ NGHĨA</h3>
-            <p className="text-subtitle mt-0.5 leading-[18px]">
-              Số 15 đường số 4, KDC Intresco, Bình Hưng, Bình Chánh, TP.HCM
-            </p>
-            <p className="text-primary font-medium mt-0.5">Tel: (0283) 7582 741</p>
+          <div className="flex items-start space-x-3">
+            <img
+              src={triNghiaLogo}
+              alt="Logo Dược Phẩm Trí Nghĩa"
+              className="w-11 h-11 rounded-full object-contain p-0.5 bg-white border border-border/80 shadow-xs flex-none mt-0.5"
+            />
+            <div>
+              <h3 className="font-bold text-foreground">CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU TRÍ NGHĨA</h3>
+              <p className="text-subtitle mt-0.5 leading-[18px]">
+                Số 15 đường số 4, KDC Intresco, Bình Hưng, Bình Chánh, TP.HCM
+              </p>
+              <p className="text-primary font-medium mt-0.5">Tel: (0283) 7582 741</p>
+            </div>
           </div>
         </div>
       </section>
