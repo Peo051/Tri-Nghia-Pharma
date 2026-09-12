@@ -128,10 +128,10 @@ export default function AboutPage() {
           </div>
 
           <h1 className="text-[23px] leading-[30px] font-black tracking-tight text-white">
-            KHOA HỌC CHUẨN MỰC
+            TINH HOA DƯỢC THẢO VIỆT
           </h1>
           <p className="text-[16px] leading-[23px] font-extrabold text-emerald-200 mt-0.5">
-            Bảo vệ trọn vẹn yêu thương
+            Chăm sóc sức khỏe chuẩn y khoa
           </p>
 
           <p className="text-[12.5px] leading-[20px] text-white/90 mt-2.5 max-w-[330px]">
