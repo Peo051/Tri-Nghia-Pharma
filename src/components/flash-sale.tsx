@@ -101,7 +101,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               <TransitionLink
                 key={product.id}
                 to={`/product/${product.id}`}
-                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-[#c81e1e]/40 active:scale-95 transition-all group"
+                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/50 active:scale-95 transition-all group"
               >
                 {/* Image container */}
                 <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">
@@ -143,16 +143,16 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                       </span>
                     )}
 
-                    {/* Progress bar số lượng bán: màu đỏ đô hiện đại, nền dịu mắt, chữ hiển thị rõ ràng */}
-                    <div className="mt-2 w-full bg-rose-50 rounded-full h-4 overflow-hidden relative flex items-center justify-center border border-rose-200">
+                    {/* Progress bar số lượng bán: chuyển sang màu xanh chủ đạo của thương hiệu Opodis, nền xanh mềm, chữ trắng rõ ràng */}
+                    <div className="mt-2 w-full bg-primary-soft rounded-full h-4 overflow-hidden relative flex items-center justify-center border border-primary/30">
                       <div
-                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] rounded-full transition-all duration-500"
+                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-primary to-primary-dark rounded-full transition-all duration-500"
                         style={{ width: `${soldRate}%` }}
                       />
                       <span
                         className="relative z-10 text-[9.5px] font-black uppercase tracking-wider text-white"
                         style={{
-                          textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)",
+                          textShadow: "0 1px 2px rgba(0, 0, 0, 0.7)",
                         }}
                       >
                         ĐÃ BÁN {soldRate}%
