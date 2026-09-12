@@ -252,23 +252,13 @@ const HomePage: React.FunctionComponent = () => {
           <div className="space-y-6">
             {/* Khối 1: Sản phẩm nổi bật */}
             <div>
-              <div className="px-4 mb-2.5 flex items-center justify-between">
-                <div>
-                  <h3 className="text-[16px] font-black text-primary">
-                    Sản phẩm <span className="text-pink-600">nổi bật</span>
-                  </h3>
-                  <p className="text-[11.5px] text-subtitle">
-                    Sản phẩm <span className="text-pink-600 font-medium">tiêu biểu</span> được tin dùng hàng đầu của Opodis
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleSelectCategory("featured")}
-                  className="text-[11.5px] font-bold text-primary hover:text-primary-dark transition flex items-center gap-0.5 flex-none cursor-pointer"
-                >
-                  <span>Xem tất cả ({featuredProducts.length})</span>
-                  <span>→</span>
-                </button>
+              <div className="px-4 mb-2.5">
+                <h3 className="text-[16px] font-black text-primary">
+                  Sản phẩm <span className="text-pink-600">nổi bật</span>
+                </h3>
+                <p className="text-[11.5px] text-subtitle">
+                  Sản phẩm <span className="text-pink-600 font-medium">tiêu biểu</span> được tin dùng hàng đầu của Opodis
+                </p>
               </div>
               <ProductRow
                 products={featuredProducts}
@@ -278,23 +268,13 @@ const HomePage: React.FunctionComponent = () => {
 
             {/* Khối 2: Sản phẩm bán chạy */}
             <div>
-              <div className="px-4 mb-2.5 flex items-center justify-between">
-                <div>
-                  <h3 className="text-[16px] font-black text-primary">
-                    Sản phẩm <span className="text-pink-600">bán chạy</span>
-                  </h3>
-                  <p className="text-[11.5px] text-subtitle">
-                    Lượt mua cao nhất từ <span className="text-pink-600 font-medium">bệnh viện & người tiêu dùng</span>
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleSelectCategory("best-seller")}
-                  className="text-[11.5px] font-bold text-primary hover:text-primary-dark transition flex items-center gap-0.5 flex-none cursor-pointer"
-                >
-                  <span>Xem tất cả ({bestSellerProducts.length})</span>
-                  <span>→</span>
-                </button>
+              <div className="px-4 mb-2.5">
+                <h3 className="text-[16px] font-black text-primary">
+                  Sản phẩm <span className="text-pink-600">bán chạy</span>
+                </h3>
+                <p className="text-[11.5px] text-subtitle">
+                  Lượt mua cao nhất từ <span className="text-pink-600 font-medium">bệnh viện & người tiêu dùng</span>
+                </p>
               </div>
               <ProductRow
                 products={bestSellerProducts}
@@ -304,23 +284,13 @@ const HomePage: React.FunctionComponent = () => {
 
             {/* Khối 3: Dung dịch */}
             <div>
-              <div className="px-4 mb-2.5 flex items-center justify-between">
-                <div>
-                  <h3 className="text-[16px] font-black text-pink-600">
-                    Dung dịch
-                  </h3>
-                  <p className="text-[11.5px] text-subtitle">
-                    Dung dịch vệ sinh, <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> và dịu nhẹ
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleSelectCategory("solution")}
-                  className="text-[11.5px] font-bold text-pink-600 hover:text-pink-700 transition flex items-center gap-0.5 flex-none cursor-pointer"
-                >
-                  <span>Xem tất cả ({solutionProducts.length})</span>
-                  <span>→</span>
-                </button>
+              <div className="px-4 mb-2.5">
+                <h3 className="text-[16px] font-black text-pink-600">
+                  Dung dịch
+                </h3>
+                <p className="text-[11.5px] text-subtitle">
+                  Dung dịch vệ sinh, <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> và dịu nhẹ
+                </p>
               </div>
               <ProductRow
                 products={solutionProducts}
@@ -331,23 +301,13 @@ const HomePage: React.FunctionComponent = () => {
 
             {/* Khối 4: Khử khuẩn */}
             <div>
-              <div className="px-4 mb-2.5 flex items-center justify-between">
-                <div>
-                  <h3 className="text-[16px] font-black text-primary">
-                    Khử khuẩn
-                  </h3>
-                  <p className="text-[11.5px] text-subtitle">
-                    Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt <span className="text-pink-600 font-medium">chuẩn Bộ Y Tế</span>
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleSelectCategory("disinfection")}
-                  className="text-[11.5px] font-bold text-primary hover:text-primary-dark transition flex items-center gap-0.5 flex-none cursor-pointer"
-                >
-                  <span>Xem tất cả ({disinfectionProducts.length})</span>
-                  <span>→</span>
-                </button>
+              <div className="px-4 mb-2.5">
+                <h3 className="text-[16px] font-black text-primary">
+                  Khử khuẩn
+                </h3>
+                <p className="text-[11.5px] text-subtitle">
+                  Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt <span className="text-pink-600 font-medium">chuẩn Bộ Y Tế</span>
+                </p>
               </div>
               <ProductRow
                 products={disinfectionProducts}
