@@ -66,22 +66,24 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
             <h2 id="flash-sale-heading" className="text-[15px] font-black tracking-wide text-white uppercase flex items-center gap-1.5">
               Flash Sale
             </h2>
-            <span className="text-[10px] text-white/90 block">Giá sốc trong ngày</span>
+            <span className="text-[10px] text-[#ff4d4f] bg-white font-bold px-1.5 py-0.2 rounded-full inline-block mt-0.5 shadow-xs">
+              Giá sốc trong ngày
+            </span>
           </div>
         </div>
 
         {/* Countdown timer */}
         <div className="flex items-center gap-1 text-[11px] font-bold">
-          <span className="text-white/80 mr-0.5 hidden sm:inline">Kết thúc trong:</span>
-          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/40 text-white text-center font-mono font-black">
+          <span className="text-white/90 mr-0.5 hidden sm:inline">Kết thúc trong:</span>
+          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/50 text-white text-center font-mono font-black">
             {formatDigit(timeLeft.hours)}
           </span>
           <span>:</span>
-          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/40 text-white text-center font-mono font-black">
+          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/50 text-white text-center font-mono font-black">
             {formatDigit(timeLeft.minutes)}
           </span>
           <span>:</span>
-          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/40 text-white text-center font-mono font-black">
+          <span className="min-w-[22px] px-1 py-0.5 rounded bg-black/50 text-white text-center font-mono font-black">
             {formatDigit(timeLeft.seconds)}
           </span>
         </div>
@@ -99,12 +101,12 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               <TransitionLink
                 key={product.id}
                 to={`/product/${product.id}`}
-                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/40 active:scale-95 transition-all group"
+                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-red-500/40 active:scale-95 transition-all group"
               >
                 {/* Image container */}
                 <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">
                   {product.discountPercent && (
-                    <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-black text-white text-[10px] font-black shadow-xs">
+                    <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-[#ff3333] text-white text-[10px] font-black shadow-xs">
                       -{product.discountPercent}%
                     </span>
                   )}
@@ -142,12 +144,12 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                     )}
 
                     {/* Progress bar số lượng bán */}
-                    <div className="mt-2 w-full bg-border rounded-full h-3 overflow-hidden relative flex items-center justify-center">
+                    <div className="mt-2 w-full bg-red-100 rounded-full h-3.5 overflow-hidden relative flex items-center justify-center border border-red-200">
                       <div
-                        className="absolute left-0 top-0 bottom-0 bg-primary rounded-full transition-all duration-500"
+                        className="absolute left-0 top-0 bottom-0 bg-[#ff3333] rounded-full transition-all duration-500"
                         style={{ width: `${soldRate}%` }}
                       />
-                      <span className="relative z-10 text-[9px] font-bold text-white uppercase tracking-tight">
+                      <span className="relative z-10 text-[9px] font-black text-white uppercase tracking-tight drop-shadow-xs">
                         ĐÃ BÁN {soldRate}%
                       </span>
                     </div>
