@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useNavigationType } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
+import FloatingContact from "./floating-contact";
 import { Suspense, useEffect, useRef } from "react";
 import { PageSkeleton } from "./skeleton";
 import { Toaster } from "react-hot-toast";
@@ -62,6 +63,7 @@ export default function Layout() {
         </div>
       </main>
       <Footer />
+      <FloatingContact />
       <Toaster
         containerClassName="toast-container"
         containerStyle={{

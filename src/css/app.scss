@@ -260,3 +260,47 @@ body,
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   Floating Action Buttons Pulse Rings
+   ========================================================================== */
+
+@keyframes floatingPulseRingInner {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+}
+
+@keyframes floatingPulseRingOuter {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.28);
+    opacity: 0.12;
+  }
+  100% {
+    transform: scale(0.88);
+    opacity: 0.55;
+  }
+}
+
+.floating-pulse-inner {
+  animation: floatingPulseRingInner 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.floating-pulse-outer {
+  animation: floatingPulseRingOuter 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
