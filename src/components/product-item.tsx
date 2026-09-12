@@ -11,6 +11,7 @@ export interface ProductItemProps {
    * This prop should be used when navigating to a new product detail from a current product detail page (related products, etc.)
    */
   replace?: boolean;
+  className?: string;
 }
 
 export default function ProductItem(props: ProductItemProps) {
@@ -18,7 +19,7 @@ export default function ProductItem(props: ProductItemProps) {
 
   return (
     <TransitionLink
-      className="flex flex-col cursor-pointer bg-white rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative"
+      className={`flex flex-col cursor-pointer bg-white rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative h-full ${props.className ?? ""}`}
       to={`/product/${props.product.id}`}
       replace={props.replace}
       onClick={() => setSelected(true)}

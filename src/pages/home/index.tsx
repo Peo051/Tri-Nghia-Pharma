@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { products } from "@/mock/products";
+import { Product } from "@/domain/product";
 import Banners from "./banners";
 import CategoryFilter from "./category-filter";
 import ProductGrid from "@/components/product-grid";
+import ProductItem from "@/components/product-item";
 import opodisLogo from "@/static/logo-opodis.png";
 import FlashSale from "@/components/flash-sale";
 import Pagination from "@/components/pagination";
@@ -43,6 +45,59 @@ const DISINFECTION_IDS = new Set([
   "opodex-70",
   "phytasep",
 ]);
+
+interface ProductRowProps {
+  products: Product[];
+  onViewAll: () => void;
+  pinkAccent?: boolean;
+}
+
+function ProductRow({ products, onViewAll, pinkAccent }: ProductRowProps) {
+  return (
+    <div className="w-full flex gap-3 overflow-x-auto no-scrollbar px-4 pb-2 pt-0.5 scroll-px-4 items-stretch">
+      {products.map((product) => (
+        <div key={product.id} className="w-[158px] flex-none flex flex-col">
+          <ProductItem product={product} />
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={onViewAll}
+        className={`w-[110px] flex-none rounded-2xl border border-dashed flex flex-col items-center justify-center p-3 text-center transition active:scale-95 cursor-pointer my-0.5 ${
+          pinkAccent
+            ? "border-pink-300 bg-pink-50/50 hover:bg-pink-100/70 text-pink-600"
+            : "border-primary/30 bg-primary-soft/40 hover:bg-primary-soft/70 text-primary"
+        }`}
+      >
+        <div
+          className={`w-9 h-9 rounded-full shadow-xs border flex items-center justify-center mb-2 ${
+            pinkAccent
+              ? "bg-white border-pink-200 text-pink-600"
+              : "bg-white border-primary/20 text-primary"
+          }`}
+        >
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </div>
+        <span className="text-[11.5px] font-bold">Xem tất cả</span>
+        <span className="text-[10px] text-subtitle mt-0.5">
+          {products.length} sản phẩm
+        </span>
+      </button>
+      <div className="w-1 flex-none h-1 pointer-events-none" aria-hidden="true" />
+    </div>
+  );
+}
 
 const HomePage: React.FunctionComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -215,7 +270,10 @@ const HomePage: React.FunctionComponent = () => {
                   <span>→</span>
                 </button>
               </div>
-              <ProductGrid products={featuredProducts.slice(0, 4)} />
+              <ProductRow
+                products={featuredProducts}
+                onViewAll={() => handleSelectCategory("featured")}
+              />
             </div>
 
             {/* Khối 2: Sản phẩm bán chạy */}
@@ -238,7 +296,10 @@ const HomePage: React.FunctionComponent = () => {
                   <span>→</span>
                 </button>
               </div>
-              <ProductGrid products={bestSellerProducts.slice(0, 4)} />
+              <ProductRow
+                products={bestSellerProducts}
+                onViewAll={() => handleSelectCategory("best-seller")}
+              />
             </div>
 
             {/* Khối 3: Dung dịch */}
@@ -261,7 +322,11 @@ const HomePage: React.FunctionComponent = () => {
                   <span>→</span>
                 </button>
               </div>
-              <ProductGrid products={solutionProducts.slice(0, 4)} />
+              <ProductRow
+                products={solutionProducts}
+                onViewAll={() => handleSelectCategory("solution")}
+                pinkAccent
+              />
             </div>
 
             {/* Khối 4: Khử khuẩn */}
@@ -284,7 +349,10 @@ const HomePage: React.FunctionComponent = () => {
                   <span>→</span>
                 </button>
               </div>
-              <ProductGrid products={disinfectionProducts.slice(0, 4)} />
+              <ProductRow
+                products={disinfectionProducts}
+                onViewAll={() => handleSelectCategory("disinfection")}
+              />
             </div>
           </div>
         ) : (
