@@ -29,7 +29,7 @@ export default function ProductItem(props: ProductItemProps) {
           <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 flex items-center justify-center relative group">
             {/* Promotion / Discount Badge */}
             {props.product.discountPercent ? (
-              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-[#ff3333] text-white text-[10px] font-bold shadow-xs">
+              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-[#c81e1e] text-white text-[10px] font-bold shadow-xs">
                 -{props.product.discountPercent}%
               </span>
             ) : props.product.promotionBadge ? (

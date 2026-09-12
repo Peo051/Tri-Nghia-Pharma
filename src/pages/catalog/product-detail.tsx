@@ -212,7 +212,7 @@ export default function ProductDetailPage() {
                   {formatPrice(product.price)}
                 </span>
                 {product.discountPercent && (
-                  <span className="px-1.5 py-0.5 rounded-md bg-[#ff3333] text-white text-[11px] font-bold shadow-xs">
+                  <span className="px-1.5 py-0.5 rounded-md bg-[#c81e1e] text-white text-[11px] font-bold shadow-xs">
                     -{product.discountPercent}%
                   </span>
                 )}

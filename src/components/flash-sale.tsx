@@ -75,15 +75,15 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
         {/* Countdown timer */}
         <div className="flex items-center gap-1 text-[11px] font-bold">
           <span className="text-white/90 mr-0.5 hidden sm:inline">Kết thúc trong:</span>
-          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#8B0000] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-inner border border-red-900/40">
+          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#b91c1c] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-xs">
             {formatDigit(timeLeft.hours)}
           </span>
           <span className="text-white font-black">:</span>
-          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#8B0000] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-inner border border-red-900/40">
+          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#b91c1c] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-xs">
             {formatDigit(timeLeft.minutes)}
           </span>
           <span className="text-white font-black">:</span>
-          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#8B0000] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-inner border border-red-900/40">
+          <span className="min-w-[24px] h-[22px] px-1 rounded-md bg-[#b91c1c] text-white text-center font-mono font-black text-[12px] flex items-center justify-center shadow-xs">
             {formatDigit(timeLeft.seconds)}
           </span>
         </div>
@@ -101,12 +101,12 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               <TransitionLink
                 key={product.id}
                 to={`/product/${product.id}`}
-                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-[#8B0000]/40 active:scale-95 transition-all group"
+                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-[#c81e1e]/40 active:scale-95 transition-all group"
               >
                 {/* Image container */}
                 <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">
                   {product.discountPercent && (
-                    <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-[#990000] text-white text-[10px] font-black shadow-xs">
+                    <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-[#c81e1e] text-white text-[10px] font-black shadow-xs">
                       -{product.discountPercent}%
                     </span>
                   )}
@@ -143,16 +143,16 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                       </span>
                     )}
 
-                    {/* Progress bar số lượng bán: viền và màu đỏ thẫm sắc nét, chữ rõ ràng */}
-                    <div className="mt-2 w-full bg-red-100/90 rounded-full h-4 overflow-hidden relative flex items-center justify-center border border-red-300 shadow-inner">
+                    {/* Progress bar số lượng bán: màu đỏ đô hiện đại, nền dịu mắt, chữ hiển thị rõ ràng */}
+                    <div className="mt-2 w-full bg-rose-50 rounded-full h-4 overflow-hidden relative flex items-center justify-center border border-rose-200">
                       <div
-                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#8B0000] to-[#b30000] rounded-full transition-all duration-500"
+                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#b91c1c] to-[#dc2626] rounded-full transition-all duration-500"
                         style={{ width: `${soldRate}%` }}
                       />
                       <span
                         className="relative z-10 text-[9.5px] font-black uppercase tracking-wider text-white"
                         style={{
-                          textShadow: "0 1px 2px rgba(0, 0, 0, 0.8)",
+                          textShadow: "0 1px 2px rgba(0, 0, 0, 0.6)",
                         }}
                       >
                         ĐÃ BÁN {soldRate}%
