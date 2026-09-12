@@ -828,33 +828,6 @@
         "src/static/products/sp2/06.jpg"
       ],
       "image": "src/static/products/sp2/main.jpg"
-    },
-    {
-      "id": "xit-xua-muoi-baby",
-      "sourceUrl": "https://opodispharma.com/index.php/product/xit-xua-muoi-baby/",
-      "canonicalUrl": "https://opodispharma.com/index.php/product/xit-xua-muoi-baby/",
-      "name": "Xịt Xua Muỗi Baby",
-      "categories": [
-        "CHĂM SÓC MẸ VÀ BÉ"
-      ],
-      "category": "CHĂM SÓC MẸ VÀ BÉ",
-      "price": null,
-      "currency": null,
-      "shortDescription": "Xịt Xua Muỗi Baby – Dung dịch xua muỗi an toàn cho mẹ & bé đến từ Opodis Pharma, được chiết xuất từ tinh dầu thiên nhiên, sử dụng hoạt chất IR3535 – một chất chống muỗi thân thiện, thay thế an toàn cho DEET, được sử dụng phổ biến tại châu Âu hơn 20 năm. Sản phẩm giúp bảo vệ làn da bé khỏi muỗi đốt, sốt xuất huyết, Zika, sốt rét… mà không gây kích ứng hay độc hại. Quy cách đóng gói: Số CBMP: 10/17/CBMP-TN",
-      "description": "Xịt Xua Muỗi Baby – Dung dịch xua muỗi an toàn cho mẹ & bé đến từ Opodis Pharma, được chiết xuất từ tinh dầu thiên nhiên, sử dụng hoạt chất IR3535 – một chất chống muỗi thân thiện, thay thế an toàn cho DEET, được sử dụng phổ biến tại châu Âu hơn 20 năm. Sản phẩm giúp bảo vệ làn da bé khỏi muỗi đốt, sốt xuất huyết, Zika, sốt rét… mà không gây kích ứng hay độc hại. Quy cách đóng gói: Số CBMP: 10/17/CBMP-TN",
-      "volume": "Chai 60ml, hộp 1 chai",
-      "packaging": null,
-      "ingredients": null,
-      "activeIngredients": "– Ethyl Butylacetylaminopropionate (IR3535) 13% (kl/tt) – Chiết xuất tinh dầu tràm thiên nhiên – Dung môi & tá dược an toàn – Sả chanh, dầu Oliu, vitamin B5",
-      "uses": "– Xua muỗi, côn trùng hiệu quả trong nhiều giờ. – Ngăn ngừa muỗi đốt gây các bệnh nguy hiểm. – Dịu nhẹ, không gây kích ứng, phù hợp cho trẻ nhỏ từ 6 tháng tuổi. – Mùi hương dễ chịu, không nồng gắt.",
-      "directions": "– Xịt một lượng vừa đủ lên vùng da cần bảo vệ (tay, chân, cổ, quần áo…). – Có thể xịt lại sau 3–4 giờ hoặc khi hoạt động nhiều, ra mồ hôi. – Phù hợp sử dụng cho bé từ 6 tháng tuổi, phụ nữ mang thai & người lớn.",
-      "warnings": "– Không xịt trực tiếp lên mặt hoặc vết thương hở. – Tránh tiếp xúc với mắt, miệng. – Không dùng cho trẻ dưới 6 tháng tuổi. – Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp. – Hạn dùng: 24 tháng kể từ ngày sản xuất.",
-      "advantages": null,
-      "registrationNumber": "10/17/CBMP-TN",
-      "galleryImages": [
-        "src/static/products/xit-xua-muoi-baby/main.webp"
-      ],
-      "image": "src/static/products/xit-xua-muoi-baby/main.webp"
     }
   ]
 }

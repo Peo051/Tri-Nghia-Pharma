@@ -553,24 +553,6 @@ const PRODUCT_COMMERCIAL_DATA: Record<string, ProductCommercialMeta> = {
       },
     ],
   },
-  "xit-xua-muoi-baby": {
-    price: 48000,
-    originalPrice: 58000,
-    promotionBadge: "Chống muỗi",
-    rating: 4.8,
-    reviewCount: 175,
-    soldCount: 1850,
-    reviews: [
-      {
-        id: "xm-1",
-        userName: "Mẹ Đậu Đậu",
-        rating: 5,
-        date: "07/09/2026",
-        comment: "Xịt xua muỗi cho bé đi học mẫu giáo, thành phần tự nhiên lành da, muỗi không dám bén mảng.",
-        verifiedPurchase: true,
-      },
-    ],
-  },
 };
 
 export const products: Product[] = snapshot.products.map((product) => {
