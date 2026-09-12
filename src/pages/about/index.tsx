@@ -1,5 +1,6 @@
 import triNghiaLogo from "@/static/logo-tringhia.png";
 import opodisLogo from "@/static/logo-opodis.png";
+import FollowOAWidget from "@/components/follow-oa-card";
 
 export default function AboutPage() {
   return (
@@ -310,6 +311,11 @@ export default function AboutPage() {
             </div>
           </a>
         </div>
+      </section>
+
+      {/* Khối Quan tâm Zalo OA */}
+      <section className="mx-4 mb-4">
+        <FollowOAWidget />
       </section>
     </div>
   );

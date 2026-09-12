@@ -8,6 +8,7 @@ import ProductItem from "@/components/product-item";
 import opodisLogo from "@/static/logo-opodis.png";
 import FlashSale from "@/components/flash-sale";
 import Pagination from "@/components/pagination";
+import FollowOAWidget from "@/components/follow-oa-card";
 
 const ITEMS_PER_PAGE = 8;
 
@@ -388,6 +389,11 @@ const HomePage: React.FunctionComponent = () => {
             )}
           </div>
         )}
+      </section>
+
+      {/* Khối Quan tâm Zalo OA */}
+      <section className="px-4 mt-6 mb-8">
+        <FollowOAWidget />
       </section>
     </div>
   );

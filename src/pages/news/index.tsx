@@ -4,6 +4,7 @@ import opodisLogo from "@/static/logo-opodis.png";
 import csaMeBauImg from "@/static/news/csa-me-bau.jpg";
 import viemPhuKhoaTetImg from "@/static/news/viem-phu-khoa-tet.png";
 import lacNoiMacImg from "@/static/news/lac-noi-mac-tu-cung.png";
+import FollowOAWidget from "@/components/follow-oa-card";
 
 interface NewsItem {
   id: string;
@@ -222,6 +223,11 @@ export default function NewsPage() {
           </article>
         ))}
       </div>
+
+      {/* 4. Quan tâm Zalo OA */}
+      <section className="px-4 mt-6">
+        <FollowOAWidget />
+      </section>
     </div>
   );
 }

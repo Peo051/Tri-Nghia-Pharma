@@ -1,14 +1,3 @@
-import { useEffect } from "react";
-import { showOAWidget } from "zmp-sdk";
+import FollowOAWidget from "@/components/follow-oa-card";
 
-export default function FollowOAWidget() {
-  useEffect(() => {
-    showOAWidget({
-      id: "oaWidget",
-      guidingText: "Quan tâm OA để nhận các đặc quyền ưu đãi",
-      color: "#F7F7F8",
-    });
-  }, []);
-
-  return <div id="oaWidget" />;
-}
+export default FollowOAWidget;
