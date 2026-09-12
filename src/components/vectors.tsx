@@ -160,6 +160,64 @@ export function ProfileIcon(props: { active?: boolean }) {
   );
 }
 
+export function NewsIcon(props: { active?: boolean }) {
+  if (props.active) {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+          fill="var(--primary)"
+          opacity="0.15"
+        />
+        <path
+          d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+          stroke="var(--primary)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M7 7H17M7 11H17M7 15H13"
+          stroke="var(--primary)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7 7H17M7 11H17M7 15H13"
+        stroke="var(--subtitle)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function SearchIcon(props: HTMLProps<SVGSVGElement>) {
   return (
     <svg
@@ -759,16 +817,23 @@ export function AboutNavIcon(props: { active?: boolean }) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
           fill="var(--primary)"
           fillOpacity="0.15"
           stroke="var(--primary)"
           strokeWidth="2"
-          strokeLinejoin="round"
+        />
+        <circle
+          cx="12"
+          cy="8"
+          r="1.2"
+          fill="var(--primary)"
         />
         <path
-          d="M12 8V13M12 16.5H12.01"
+          d="M12 11.5V16.5"
           stroke="var(--primary)"
           strokeWidth="2.2"
           strokeLinecap="round"
@@ -784,16 +849,23 @@ export function AboutNavIcon(props: { active?: boolean }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
         stroke="var(--subtitle)"
         strokeWidth="1.8"
-        strokeLinejoin="round"
+      />
+      <circle
+        cx="12"
+        cy="8"
+        r="1.1"
+        fill="var(--subtitle)"
       />
       <path
-        d="M12 8V13M12 16.5H12.01"
+        d="M12 11.5V16.5"
         stroke="var(--subtitle)"
-        strokeWidth="1.8"
+        strokeWidth="2"
         strokeLinecap="round"
       />
     </svg>

@@ -19,6 +19,7 @@ export interface Product {
   originalPrice?: number | null;
   discountPercent?: number;
   promotionBadge?: string;
+  freeShipping?: boolean;
   currency: string | null;
   rating?: number;
   reviewCount?: number;

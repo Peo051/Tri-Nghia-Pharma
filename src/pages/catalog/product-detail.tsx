@@ -438,12 +438,9 @@ export default function ProductDetailPage() {
           </div>
           <div className="space-y-2 text-[13px] leading-[20px] text-foreground/90">
             {activeDirections.map((dir, i) => (
-              <div key={i} className="flex items-start">
-                <span className="w-5 h-5 rounded-full bg-section text-primary font-bold text-[11px] flex items-center justify-center mr-2.5 flex-none mt-0.5 border border-border/60">
-                  {i + 1}
-                </span>
-                <span className="flex-1">{dir}</span>
-              </div>
+              <p key={i} className="leading-relaxed">
+                {dir}
+              </p>
             ))}
           </div>
         </div>
@@ -541,16 +538,9 @@ export default function ProductDetailPage() {
                   className="text-[12.5px] border-b border-border/40 last:border-0 pb-3 last:pb-0"
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <strong className="text-foreground font-bold">
-                        {rev.userName}
-                      </strong>
-                      {rev.verifiedPurchase && (
-                        <span className="text-[10px] text-primary font-semibold px-1.5 py-0.2 rounded bg-primary-soft">
-                          ✓ Đã mua chính hãng
-                        </span>
-                      )}
-                    </div>
+                    <strong className="text-foreground font-bold">
+                      {rev.userName}
+                    </strong>
                     <span className="text-[11px] text-subtitle">{rev.date}</span>
                   </div>
                   <div className="flex items-center text-amber-500 text-[12px] mb-1.5">

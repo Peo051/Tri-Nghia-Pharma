@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigationType } from "react-router-dom";
 import Header from "./header";
 import Footer from "./footer";
 import FloatingContact from "./floating-contact";
+import PromoPopup from "./promo-popup";
 import { Suspense, useEffect, useRef } from "react";
 import { PageSkeleton } from "./skeleton";
 import { Toaster } from "react-hot-toast";
@@ -13,6 +14,7 @@ const TAB_ROUTES = new Set([
   "/catalog",
   "/categories",
   "/cart",
+  "/news",
   "/customer",
   "/profile",
   "/about",
@@ -64,6 +66,7 @@ export default function Layout() {
       </main>
       <Footer />
       <FloatingContact />
+      <PromoPopup />
       <Toaster
         containerClassName="toast-container"
         containerStyle={{

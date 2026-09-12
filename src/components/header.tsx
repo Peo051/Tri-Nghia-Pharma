@@ -15,9 +15,9 @@ function UserHeaderAvatar() {
 
   return (
     <TransitionLink
-      to="/customer"
+      to="/profile"
       className="w-8 h-8 rounded-full overflow-hidden border border-primary/40 bg-white flex items-center justify-center flex-none hover:ring-2 hover:ring-primary/20 active:scale-95 transition-all shadow-xs cursor-pointer p-0.5"
-      aria-label="Trang cá nhân khách hàng"
+      aria-label="Trang cá nhân"
     >
       <img
         src={avatarSrc}

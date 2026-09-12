@@ -55,12 +55,12 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
         <div className="absolute left-1/3 -bottom-6 w-24 h-24 bg-[#34d399]/15 rounded-full blur-lg pointer-events-none" />
 
         <div className="relative z-10 flex items-center gap-2">
-          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/20 text-white shadow-inner backdrop-blur-xs">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/20 shadow-inner backdrop-blur-xs">
             <svg
               width="16"
               height="16"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              fill="#f472b6"
               className="animate-bounce"
             >
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
