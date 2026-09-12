@@ -5,6 +5,7 @@ import ProductGrid from "@/components/product-grid";
 import { keywordState, searchResultState } from "@/state";
 import { products } from "@/mock/products";
 import { getProductCategories, normalizeSearchText } from "@/utils/products";
+import { formatPrice } from "@/utils/format";
 
 const POPULAR_SEARCH_TAGS = [
   "Phytobebe",
@@ -20,7 +21,7 @@ const POPULAR_SEARCH_TAGS = [
 ];
 
 type SortOption = "default" | "sold" | "price-asc" | "price-desc" | "rating";
-type PriceRangeOption = "all" | "under-50k" | "50k-80k" | "over-80k";
+type PriceRangeOption = "all" | "under-50k" | "50k-80k" | "over-80k" | "custom";
 
 export default function SearchPage() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,8 +32,10 @@ export default function SearchPage() {
   // Filter States
   const [sortBy, setSortBy] = useState<SortOption>("default");
   const [priceRange, setPriceRange] = useState<PriceRangeOption>("all");
+  const [customMaxPrice, setCustomMaxPrice] = useState<number>(120000);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [onlyDiscount, setOnlyDiscount] = useState<boolean>(false);
+  const [freeShipping, setFreeShipping] = useState<boolean>(false);
   const [highRating, setHighRating] = useState<boolean>(false);
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
@@ -50,16 +53,20 @@ export default function SearchPage() {
 
   const hasActiveFilters =
     sortBy !== "default" ||
-    priceRange !== "all" ||
+    (priceRange !== "all" && priceRange !== "custom") ||
+    (priceRange === "custom" && customMaxPrice < 120000) ||
     selectedCategory !== "all" ||
     onlyDiscount ||
+    freeShipping ||
     highRating;
 
   const resetFilters = () => {
     setSortBy("default");
     setPriceRange("all");
+    setCustomMaxPrice(120000);
     setSelectedCategory("all");
     setOnlyDiscount(false);
+    setFreeShipping(false);
     setHighRating(false);
   };
 
@@ -93,6 +100,8 @@ export default function SearchPage() {
       );
     } else if (priceRange === "over-80k") {
       result = result.filter((p) => p.price != null && p.price > 80000);
+    } else if (priceRange === "custom" && customMaxPrice < 120000) {
+      result = result.filter((p) => p.price != null && p.price <= customMaxPrice);
     }
 
     // Discount filter
@@ -100,6 +109,11 @@ export default function SearchPage() {
       result = result.filter(
         (p) => p.discountPercent != null && p.discountPercent > 0
       );
+    }
+
+    // Free shipping filter
+    if (freeShipping) {
+      result = result.filter((p) => Boolean(p.freeShipping));
     }
 
     // High rating filter
@@ -119,7 +133,7 @@ export default function SearchPage() {
     }
 
     return result;
-  }, [baseList, selectedCategory, priceRange, onlyDiscount, highRating, sortBy]);
+  }, [baseList, selectedCategory, priceRange, customMaxPrice, onlyDiscount, freeShipping, highRating, sortBy]);
 
   // Synchronize input change directly to search state for instant response
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -269,9 +283,55 @@ export default function SearchPage() {
           <div className="mx-4 mt-2.5 p-3 rounded-2xl bg-section/70 border border-border/80 text-[12px] space-y-2.5 animate-fadeIn">
             {/* Khoảng giá */}
             <div>
-              <span className="text-foreground font-bold block mb-1.5">
-                Khoảng giá:
-              </span>
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-foreground font-bold">
+                  Khoảng giá:
+                </span>
+                <span className="text-[11px] font-bold text-primary px-2 py-0.5 rounded-lg bg-primary-soft border border-primary/20">
+                  {priceRange === "all"
+                    ? "Tất cả mức giá"
+                    : priceRange === "under-50k"
+                    ? "< 50.000₫"
+                    : priceRange === "50k-80k"
+                    ? "50k - 80.000₫"
+                    : priceRange === "over-80k"
+                    ? "> 80.000₫"
+                    : `Tối đa ${formatPrice(customMaxPrice)}`}
+                </span>
+              </div>
+
+              {/* Thanh trượt kéo giá tiền (Draggable Slider) */}
+              <div className="bg-surface p-2.5 rounded-xl border border-border/80 mb-2 shadow-xs">
+                <div className="flex items-center justify-between text-[11px] text-subtitle mb-1 font-medium">
+                  <span>Kéo chọn mức giá tối đa:</span>
+                  <span className="font-extrabold text-foreground">
+                    {customMaxPrice >= 120000 ? "Không giới hạn" : formatPrice(customMaxPrice)}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={40000}
+                  max={120000}
+                  step={5000}
+                  value={customMaxPrice}
+                  onChange={(e) => {
+                    const val = Number(e.target.value);
+                    setCustomMaxPrice(val);
+                    setPriceRange(val >= 120000 ? "all" : "custom");
+                  }}
+                  className="w-full h-2 bg-border/70 rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none"
+                  aria-label="Kéo điều chỉnh giá tiền"
+                />
+                <div className="flex justify-between text-[10px] text-subtitle/80 mt-1 font-medium">
+                  <span>40k</span>
+                  <span>60k</span>
+                  <span>80k</span>
+                  <span>100k</span>
+                  <span>120k+</span>
+                </div>
+              </div>
+
+              {/* Phím bấm chọn nhanh khoảng giá */}
               <div className="flex flex-wrap gap-1.5">
                 {[
                   { id: "all", label: "Tất cả" },
@@ -282,10 +342,16 @@ export default function SearchPage() {
                   <button
                     key={item.id}
                     type="button"
-                    onClick={() => setPriceRange(item.id as PriceRangeOption)}
+                    onClick={() => {
+                      setPriceRange(item.id as PriceRangeOption);
+                      if (item.id === "all") setCustomMaxPrice(120000);
+                      if (item.id === "under-50k") setCustomMaxPrice(50000);
+                      if (item.id === "50k-80k") setCustomMaxPrice(80000);
+                      if (item.id === "over-80k") setCustomMaxPrice(120000);
+                    }}
                     className={`px-2.5 py-1 rounded-xl font-medium transition cursor-pointer ${
                       priceRange === item.id
-                        ? "bg-primary text-white font-bold"
+                        ? "bg-primary text-white font-bold shadow-xs"
                         : "bg-surface border border-border text-foreground/80 hover:border-primary/40"
                     }`}
                   >
@@ -329,7 +395,7 @@ export default function SearchPage() {
               </div>
             </div>
 
-            {/* Tiêu chí khác: Đang giảm giá, Đánh giá cao */}
+            {/* Tiêu chí khác: Đang giảm giá, Miễn phí vận chuyển, Đánh giá cao */}
             <div>
               <span className="text-foreground font-bold block mb-1.5">
                 Ưu tiên:
@@ -340,19 +406,30 @@ export default function SearchPage() {
                   onClick={() => setOnlyDiscount(!onlyDiscount)}
                   className={`px-2.5 py-1 rounded-xl font-medium transition cursor-pointer ${
                     onlyDiscount
-                      ? "bg-secondary text-white font-bold"
-                      : "bg-surface border border-border text-foreground/80"
+                      ? "bg-secondary text-white font-bold shadow-xs"
+                      : "bg-surface border border-border text-foreground/80 hover:border-secondary/40"
                   }`}
                 >
                   🏷️ Đang giảm giá %
                 </button>
                 <button
                   type="button"
+                  onClick={() => setFreeShipping(!freeShipping)}
+                  className={`px-2.5 py-1 rounded-xl font-medium transition cursor-pointer ${
+                    freeShipping
+                      ? "bg-emerald-600 text-white font-bold shadow-xs"
+                      : "bg-surface border border-border text-foreground/80 hover:border-emerald-500/40"
+                  }`}
+                >
+                  🚚 Miễn phí vận chuyển
+                </button>
+                <button
+                  type="button"
                   onClick={() => setHighRating(!highRating)}
                   className={`px-2.5 py-1 rounded-xl font-medium transition cursor-pointer ${
                     highRating
-                      ? "bg-amber-500 text-white font-bold"
-                      : "bg-surface border border-border text-foreground/80"
+                      ? "bg-amber-500 text-white font-bold shadow-xs"
+                      : "bg-surface border border-border text-foreground/80 hover:border-amber-500/40"
                   }`}
                 >
                   ★ Đánh giá 4.9★+

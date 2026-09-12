@@ -62,6 +62,7 @@ interface ProductCommercialMeta {
   price: number;
   originalPrice: number;
   promotionBadge?: string;
+  freeShipping?: boolean;
   rating: number;
   reviewCount: number;
   soldCount: number;
@@ -604,6 +605,7 @@ export const products: Product[] = snapshot.products.map((product) => {
     originalPrice,
     discountPercent,
     promotionBadge: commercial.promotionBadge,
+    freeShipping: commercial.freeShipping ?? (finalPrice >= 75000),
     rating: commercial.rating,
     reviewCount: commercial.reviewCount,
     soldCount: commercial.soldCount,
