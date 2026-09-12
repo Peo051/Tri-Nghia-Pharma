@@ -3,6 +3,8 @@ import { useAtomValue } from "jotai";
 import { userState } from "@/state";
 import { Suspense } from "react";
 
+import defaultUserAvatar from "@/static/user-avatar.png";
+
 interface CustomerSummaryProps {
   className?: string;
   showHeading?: boolean;
@@ -11,21 +13,17 @@ interface CustomerSummaryProps {
 function CustomerSummaryContent() {
   const user = useAtomValue(userState);
   const userName = user?.userInfo?.name || "Quý khách hàng";
-  const userAvatar = user?.userInfo?.avatar;
+  const userAvatar = user?.userInfo?.avatar || defaultUserAvatar;
   const isLoggedIn = Boolean(user?.userInfo?.id || user?.userInfo?.name);
 
   return (
     <div className="rounded-3xl bg-surface border border-border/70 p-4 shadow-[0_2px_10px_rgba(17,105,54,0.05)] flex items-center gap-3">
-      <div className="w-11 h-11 rounded-2xl bg-primary-soft flex items-center justify-center flex-none overflow-hidden border border-primary/20">
-        {userAvatar ? (
-          <img
-            src={userAvatar}
-            alt={userName}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <ProfileIcon active />
-        )}
+      <div className="w-11 h-11 rounded-2xl bg-white flex items-center justify-center flex-none overflow-hidden border border-primary/30 p-1 shadow-xs">
+        <img
+          src={userAvatar}
+          alt={userName}
+          className="w-full h-full object-contain rounded-full"
+        />
       </div>
 
       <div className="min-w-0 flex-1">
