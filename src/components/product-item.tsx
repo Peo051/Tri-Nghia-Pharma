@@ -18,7 +18,7 @@ export default function ProductItem(props: ProductItemProps) {
 
   return (
     <TransitionLink
-      className="flex flex-col cursor-pointer bg-background rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="flex flex-col cursor-pointer bg-background rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative"
       to={`/product/${props.product.id}`}
       replace={props.replace}
       onClick={() => setSelected(true)}
@@ -26,7 +26,18 @@ export default function ProductItem(props: ProductItemProps) {
       {({ isTransitioning }) => (
         <>
           {/* Image Container: 1:1 aspect ratio, object-contain, padding 12px, soft & clean background */}
-          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 p-3 flex items-center justify-center">
+          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 p-3 flex items-center justify-center relative">
+            {/* Promotion / Discount Badge */}
+            {props.product.discountPercent ? (
+              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-secondary text-white text-[10px] font-bold shadow-xs">
+                -{props.product.discountPercent}%
+              </span>
+            ) : props.product.promotionBadge ? (
+              <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-primary text-white text-[10px] font-bold shadow-xs">
+                {props.product.promotionBadge}
+              </span>
+            ) : null}
+
             {props.product.image ? (
               <img
                 src={props.product.image}
@@ -47,8 +58,8 @@ export default function ProductItem(props: ProductItemProps) {
             )}
           </div>
 
-          {/* Product Content: Vertical rhythm (image -> 10px -> category -> 4px -> name -> 10px -> price) */}
-          <div className="pt-2.5 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
+          {/* Product Content */}
+          <div className="pt-2 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
             <div>
               <div className="flex items-center justify-between gap-1 mb-1">
                 <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase truncate">
@@ -60,15 +71,48 @@ export default function ProductItem(props: ProductItemProps) {
                   </span>
                 )}
               </div>
-              <h3 className="text-[14px] leading-[20px] font-medium text-foreground line-clamp-2 h-10">
+              <h3 className="text-[13.5px] leading-[19px] font-medium text-foreground line-clamp-2 min-h-[38px]">
                 {props.product.name}
               </h3>
+
+              {/* Social Proof: Rating & Sold count */}
+              <div className="flex items-center gap-1.5 mt-1 text-[11px] text-subtitle">
+                {props.product.rating && (
+                  <div className="flex items-center text-amber-500 font-bold">
+                    <span>★</span>
+                    <span className="ml-0.5 text-foreground text-[11px]">
+                      {props.product.rating.toFixed(1)}
+                    </span>
+                  </div>
+                )}
+                {props.product.soldCount && (
+                  <>
+                    <span className="text-border">|</span>
+                    <span className="truncate">
+                      Đã bán{" "}
+                      {props.product.soldCount >= 1000
+                        ? `${(props.product.soldCount / 1000).toFixed(1)}k`
+                        : props.product.soldCount}
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
-            <div className="mt-2.5 pt-0.5 flex items-center justify-between">
+
+            {/* Price section with optional strike-through */}
+            <div className="mt-2 pt-0.5 flex items-baseline justify-between gap-1 flex-wrap">
               {props.product.price != null ? (
-                <span className="text-[15px] leading-none font-bold text-primary-dark">
-                  {formatPrice(props.product.price)}
-                </span>
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span className="text-[15px] leading-none font-bold text-primary-dark">
+                    {formatPrice(props.product.price)}
+                  </span>
+                  {props.product.originalPrice &&
+                    props.product.originalPrice > props.product.price && (
+                      <span className="text-[11px] leading-none text-subtitle line-through">
+                        {formatPrice(props.product.originalPrice)}
+                      </span>
+                    )}
+                </div>
               ) : (
                 <span className="inline-flex items-center text-[13px] leading-none font-semibold text-primary">
                   Liên hệ
