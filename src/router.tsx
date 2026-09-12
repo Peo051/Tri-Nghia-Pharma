@@ -9,7 +9,7 @@ import SearchPage from "@/pages/search";
 import AboutPage from "@/pages/about";
 import CatalogPage from "@/pages/catalog";
 import OffersPage from "@/pages/offers";
-import CustomerPage from "@/pages/customer";
+import NewsPage from "@/pages/news";
 import { createBrowserRouter } from "react-router-dom";
 import { getBasePath } from "@/utils/zma";
 
@@ -43,10 +43,18 @@ const router = createBrowserRouter(
           },
         },
         {
-          path: "/customer",
-          element: <CustomerPage />,
+          path: "/news",
+          element: <NewsPage />,
           handle: {
-            title: "Khách hàng",
+            title: "Tin tức & Sự kiện",
+            back: false,
+          },
+        },
+        {
+          path: "/customer",
+          element: <NewsPage />,
+          handle: {
+            title: "Tin tức & Sự kiện",
             back: false,
           },
         },

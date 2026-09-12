@@ -3,7 +3,7 @@ import {
   CartIcon,
   CategoryIcon,
   HomeIcon,
-  ProfileIcon,
+  NewsIcon,
 } from "./vectors";
 import TransitionLink from "./transition-link";
 import { useLocation } from "react-router-dom";
@@ -38,11 +38,11 @@ const NAV_ITEMS: NavItem[] = [
     isActiveRoute: (pathname) => pathname.startsWith("/cart"),
   },
   {
-    name: "Khách hàng",
-    path: "/customer",
-    icon: ProfileIcon,
+    name: "Tin tức",
+    path: "/news",
+    icon: NewsIcon,
     isActiveRoute: (pathname) =>
-      pathname.startsWith("/customer") || pathname.startsWith("/profile"),
+      pathname.startsWith("/news") || pathname.startsWith("/customer"),
   },
   {
     name: "Giới thiệu",

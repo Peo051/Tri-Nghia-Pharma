@@ -13,6 +13,7 @@ const TAB_ROUTES = new Set([
   "/catalog",
   "/categories",
   "/cart",
+  "/news",
   "/customer",
   "/profile",
   "/about",
