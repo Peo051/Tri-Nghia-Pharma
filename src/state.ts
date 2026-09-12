@@ -4,6 +4,7 @@ import banners from "@/mock/banners.json";
 import categories from "@/mock/categories.json";
 import { products } from "@/mock/products";
 import { getUserInfo } from "zmp-sdk";
+import { searchProducts } from "@/utils/products";
 
 export const userState = atom(() =>
   getUserInfo({
@@ -69,10 +70,8 @@ export const cartTotalState = atom((get) => {
 
 export const keywordState = atom("");
 
-export const searchResultState = atom(async (get) => {
+export const searchResultState = atom((get) => {
   const keyword = get(keywordState);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return products.filter((product) =>
-    product.name.toLowerCase().includes(keyword.toLowerCase())
-  );
+  return searchProducts(keyword);
 });
+

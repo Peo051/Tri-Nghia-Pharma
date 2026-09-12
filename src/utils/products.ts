@@ -62,3 +62,58 @@ export function getRelatedProducts(productId: string, limit: number): Product[] 
 
   return [...sameCategory, ...otherProducts].slice(0, safeLimit);
 }
+
+export function removeVietnameseTones(str: string): string {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .trim();
+}
+
+export function searchProducts(keyword: string): Product[] {
+  const cleanKeyword = keyword.trim().toLowerCase();
+  if (!cleanKeyword) return [];
+
+  const normalizedKeyword = removeVietnameseTones(cleanKeyword);
+  const keywordTokens = normalizedKeyword.split(/\s+/).filter(Boolean);
+
+  return products
+    .filter((product) => {
+      // 1. Direct raw match
+      const rawCorpus = [
+        product.name,
+        product.category,
+        ...(product.categories || []),
+        ...(product.uses || []),
+        ...(product.activeIngredients || []),
+        ...(product.ingredients || []),
+        product.shortDescription || "",
+        product.volume || "",
+        product.id,
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      if (rawCorpus.includes(cleanKeyword)) return true;
+
+      // 2. Normalized without Vietnamese tones match
+      const normCorpus = removeVietnameseTones(rawCorpus);
+
+      // All keyword tokens must be present in the normalized corpus
+      return keywordTokens.every((token) => normCorpus.includes(token));
+    })
+    .sort((a, b) => {
+      // Prioritize exact/partial match in product name
+      const aNameNorm = removeVietnameseTones(a.name);
+      const bNameNorm = removeVietnameseTones(b.name);
+      const aHasName = aNameNorm.includes(normalizedKeyword);
+      const bHasName = bNameNorm.includes(normalizedKeyword);
+      if (aHasName && !bHasName) return -1;
+      if (!aHasName && bHasName) return 1;
+      return 0;
+    });
+}
+
