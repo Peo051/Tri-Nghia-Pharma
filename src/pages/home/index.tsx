@@ -93,7 +93,14 @@ const HomePage: React.FunctionComponent = () => {
       { id: "all", label: "Tất cả", count: products.length },
       { id: "featured", label: "Sản phẩm nổi bật", count: featuredProducts.length },
       { id: "best-seller", label: "Sản phẩm bán chạy", count: bestSellerProducts.length },
-      { id: "solution", label: "Dung dịch...", count: solutionProducts.length },
+      {
+        id: "solution",
+        label: "Dung dịch",
+        count: solutionProducts.length,
+        activeClassName: "bg-pink-600 text-white font-semibold shadow-sm",
+        inactiveClassName:
+          "bg-pink-50/90 text-pink-700 hover:bg-pink-100 border border-pink-200/80 font-medium",
+      },
       { id: "disinfection", label: "Khử khuẩn", count: disinfectionProducts.length },
     ],
     [
@@ -138,10 +145,10 @@ const HomePage: React.FunctionComponent = () => {
       {/* 1. Promotional Carousel */}
       <Banners onSelectCategory={handleSelectCategory} />
 
-      {/* Flash Sale cho một số sản phẩm nổi bật */}
+      {/* 2. Flash Sale cho một số sản phẩm nổi bật */}
       <FlashSale products={products} />
 
-      {/* 4. Official information notice */}
+      {/* 3. Official information notice */}
       <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/15 p-3 flex items-center gap-3 shadow-xs">
         <div className="w-11 h-11 rounded-xl bg-white border border-primary/20 shadow-xs flex items-center justify-center p-1.5 flex-none">
           <img
@@ -192,12 +199,11 @@ const HomePage: React.FunctionComponent = () => {
             <div>
               <div className="px-4 mb-2.5 flex items-center justify-between">
                 <div>
-                  <h3 className="text-[16px] font-black text-primary flex items-center gap-1.5">
-                    <span>⭐</span>
-                    <span>Sản phẩm nổi bật</span>
+                  <h3 className="text-[16px] font-black text-primary">
+                    Sản phẩm <span className="text-pink-600">nổi bật</span>
                   </h3>
                   <p className="text-[11.5px] text-subtitle">
-                    Sản phẩm tiêu biểu được tin dùng hàng đầu của Opodis
+                    Sản phẩm <span className="text-pink-600 font-medium">tiêu biểu</span> được tin dùng hàng đầu của Opodis
                   </p>
                 </div>
                 <button
@@ -216,12 +222,11 @@ const HomePage: React.FunctionComponent = () => {
             <div>
               <div className="px-4 mb-2.5 flex items-center justify-between">
                 <div>
-                  <h3 className="text-[16px] font-black text-primary flex items-center gap-1.5">
-                    <span>🔥</span>
-                    <span>Sản phẩm bán chạy</span>
+                  <h3 className="text-[16px] font-black text-primary">
+                    Sản phẩm <span className="text-pink-600">bán chạy</span>
                   </h3>
                   <p className="text-[11.5px] text-subtitle">
-                    Lượt mua cao nhất từ bệnh viện & người tiêu dùng
+                    Lượt mua cao nhất từ <span className="text-pink-600 font-medium">bệnh viện & người tiêu dùng</span>
                   </p>
                 </div>
                 <button
@@ -236,22 +241,21 @@ const HomePage: React.FunctionComponent = () => {
               <ProductGrid products={bestSellerProducts.slice(0, 4)} />
             </div>
 
-            {/* Khối 3: Dung dịch... */}
+            {/* Khối 3: Dung dịch */}
             <div>
               <div className="px-4 mb-2.5 flex items-center justify-between">
                 <div>
-                  <h3 className="text-[16px] font-black text-primary flex items-center gap-1.5">
-                    <span>🧴</span>
-                    <span>Dung dịch...</span>
+                  <h3 className="text-[16px] font-black text-pink-600">
+                    Dung dịch
                   </h3>
                   <p className="text-[11.5px] text-subtitle">
-                    Dung dịch vệ sinh, chăm sóc thảo dược và sát khuẩn
+                    Dung dịch vệ sinh, <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> và dịu nhẹ
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleSelectCategory("solution")}
-                  className="text-[11.5px] font-bold text-primary hover:text-primary-dark transition flex items-center gap-0.5 flex-none cursor-pointer"
+                  className="text-[11.5px] font-bold text-pink-600 hover:text-pink-700 transition flex items-center gap-0.5 flex-none cursor-pointer"
                 >
                   <span>Xem tất cả ({solutionProducts.length})</span>
                   <span>→</span>
@@ -264,12 +268,11 @@ const HomePage: React.FunctionComponent = () => {
             <div>
               <div className="px-4 mb-2.5 flex items-center justify-between">
                 <div>
-                  <h3 className="text-[16px] font-black text-primary flex items-center gap-1.5">
-                    <span>🛡️</span>
-                    <span>Khử khuẩn</span>
+                  <h3 className="text-[16px] font-black text-primary">
+                    Khử khuẩn
                   </h3>
                   <p className="text-[11.5px] text-subtitle">
-                    Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt
+                    Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt <span className="text-pink-600 font-medium">chuẩn Bộ Y Tế</span>
                   </p>
                 </div>
                 <button
@@ -290,15 +293,21 @@ const HomePage: React.FunctionComponent = () => {
             <div className="px-4 mb-3 flex items-center justify-between">
               <div className="flex flex-col">
                 <h2 className="text-section-title font-black text-primary tracking-tight">
-                  {selectedCategory === "featured"
-                    ? "⭐ Sản phẩm nổi bật"
-                    : selectedCategory === "best-seller"
-                    ? "🔥 Sản phẩm bán chạy"
-                    : selectedCategory === "solution"
-                    ? "🧴 Dung dịch..."
-                    : selectedCategory === "disinfection"
-                    ? "🛡️ Khử khuẩn"
-                    : "Tất cả sản phẩm"}
+                  {selectedCategory === "featured" ? (
+                    <>
+                      Sản phẩm <span className="text-pink-600">nổi bật</span>
+                    </>
+                  ) : selectedCategory === "best-seller" ? (
+                    <>
+                      Sản phẩm <span className="text-pink-600">bán chạy</span>
+                    </>
+                  ) : selectedCategory === "solution" ? (
+                    <span className="text-pink-600">Dung dịch</span>
+                  ) : selectedCategory === "disinfection" ? (
+                    "Khử khuẩn"
+                  ) : (
+                    "Tất cả sản phẩm"
+                  )}
                 </h2>
                 <span className="text-[12px] text-subtitle mt-0.5">
                   {filteredProducts.length} sản phẩm Opodis Pharma chính hãng
