@@ -4,7 +4,6 @@ import { getProductCategories } from "@/utils/products";
 import Banners from "./banners";
 import CategoryFilter from "./category-filter";
 import ProductGrid from "@/components/product-grid";
-import CustomerSummary from "@/components/customer-summary";
 import opodisLogo from "@/static/logo-opodis.png";
 
 import TransitionLink from "@/components/transition-link";
@@ -75,9 +74,6 @@ const HomePage: React.FunctionComponent = () => {
 
       {/* Flash Sale cho một số sản phẩm nổi bật */}
       <FlashSale products={products} />
-
-      {/* 2. Customer summary */}
-      <CustomerSummary className="mt-4" />
 
       {/* 4. Official information notice */}
       <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/15 p-3 flex items-center gap-3 shadow-xs">
