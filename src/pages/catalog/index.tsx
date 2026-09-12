@@ -69,7 +69,7 @@ export default function CatalogPage() {
           Danh mục sản phẩm
         </h1>
         <p className="text-[12px] leading-5 text-subtitle mt-1">
-          Khám phá các nhóm sản phẩm từ snapshot chính thức của Opodis Pharma.
+          Khám phá các nhóm sản phẩm chính hãng của Opodis Pharma.
         </p>
       </div>
 
@@ -116,7 +116,6 @@ export default function CatalogPage() {
         </span>
         <span className="text-[11px] text-subtitle">
           {filteredProducts.length} sản phẩm
-          {totalPages > 1 && ` (Trang ${currentPage}/${totalPages})`}
         </span>
       </div>
 

@@ -119,7 +119,6 @@ const HomePage: React.FunctionComponent = () => {
               {selectedCategory === "all"
                 ? `${products.length} sản phẩm Opodis Pharma chính hãng`
                 : `${filteredProducts.length} sản phẩm trong danh mục`}
-              {totalPages > 1 && ` (Trang ${currentPage}/${totalPages})`}
             </span>
           </div>
 

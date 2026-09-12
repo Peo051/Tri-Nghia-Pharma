@@ -311,29 +311,6 @@ export default function AboutPage() {
           </a>
         </div>
       </section>
-
-      {/* 6. Demo Context Notice */}
-      <div className="mx-4 p-3 rounded-xl bg-section/70 border border-border/60 flex items-start space-x-2.5">
-        <div className="text-subtitle mt-0.5 flex-none" aria-hidden="true">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
-          </svg>
-        </div>
-        <p className="text-[11px] leading-[16px] text-subtitle">
-          Ứng dụng Zalo Mini App thực hiện theo yêu cầu bài test intern. Dữ liệu sản phẩm và hình ảnh được đồng bộ từ website chính thức của Opodis Pharma.
-        </p>
-      </div>
     </div>
   );
 }
