@@ -21,7 +21,6 @@ const POPULAR_SEARCH_TAGS = [
 ];
 
 type SortOption = "default" | "sold" | "price-asc" | "price-desc" | "rating";
-type PriceRangeOption = "all" | "under-50k" | "50k-80k" | "over-80k" | "custom";
 
 export default function SearchPage() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,8 +30,7 @@ export default function SearchPage() {
 
   // Filter States
   const [sortBy, setSortBy] = useState<SortOption>("default");
-  const [priceRange, setPriceRange] = useState<PriceRangeOption>("all");
-  const [customMaxPrice, setCustomMaxPrice] = useState<number>(120000);
+  const [maxPrice, setMaxPrice] = useState<number>(1000000);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [onlyDiscount, setOnlyDiscount] = useState<boolean>(false);
   const [freeShipping, setFreeShipping] = useState<boolean>(false);
@@ -53,8 +51,7 @@ export default function SearchPage() {
 
   const hasActiveFilters =
     sortBy !== "default" ||
-    (priceRange !== "all" && priceRange !== "custom") ||
-    (priceRange === "custom" && customMaxPrice < 120000) ||
+    maxPrice < 1000000 ||
     selectedCategory !== "all" ||
     onlyDiscount ||
     freeShipping ||
@@ -62,8 +59,7 @@ export default function SearchPage() {
 
   const resetFilters = () => {
     setSortBy("default");
-    setPriceRange("all");
-    setCustomMaxPrice(120000);
+    setMaxPrice(1000000);
     setSelectedCategory("all");
     setOnlyDiscount(false);
     setFreeShipping(false);
@@ -91,17 +87,9 @@ export default function SearchPage() {
       });
     }
 
-    // Price range filter
-    if (priceRange === "under-50k") {
-      result = result.filter((p) => p.price != null && p.price < 50000);
-    } else if (priceRange === "50k-80k") {
-      result = result.filter(
-        (p) => p.price != null && p.price >= 50000 && p.price <= 80000
-      );
-    } else if (priceRange === "over-80k") {
-      result = result.filter((p) => p.price != null && p.price > 80000);
-    } else if (priceRange === "custom" && customMaxPrice < 120000) {
-      result = result.filter((p) => p.price != null && p.price <= customMaxPrice);
+    // Price filter (0 - 1.000.000đ)
+    if (maxPrice < 1000000) {
+      result = result.filter((p) => p.price != null && p.price <= maxPrice);
     }
 
     // Discount filter
@@ -133,7 +121,7 @@ export default function SearchPage() {
     }
 
     return result;
-  }, [baseList, selectedCategory, priceRange, customMaxPrice, onlyDiscount, freeShipping, highRating, sortBy]);
+  }, [baseList, selectedCategory, maxPrice, onlyDiscount, freeShipping, highRating, sortBy]);
 
   // Synchronize input change directly to search state for instant response
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -281,83 +269,44 @@ export default function SearchPage() {
         {/* 3. Expandable Filter Panel */}
         {showFilters && (
           <div className="mx-4 mt-2.5 p-3 rounded-2xl bg-section/70 border border-border/80 text-[12px] space-y-2.5 animate-fadeIn">
-            {/* Khoảng giá */}
+            {/* Khoảng giá (0 - 1 triệu đồng) */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-foreground font-bold">
                   Khoảng giá:
                 </span>
                 <span className="text-[11px] font-bold text-primary px-2 py-0.5 rounded-lg bg-primary-soft border border-primary/20">
-                  {priceRange === "all"
+                  {maxPrice >= 1000000
                     ? "Tất cả mức giá"
-                    : priceRange === "under-50k"
-                    ? "< 50.000₫"
-                    : priceRange === "50k-80k"
-                    ? "50k - 80.000₫"
-                    : priceRange === "over-80k"
-                    ? "> 80.000₫"
-                    : `Tối đa ${formatPrice(customMaxPrice)}`}
+                    : `Tối đa ${formatPrice(maxPrice)}`}
                 </span>
               </div>
 
-              {/* Thanh trượt kéo giá tiền (Draggable Slider) */}
-              <div className="bg-surface p-2.5 rounded-xl border border-border/80 mb-2 shadow-xs">
+              {/* Thanh trượt kéo giá tiền (Draggable Slider: 0 - 1 triệu đồng) */}
+              <div className="bg-surface p-2.5 rounded-xl border border-border/80 shadow-xs">
                 <div className="flex items-center justify-between text-[11px] text-subtitle mb-1 font-medium">
                   <span>Kéo chọn mức giá tối đa:</span>
                   <span className="font-extrabold text-foreground">
-                    {customMaxPrice >= 120000 ? "Không giới hạn" : formatPrice(customMaxPrice)}
+                    {maxPrice >= 1000000 ? "1.000.000₫ (Tất cả)" : formatPrice(maxPrice)}
                   </span>
                 </div>
                 <input
                   type="range"
-                  min={40000}
-                  max={120000}
-                  step={5000}
-                  value={customMaxPrice}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setCustomMaxPrice(val);
-                    setPriceRange(val >= 120000 ? "all" : "custom");
-                  }}
+                  min={0}
+                  max={1000000}
+                  step={10000}
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(Number(e.target.value))}
                   className="w-full h-2 bg-border/70 rounded-lg appearance-none cursor-pointer accent-primary focus:outline-none"
-                  aria-label="Kéo điều chỉnh giá tiền"
+                  aria-label="Kéo điều chỉnh giá tiền từ 0 đến 1 triệu đồng"
                 />
                 <div className="flex justify-between text-[10px] text-subtitle/80 mt-1 font-medium">
-                  <span>40k</span>
-                  <span>60k</span>
-                  <span>80k</span>
-                  <span>100k</span>
-                  <span>120k+</span>
+                  <span>0đ</span>
+                  <span>250k</span>
+                  <span>500k</span>
+                  <span>750k</span>
+                  <span>1 triệu</span>
                 </div>
-              </div>
-
-              {/* Phím bấm chọn nhanh khoảng giá */}
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  { id: "all", label: "Tất cả" },
-                  { id: "under-50k", label: "< 50.000₫" },
-                  { id: "50k-80k", label: "50k - 80.000₫" },
-                  { id: "over-80k", label: "> 80.000₫" },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => {
-                      setPriceRange(item.id as PriceRangeOption);
-                      if (item.id === "all") setCustomMaxPrice(120000);
-                      if (item.id === "under-50k") setCustomMaxPrice(50000);
-                      if (item.id === "50k-80k") setCustomMaxPrice(80000);
-                      if (item.id === "over-80k") setCustomMaxPrice(120000);
-                    }}
-                    className={`px-2.5 py-1 rounded-xl font-medium transition cursor-pointer ${
-                      priceRange === item.id
-                        ? "bg-primary text-white font-bold shadow-xs"
-                        : "bg-surface border border-border text-foreground/80 hover:border-primary/40"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
               </div>
             </div>
 
