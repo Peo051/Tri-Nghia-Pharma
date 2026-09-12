@@ -36,8 +36,8 @@ const NEWS_LIST: NewsItem[] = [
   {
     id: "viem-nhiem-phu-khoa-tet",
     title: "Nguyên nhân gây viêm nhiễm phụ khoa thường gặp ngày Tết Nguyên Đán",
-    category: "sharing",
-    categoryLabel: "Góc chia sẻ",
+    category: "market",
+    categoryLabel: "Tin tức thị trường",
     date: "11/02/2026",
     day: "11",
     month: "Feb",
@@ -59,71 +59,6 @@ const NEWS_LIST: NewsItem[] = [
     excerpt:
       "Lạc nội mạc tử cung (Endometriosis) là một trong những căn bệnh phụ khoa phổ biến nhưng thường bị xem nhẹ, gây ra những cơn đau mãn tính và ảnh hưởng khả năng làm mẹ.",
     link: "https://opodispharma.com/index.php/2026/02/06/lac-noi-mac-tu-cung-can-benh-tiem-an-ma-hang-trieu-phu-nu-dang-chiu-dung/",
-  },
-  {
-    id: "ngua-rat-khi-cang-thang",
-    title: "Vì sao phụ nữ dễ bị ngứa rát vùng nhạy cảm khi căng thẳng?",
-    category: "sharing",
-    categoryLabel: "Góc chia sẻ",
-    date: "28/01/2026",
-    day: "28",
-    month: "Jan",
-    image: viemPhuKhoaTetImg,
-    excerpt:
-      "Trong cuộc sống hiện đại đầy áp lực, phụ nữ thường phải đối mặt với tình trạng ngứa rát và mất cân bằng vi sinh vùng kín do stress kéo dài gây suy giảm sức đề kháng.",
-    link: "https://opodispharma.com/index.php/2026/01/28/vi-sao-phu-nu-de-bi-ngua-rat-vung-nhay-cam-khi-cang-thang/",
-  },
-  {
-    id: "stress-suc-khoe-phu-nu",
-    title: "STRESS KÉO DÀI ẢNH HƯỞNG ĐẾN SỨC KHỎE PHỤ NỮ NHƯ THẾ NÀO?",
-    category: "market",
-    categoryLabel: "Tin tức thị trường",
-    date: "21/01/2026",
-    day: "21",
-    month: "Jan",
-    image: lacNoiMacImg,
-    excerpt:
-      "Trong nhịp sống hiện đại, stress dường như đã trở thành người bạn đồng hành không mong muốn, gây ảnh hưởng trực tiếp đến nội tiết tố, làn da và thể trạng phái đẹp.",
-    link: "https://opodispharma.com/index.php/2026/01/21/stress-keo-dai-anh-huong-den-suc-khoe-phu-nu-nhu-the-nao/",
-  },
-  {
-    id: "vung-nhay-cam-theo-do-tuoi",
-    title: "VÙNG NHẠY CẢM CỦA PHỤ NỮ THAY ĐỔI NHƯ THẾ NÀO THEO ĐỘ TUỔI?",
-    category: "sharing",
-    categoryLabel: "Góc chia sẻ",
-    date: "16/01/2026",
-    day: "16",
-    month: "Jan",
-    image: viemPhuKhoaTetImg,
-    excerpt:
-      "Vùng kín là 'đóa hoa' phản chiếu tình trạng sức khỏe phụ nữ qua từng giai đoạn tuổi tác: từ dậy thì, độ tuổi sinh sản cho tới tiền mãn kinh và mãn kinh.",
-    link: "https://opodispharma.com/index.php/2026/01/16/vung-nhay-cam-cua-phu-nu-thay-doi-nhu-the-nao-theo-do-tuoi/",
-  },
-  {
-    id: "day-chuyen-nha-may-phytobebe",
-    title: "Khám phá dây chuyền nhà máy sản xuất sữa tắm rôm sẩy Phytobebe",
-    category: "csa",
-    categoryLabel: "Hoạt động CSA",
-    date: "29/11/2025",
-    day: "29",
-    month: "Nov",
-    image: csaMeBauImg,
-    excerpt:
-      "PhytoBEBE là thương hiệu sữa tắm rôm sẩy em bé đã có mặt hơn 15 năm tại các bệnh viện phụ sản lớn và được hàng triệu bà mẹ Việt Nam tin tưởng lựa chọn.",
-    link: "https://opodispharma.com/index.php/2025/11/29/kham-pha-day-chuyen-nha-may-san-xuat-sua-tam-rom-say-phytobebe/",
-  },
-  {
-    id: "chung-tay-chong-dich",
-    title: "Chung tay phòng chống dịch cùng cộng đồng y tế",
-    category: "csa",
-    categoryLabel: "Hoạt động CSA",
-    date: "29/11/2025",
-    day: "29",
-    month: "Nov",
-    image: csaMeBauImg,
-    excerpt:
-      "Opodis Pharma luôn tiên phong đồng hành cùng các bệnh viện và cơ sở y tế trên cả nước trong công tác sát khuẩn bề mặt, bảo vệ sức khỏe nhân dân.",
-    link: "https://opodispharma.com/index.php/2025/11/29/233/",
   },
 ];
 
