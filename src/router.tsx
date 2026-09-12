@@ -7,6 +7,9 @@ import HomePage from "@/pages/home";
 import ProfilePage from "@/pages/profile";
 import SearchPage from "@/pages/search";
 import AboutPage from "@/pages/about";
+import CatalogPage from "@/pages/catalog";
+import OffersPage from "@/pages/offers";
+import CustomerPage from "@/pages/customer";
 import { createBrowserRouter } from "react-router-dom";
 import { getBasePath } from "@/utils/zma";
 
@@ -23,9 +26,33 @@ const router = createBrowserRouter(
             logo: true,
           },
         },
-        // TODO(phase-5): Remove the legacy Fashion routes after Footer and the
-        // remaining template links no longer reference them.
         {
+          path: "/catalog",
+          element: <CatalogPage />,
+          handle: {
+            title: "Danh mục sản phẩm",
+            back: false,
+          },
+        },
+        {
+          path: "/offers",
+          element: <OffersPage />,
+          handle: {
+            title: "Ưu đãi",
+            back: false,
+          },
+        },
+        {
+          path: "/customer",
+          element: <CustomerPage />,
+          handle: {
+            title: "Khách hàng",
+            back: false,
+          },
+        },
+        {
+          // TODO(phase-5): Remove the legacy Fashion routes after the
+          // remaining template links no longer reference them.
           path: "/categories",
           element: <CategoryListPage />,
           handle: {

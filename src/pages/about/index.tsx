@@ -46,11 +46,11 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <h1 className="text-[21px] leading-[28px] font-bold text-foreground tracking-tight">
+          <h1 className="text-[22px] leading-[28px] font-black text-primary tracking-tight">
             Khoa học chuẩn mực
           </h1>
 
-          <p className="text-[15px] leading-[22px] font-semibold text-primary mt-0.5">
+          <p className="text-[15px] leading-[22px] font-extrabold text-primary-dark mt-0.5">
             Tâm huyết từ dược thảo
           </p>
 
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 <path d="M2 12l10 5 10-5" />
               </svg>
             </div>
-            <h2 id="story-section-title" className="text-[15px] font-bold text-foreground">
+            <h2 id="story-section-title" className="text-[15px] font-extrabold text-primary">
               Câu chuyện thảo dược
             </h2>
           </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
       {/* 3. Dòng sản phẩm trọng tâm */}
       <section aria-labelledby="products-pillar-title" className="mx-4 mb-4">
         <div className="p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-          <h2 id="products-pillar-title" className="text-[15px] font-bold text-foreground mb-3">
+          <h2 id="products-pillar-title" className="text-[15px] font-extrabold text-primary mb-3">
             4 Nhóm giải pháp trọng tâm
           </h2>
           <div className="space-y-3">
@@ -162,7 +162,7 @@ export default function AboutPage() {
       {/* 4. Doanh nghiệp & Nhà máy */}
       <section aria-labelledby="company-section-title" className="mx-4 mb-4">
         <div className="p-4 rounded-2xl bg-section/60 border border-border/70 space-y-3.5 text-[13px]">
-          <h2 id="company-section-title" className="text-[14px] font-bold text-primary uppercase tracking-wide">
+          <h2 id="company-section-title" className="text-[14px] font-black text-primary uppercase tracking-wide">
             Cơ sở sản xuất & Doanh nghiệp
           </h2>
 
@@ -197,7 +197,7 @@ export default function AboutPage() {
       <section aria-labelledby="contact-section-title" className="mx-4 mb-5">
         <h2
           id="contact-section-title"
-          className="text-[15px] font-bold text-foreground mb-2.5"
+          className="text-[15px] font-extrabold text-primary mb-2.5"
         >
           Kênh thông tin chính thức
         </h2>

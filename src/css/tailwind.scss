@@ -3,74 +3,121 @@
 @tailwind utilities;
 
 :root {
-  /* Opodis Pharma Official Brand Design Tokens */
-  /* Source: https://opodispharma.com/wp-content/themes/flatsome-child/custom_styles_utf8.css */
-  --primary: #116936;
-  --primary-dark: #0d522a;
-  --primary-soft: #edf5f0;
-  --secondary: #c05530;
-  --accent: #489a0d;
-  --success: #627d47;
+  /* Opodis Pharma official palette. */
+  --brand-primary: #116936;
+  --brand-primary-rgb: 17 105 54;
+  --brand-primary-dark: #2d5a3f;
+  --brand-primary-dark-rgb: 45 90 63;
+  --brand-primary-soft: #f0f7f4;
+  --brand-primary-soft-rgb: 240 247 244;
+  --brand-accent: #489a0d;
+  --brand-accent-rgb: 72 154 13;
   --background: #ffffff;
-  --section: #f4f4f4;
+  --background-rgb: 255 255 255;
+  --surface: #ffffff;
+  --surface-rgb: 255 255 255;
+  --surface-soft: #f4f4f4;
+  --surface-soft-rgb: 244 244 244;
   --foreground: #141415;
-  --subtitle: #6f7071;
+  --foreground-rgb: 20 20 21;
+  --text-secondary: #6f7071;
+  --text-secondary-rgb: 111 112 113;
   --border: #e9ebed;
+  --border-rgb: 233 235 237;
+
+  /* Existing template aliases kept for compatibility. */
+  --primary: var(--brand-primary);
+  --primary-rgb: var(--brand-primary-rgb);
+  --primary-dark: var(--brand-primary-dark);
+  --primary-dark-rgb: var(--brand-primary-dark-rgb);
+  --primary-soft: var(--brand-primary-soft);
+  --primary-soft-rgb: var(--brand-primary-soft-rgb);
+  --secondary: #c05530;
+  --secondary-rgb: 192 85 48;
+  --accent: var(--brand-accent);
+  --accent-rgb: var(--brand-accent-rgb);
+  --success: #627d47;
+  --success-rgb: 98 125 71;
+  --section: var(--surface-soft);
+  --section-rgb: var(--surface-soft-rgb);
+  --subtitle: var(--text-secondary);
+  --subtitle-rgb: var(--text-secondary-rgb);
 
   /* Functional Tokens */
   --inactive: #9ca3af;
-  --tabIndicator: #116936;
+  --inactive-rgb: 156 163 175;
+  --tabIndicator: var(--brand-primary);
+  --tabIndicator-rgb: var(--brand-primary-rgb);
   --danger: #ef4444;
+  --danger-rgb: 239 68 68;
   --skeleton: #e5e7eb;
+  --skeleton-rgb: 229 231 235;
+}
+
+/* Heading defaults - aligned with opodispharma.com (Nunito, 900, #116936) */
+h1, h2, h3, h4, h5, h6, .heading-font {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: var(--primary);
 }
 
 /* Opodis Typography Scale */
 .text-page-title {
+  font-family: 'Nunito', sans-serif;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 600;
-  color: var(--foreground);
+  font-weight: 800;
+  color: var(--primary);
   letter-spacing: -0.01em;
 }
 
 .text-section-title {
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 600;
-  color: var(--foreground);
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.01em;
 }
 
 .text-product-name {
+  font-family: 'Nunito', sans-serif;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--foreground);
 }
 
 .text-product-category {
+  font-family: 'Nunito', sans-serif;
   font-size: 11px;
   line-height: 16px;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .text-product-price {
+  font-family: 'Nunito', sans-serif;
   font-size: 15px;
   line-height: 20px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary-dark);
 }
 
 .text-body-custom {
+  font-family: 'Nunito', sans-serif;
   font-size: 13px;
-  line-height: 19px;
+  line-height: 20px;
+  font-weight: 500;
   color: var(--foreground);
 }
 
 .text-body-muted {
+  font-family: 'Nunito', sans-serif;
   font-size: 13px;
   line-height: 18px;
+  font-weight: 500;
   color: var(--subtitle);
 }

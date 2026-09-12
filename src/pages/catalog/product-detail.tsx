@@ -198,7 +198,7 @@ export default function ProductDetailPage() {
 
       {/* 3. Specifications Card */}
       <div className="mx-4 mt-3 p-4 rounded-2xl bg-section/60 border border-border/70">
-        <h2 className="text-[14px] font-bold text-foreground mb-3 uppercase tracking-wide text-primary">
+        <h2 className="text-[14px] font-black uppercase tracking-wide text-primary mb-3">
           Thông tin sản phẩm
         </h2>
         <div className="space-y-2.5 text-[13px]">
@@ -265,7 +265,7 @@ export default function ProductDetailPage() {
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
             </div>
-            <h2 className="text-[15px] font-bold text-foreground">
+            <h2 className="text-[15px] font-extrabold text-primary">
               Công dụng & Chỉ định
             </h2>
           </div>
@@ -299,7 +299,7 @@ export default function ProductDetailPage() {
                 <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
               </svg>
             </div>
-            <h2 className="text-[15px] font-bold text-foreground">
+            <h2 className="text-[15px] font-extrabold text-primary">
               Thành phần & Hoạt chất
             </h2>
           </div>
@@ -352,7 +352,7 @@ export default function ProductDetailPage() {
                 <polyline points="12 6 12 12 16 14" />
               </svg>
             </div>
-            <h2 className="text-[15px] font-bold text-foreground">
+            <h2 className="text-[15px] font-extrabold text-primary">
               Hướng dẫn sử dụng
             </h2>
           </div>
@@ -389,7 +389,7 @@ export default function ProductDetailPage() {
                 <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
             </div>
-            <h2 className="text-[14px] font-bold text-foreground">
+            <h2 className="text-[14px] font-extrabold text-primary">
               Lưu ý & Bảo quản
             </h2>
           </div>
@@ -407,7 +407,7 @@ export default function ProductDetailPage() {
       {/* 8. Ưu điểm nổi bật (nếu có) */}
       {activeAdvantages.length > 0 && (
         <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-primary-soft/40 border border-primary/20">
-          <h2 className="text-[14px] font-bold text-primary mb-2">
+          <h2 className="text-[14px] font-extrabold text-primary mb-2">
             Ưu điểm nổi bật
           </h2>
           <ul className="space-y-1.5 text-[13px] leading-[19px] text-foreground/90">
@@ -467,7 +467,7 @@ export default function ProductDetailPage() {
           <div className="px-4 mb-3">
             <h2
               id="related-products-title"
-              className="text-section-title font-bold text-foreground"
+              className="text-section-title font-black text-primary"
             >
               Sản phẩm cùng dòng
             </h2>

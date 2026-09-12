@@ -4,6 +4,8 @@ import { getProductCategories } from "@/utils/products";
 import Banners from "./banners";
 import CategoryFilter from "./category-filter";
 import ProductGrid from "@/components/product-grid";
+import CustomerSummary from "@/components/customer-summary";
+import QuickActions from "@/components/quick-actions";
 
 const HomePage: React.FunctionComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -46,24 +48,46 @@ const HomePage: React.FunctionComponent = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="w-full min-h-full pb-8">
+    <div className="w-full min-h-full pb-6">
       {/* 1. Promotional Carousel */}
       <Banners onSelectCategory={setSelectedCategory} />
 
-      {/* 2. Category Filter */}
-      <div className="mt-2 mb-4">
+      {/* 2. Customer summary */}
+      <CustomerSummary className="mt-4" />
+
+      {/* 3. Quick actions */}
+      <QuickActions className="mt-4" />
+
+      {/* 4. Official information notice */}
+      <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/10 p-3.5">
+        <span className="block text-[11px] font-semibold text-primary">
+          Thông tin từ Opodis Pharma
+        </span>
+        <p className="text-[12px] leading-5 text-subtitle mt-0.5">
+          Theo dõi các nhóm sản phẩm và thông tin chăm sóc sức khỏe trên kênh
+          chính thức của Opodis.
+        </p>
+      </div>
+
+      {/* 5. Category Filter */}
+      <section id="home-categories" className="mt-5">
+        <div className="px-4 mb-2">
+          <h2 className="text-section-title font-black text-primary tracking-tight">
+            Danh mục sản phẩm
+          </h2>
+        </div>
         <CategoryFilter
           options={categoryOptions}
           selectedId={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
-      </div>
+      </section>
 
-      {/* 3. Products Section */}
-      <section className="w-full">
+      {/* 6. Products Section */}
+      <section id="home-products" className="w-full mt-5">
         <div className="px-4 mb-3 flex items-center justify-between">
           <div className="flex flex-col">
-            <h2 className="text-section-title font-bold text-foreground">
+            <h2 className="text-section-title font-black text-primary tracking-tight">
               {selectedCategory === "all" ? "Tất cả sản phẩm" : selectedCategory}
             </h2>
             <span className="text-[12px] text-subtitle mt-0.5">
