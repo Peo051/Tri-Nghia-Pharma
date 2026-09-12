@@ -35,6 +35,16 @@ export default function Header() {
 
   const showBack = location.key !== "default" && handle?.back !== false;
 
+  const handleBack = () => {
+    if (typeof document !== "undefined" && "startViewTransition" in document) {
+      (document as unknown as { startViewTransition: (cb: () => void) => void }).startViewTransition(() => {
+        navigate(-1);
+      });
+    } else {
+      navigate(-1);
+    }
+  };
+
   return (
     <header className="h-14 w-full flex items-center px-4 py-2 bg-background border-b border-border/70 flex-none pr-[106px] shadow-[0_1px_4px_rgba(17,105,54,0.04)] justify-between">
       <div className="flex items-center space-x-1.5 min-w-0">
@@ -43,7 +53,7 @@ export default function Header() {
             type="button"
             aria-label="Quay lại"
             className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-section active:bg-section/80 transition cursor-pointer text-foreground flex-none -ml-1.5 mr-0.5"
-            onClick={() => navigate(-1)}
+            onClick={handleBack}
           >
             <BackIcon />
           </button>

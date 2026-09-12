@@ -144,3 +144,119 @@ body,
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
   }
 }
+
+/* ==========================================================================
+   Page Transitions & Navigation Animations
+   ========================================================================== */
+
+@keyframes pageEnterPush {
+  0% {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageEnterPop {
+  0% {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageEnterTab {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition-wrapper {
+  width: 100%;
+  min-height: 100%;
+  will-change: transform, opacity;
+}
+
+.page-transition-push {
+  animation: pageEnterPush 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-transition-pop {
+  animation: pageEnterPop 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-transition-tab {
+  animation: pageEnterTab 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.page-transition-fade {
+  animation: pageFadeIn 0.18s ease-out both;
+}
+
+/* View Transitions API (Modern Chromium & Safari 18+) */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes vtFadeOut {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(-12px, 0, 0);
+    }
+  }
+
+  @keyframes vtFadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(12px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  ::view-transition-old(root) {
+    animation: 180ms cubic-bezier(0.4, 0, 1, 1) both vtFadeOut;
+  }
+
+  ::view-transition-new(root) {
+    animation: 220ms cubic-bezier(0, 0, 0.2, 1) both vtFadeIn;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-push,
+  .page-transition-pop,
+  .page-transition-tab,
+  .page-transition-fade {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
