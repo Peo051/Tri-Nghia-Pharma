@@ -817,16 +817,23 @@ export function AboutNavIcon(props: { active?: boolean }) {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
           fill="var(--primary)"
           fillOpacity="0.15"
           stroke="var(--primary)"
           strokeWidth="2"
-          strokeLinejoin="round"
+        />
+        <circle
+          cx="12"
+          cy="8"
+          r="1.2"
+          fill="var(--primary)"
         />
         <path
-          d="M12 8V13M12 16.5H12.01"
+          d="M12 11.5V16.5"
           stroke="var(--primary)"
           strokeWidth="2.2"
           strokeLinecap="round"
@@ -842,16 +849,23 @@ export function AboutNavIcon(props: { active?: boolean }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M12 2L4 5.5V11.5C4 16.5 7.4 21.1 12 22.5C16.6 21.1 20 16.5 20 11.5V5.5L12 2Z"
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
         stroke="var(--subtitle)"
         strokeWidth="1.8"
-        strokeLinejoin="round"
+      />
+      <circle
+        cx="12"
+        cy="8"
+        r="1.1"
+        fill="var(--subtitle)"
       />
       <path
-        d="M12 8V13M12 16.5H12.01"
+        d="M12 11.5V16.5"
         stroke="var(--subtitle)"
-        strokeWidth="1.8"
+        strokeWidth="2"
         strokeLinecap="round"
       />
     </svg>
