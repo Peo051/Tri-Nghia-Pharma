@@ -61,17 +61,17 @@ export default function ProductItem(props: ProductItemProps) {
           {/* Product Content */}
           <div className="pt-2 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
             <div>
-              <div className="flex items-center justify-between gap-1 mb-1">
-                <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase truncate">
+              <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
+                <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase">
                   {getPrimaryCategory(props.product)}
                 </span>
                 {props.product.volume && (
-                  <span className="text-[10px] text-subtitle/90 bg-section px-1.5 py-0.5 rounded font-normal flex-none truncate max-w-[80px]">
+                  <span className="text-[10px] text-subtitle/90 bg-section px-1.5 py-0.5 rounded font-normal flex-none">
                     {props.product.volume.split(" và ")[0]}
                   </span>
                 )}
               </div>
-              <h3 className="text-[13.5px] leading-[19px] font-medium text-foreground line-clamp-2 min-h-[38px]">
+              <h3 className="text-[13.5px] leading-[19px] font-medium text-foreground min-h-[38px]">
                 {props.product.name}
               </h3>
 

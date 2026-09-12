@@ -126,7 +126,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
 
                 {/* Info */}
                 <div className="mt-2 flex flex-col flex-1 justify-between">
-                  <h3 className="text-[12px] leading-4 font-bold text-black line-clamp-2 min-h-[32px]">
+                  <h3 className="text-[12px] leading-4 font-bold text-black min-h-[32px]">
                     {product.name}
                   </h3>
 
