@@ -10,48 +10,48 @@ import csrMuaThiImg from "@/static/about/csr-mua-thi.webp";
 import csrHcdcImg from "@/static/about/csr-hcdc.webp";
 
 const NAV_SECTIONS = [
-  { id: "story", label: "Thảo dược" },
-  { id: "factory", label: "Nhà máy & GMP" },
-  { id: "products", label: "4 Nhóm giải pháp" },
-  { id: "mission", label: "Sứ mệnh & Tầm nhìn" },
-  { id: "csr", label: "Hoạt động CSR" },
-  { id: "network", label: "Đối tác & Liên hệ" },
+  { id: "story", label: "Câu chuyện thảo dược" },
+  { id: "factory", label: "Nhà máy chuẩn WHO" },
+  { id: "products", label: "Giải pháp nổi bật" },
+  { id: "mission", label: "Sứ mệnh & Cam kết" },
+  { id: "csr", label: "Trách nhiệm xã hội" },
+  { id: "network", label: "Điểm bán & Liên hệ" },
 ];
 
 const HERBS = [
   {
-    name: "Tràm Gió Thiên Nhiên",
+    name: "Tràm Gió Tự Nhiên",
     latin: "Melaleuca cajuputi",
     badge: "Hoạt chất α-Terpineol",
-    desc: "Nguồn hoạt chất α-Terpineol tự nhiên quý giá từ rừng tràm miền Trung, có khả năng kháng khuẩn, kháng nấm và làm dịu viêm vượt trội mà cực kỳ an toàn.",
+    desc: "Kháng khuẩn, kháng nấm tự nhiên vượt trội, dịu nhẹ tối đa và an toàn tuyệt đối ngay cả với làn da nhạy cảm của mẹ bầu và trẻ sơ sinh.",
     color: "from-emerald-500/10 to-emerald-500/5",
   },
   {
-    name: "Cao Trầu Không",
+    name: "Cao Trầu Không Chuẩn Hóa",
     latin: "Piper betle",
-    badge: "Chuẩn hóa cổ truyền",
-    desc: "Chiết xuất giàu polyphenol giúp kháng khuẩn phổ rộng, cân bằng hệ vi sinh tự nhiên, làm sạch và bảo vệ niêm mạc nhạy cảm một cách êm dịu.",
+    badge: "Bảo vệ niêm mạc",
+    desc: "Làm sạch sâu, khử mùi vùng nhạy cảm, duy trì hệ vi sinh khỏe mạnh và mang đến cảm giác thoáng sạch tự tin suốt cả ngày dài.",
     color: "from-teal-500/10 to-teal-500/5",
   },
   {
-    name: "Cao Hạt Ngò",
+    name: "Cao Hạt Ngò Tinh Khiết",
     latin: "Coriandrum sativum",
-    badge: "Thanh nhiệt & Giải độc",
-    desc: "Chống oxy hóa mạnh mẽ, hỗ trợ kháng viêm tự nhiên, loại bỏ mùi khó chịu và phục hồi màng bảo vệ biểu bì khỏe khoắn suốt ngày dài.",
+    badge: "Thanh lọc biểu bì",
+    desc: "Thải độc tự nhiên, làm mát tức thì, chống viêm và giải tỏa nhanh chóng cảm giác ngứa ngáy, khó chịu cho làn da mẫn cảm.",
     color: "from-green-500/10 to-green-500/5",
   },
   {
     name: "Kim Ngân Hoa & Cúc La Mã",
     latin: "Lonicera & Chamomile",
-    badge: "Dịu lành cho bé",
-    desc: "Hợp chất flavonoids giúp tiêu viêm, dịu nhanh cơn ngứa, phòng ngừa rôm sẩy hăm kẽ và nuôi dưỡng làn da non nớt của trẻ nhỏ.",
+    badge: "Xoa dịu mẩn ngứa",
+    desc: "Bộ đôi thảo mộc lành tính làm dịu rôm sẩy, hăm tã, cấp ẩm mềm mượt và phục hồi làn da non nớt của bé yêu một cách êm ái.",
     color: "from-amber-500/10 to-amber-500/5",
   },
   {
-    name: "Lá Olive Thiên Nhiên",
+    name: "Lá Olive Sinh Học",
     latin: "Olea europaea",
-    badge: "Bảo vệ sinh học",
-    desc: "Giàu Oleuropein và vitamin E tự nhiên giúp bảo vệ tế bào khỏi gốc tự do, tăng cường sức đề kháng cho làn da trong mọi điều kiện môi trường.",
+    badge: "Chống oxy hóa",
+    desc: "Giàu Oleuropein tự nhiên giúp tăng cường hàng rào tự bảo vệ của da, duy trì vẻ khỏe khoắn trước ô nhiễm và khói bụi đô thị.",
     color: "from-lime-500/10 to-lime-500/5",
   },
 ];
@@ -59,26 +59,26 @@ const HERBS = [
 const PRODUCT_PILLARS = [
   {
     title: "OPODIS FAMILY PREMIUM",
-    badge: "Chăm sóc phụ nữ",
-    desc: "Giải pháp chăm sóc toàn diện và tinh tế cho phụ nữ ở mọi lứa tuổi: Lady, Teen, Girl, Mom. Chiết xuất tinh túy thiên nhiên dịu nhẹ, cân bằng pH sinh lý lý tưởng.",
+    badge: "Thấu hiểu phụ nữ",
+    desc: "Nâng niu từng giai đoạn cuộc đời phái đẹp – từ tuổi dậy thì, thanh xuân đến thiên chức làm mẹ với công thức cân bằng pH lý tưởng, lưu hương nhẹ nhàng quyến rũ.",
     highlight: "Phytogyno Mom • Phytogyno Lady • Phytogyno Teen • Phytogyno Girl",
   },
   {
     title: "CHĂM SÓC MẸ VÀ BÉ",
-    badge: "An toàn tuyệt đối",
-    desc: "Sự kết hợp hoàn hảo giữa công thức y khoa tiên tiến và tinh chất dược thảo dịu lành. Giúp mẹ và bé cùng nhau lớn lên khỏe mạnh, phòng ngừa rôm sẩy mẩn ngứa.",
+    badge: "Dịu lành như tình mẹ",
+    desc: "Bảo bọc làn da bé yêu khỏi rôm sẩy, hăm kẽ và côn trùng cắn bằng tinh chất thảo dược dịu nhẹ, cho mẹ trọn vẹn an tâm trong từng khoảnh khắc nuôi con.",
     highlight: "Sữa tắm rôm sẩy Phytobebe • Baby Care • Xịt xua muỗi an toàn",
   },
   {
     title: "CHĂM SÓC GIA ĐÌNH & NAM GIỚI",
-    badge: "Khô thoáng 24h",
-    desc: "Opolux là giải pháp vệ sinh vùng nhạy cảm nam giới giúp kháng khuẩn, kiểm soát mùi suốt 24 giờ; cùng xịt họng Opflu bảo vệ đường hô hấp cho cả nhà.",
+    badge: "Khô thoáng & Khỏe mạnh",
+    desc: "Vệ sinh nam giới Opolux sạch sâu, khử mùi khô thoáng suốt 24h; kết hợp xịt họng thảo dược Opflu bảo vệ đường hô hấp cho cả nhà trước tác nhân gây bệnh.",
     highlight: "Vệ sinh nam Opolux • Xịt họng thảo dược Opflu • Tinh dầu Phytamin",
   },
   {
-    title: "KHỬ KHUẨN – SÁT KHUẨN Y TẾ",
-    badge: "Tiêu chuẩn bệnh viện",
-    desc: "Được phát triển dựa trên tiêu chuẩn y tế khắt khe, khử khuẩn nhanh và bảo vệ kéo dài. Tự hào được hơn 80 bệnh viện và trung tâm y tế lớn tin dùng.",
+    title: "SÁT KHUẨN Y TẾ CHUYÊN DỤNG",
+    badge: "Chuẩn mực bệnh viện",
+    desc: "Tiêu chuẩn diệt khuẩn nghiêm ngặt đạt chuẩn phòng mổ y tế, khử khuẩn nhanh và bảo vệ dài lâu, được hơn 80 bệnh viện tuyến đầu tin dùng.",
     highlight: "Dung dịch sát khuẩn Clincare SH • Cồn sát trùng Opodex 70 • Phytasep",
   },
 ];
@@ -97,16 +97,16 @@ export default function AboutPage() {
 
   return (
     <div className="w-full min-h-full pb-12 bg-[#F8FAF9] text-foreground">
-      {/* 1. HERO BANNER: HÀNH TRÌNH 25 NĂM */}
-      <section className="mx-3.5 mt-3 mb-4 rounded-3xl bg-gradient-to-br from-[#0F5A2E] via-[#116936] to-[#0A4322] text-white p-5 relative overflow-hidden shadow-xl shadow-primary/20">
-        {/* Nền ánh sáng mờ */}
-        <div className="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-white/10 blur-2xl pointer-events-none" />
-        <div className="absolute -left-8 -bottom-8 w-44 h-44 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
+      {/* 1. HERO BANNER: THƯƠNG HIỆU 25 NĂM */}
+      <section className="mx-3.5 mt-3 mb-4 rounded-3xl bg-gradient-to-br from-[#0B4A24] via-[#116936] to-[#08351B] text-white p-5 relative overflow-hidden shadow-xl shadow-primary/25">
+        {/* Nền ánh sáng mờ tạo chiều sâu cao cấp */}
+        <div className="absolute -right-10 -top-10 w-52 h-52 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+        <div className="absolute -left-10 -bottom-10 w-52 h-52 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
           {/* Huy hiệu 25 Năm */}
-          <div className="inline-block px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-[11px] font-extrabold uppercase tracking-wider mb-3 backdrop-blur-xs">
-            Hành trình 25 năm khoa học & tâm huyết (1999 - Nay)
+          <div className="inline-block px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-[11px] font-extrabold uppercase tracking-wider mb-3 backdrop-blur-xs">
+            Hành trình 25 năm • Bảo vệ triệu gia đình Việt
           </div>
 
           {/* Logo 2 đơn vị */}
@@ -127,34 +127,34 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <h1 className="text-[23px] leading-[29px] font-black tracking-tight text-white">
+          <h1 className="text-[23px] leading-[30px] font-black tracking-tight text-white">
             KHOA HỌC CHUẨN MỰC
           </h1>
-          <p className="text-[16px] leading-[22px] font-extrabold text-emerald-200 mt-0.5">
-            Tâm huyết từ dược thảo Việt Nam
+          <p className="text-[16px] leading-[23px] font-extrabold text-emerald-200 mt-0.5">
+            Bảo vệ trọn vẹn yêu thương
           </p>
 
-          <p className="text-[12px] leading-[19px] text-white/85 mt-2.5 max-w-[320px]">
-            Kế thừa di sản từ <strong>Công ty Dược liệu Trung Ương 2</strong>. Tất cả mọi người đều có quyền sử dụng và tận hưởng những sản phẩm y tế và chăm sóc sức khỏe chất lượng cao.
+          <p className="text-[12.5px] leading-[20px] text-white/90 mt-2.5 max-w-[330px]">
+            Kế thừa hơn 25 năm nghiên cứu từ <strong>Dược liệu Trung Ương 2</strong>, Opodis Pharma tiên phong chuẩn hóa dược thảo Việt theo tiêu chuẩn GMP-WHO khắt khe nhất, trao gửi sự an tâm tuyệt đối và chăm sóc trọn vẹn sức khỏe cho bạn và gia đình mỗi ngày.
           </p>
 
-          {/* 4 Chỉ số quan trọng từ website */}
+          {/* 4 Chỉ số giá trị thương hiệu */}
           <div className="mt-4 pt-3.5 border-t border-white/15 grid grid-cols-4 gap-1.5 text-center">
             <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
               <span className="text-[17px] font-black text-amber-300 leading-tight">25+</span>
-              <span className="text-[9px] text-white/80 font-medium leading-tight mt-0.5">Năm NC&PT</span>
+              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Năm uy tín</span>
             </div>
             <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
               <span className="text-[15px] font-black text-white leading-tight">GMP</span>
-              <span className="text-[9px] text-white/80 font-medium leading-tight mt-0.5">Chuẩn WHO</span>
+              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Chuẩn WHO</span>
             </div>
             <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
               <span className="text-[17px] font-black text-amber-300 leading-tight">80+</span>
-              <span className="text-[9px] text-white/80 font-medium leading-tight mt-0.5">Bệnh viện</span>
+              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Viện tin dùng</span>
             </div>
             <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[17px] font-black text-white leading-tight">30+</span>
-              <span className="text-[9px] text-white/80 font-medium leading-tight mt-0.5">Sản phẩm</span>
+              <span className="text-[15px] font-black text-white leading-tight">Triệu</span>
+              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Gia đình tin yêu</span>
             </div>
           </div>
         </div>
@@ -182,24 +182,21 @@ export default function AboutPage() {
       <section id="about-story" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Di sản thương hiệu</span>
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Bí quyết từ thiên nhiên</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              Câu chuyện thảo dược & α-Terpineol
+              Sức mạnh kháng khuẩn tự nhiên từ đại ngàn tràm gió
             </h2>
           </div>
 
           <div className="space-y-2.5 text-[13px] leading-[21px] text-gray-700 font-normal">
             <p>
-              Opodis Pharma ra đời từ tiền thân <strong>Công ty Dược liệu Trung Ương 2</strong> – đơn vị tiên phong hàng đầu trong nghiên cứu và phát triển nguồn dược thảo Việt Nam.
+              Khởi nguồn từ <strong>Công ty Dược liệu Trung Ương 2</strong> giữa rừng tràm gió miền Trung, Opodis Pharma dày công nghiên cứu và khai mở hoạt chất vàng <strong>α-Terpineol</strong> tự nhiên – giải pháp kháng khuẩn, làm dịu viêm vượt trội nhưng hoàn toàn êm dịu, không gây kích ứng.
             </p>
             <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-200/70">
               <p className="text-[12.5px] text-emerald-950 font-medium italic">
-                “Bắt đầu hành trình giữa rừng tràm gió miền Trung, nơi các chuyên gia Opodis dày công nghiên cứu tinh dầu <strong>Melaleuca cajuputi</strong> – nguồn hoạt chất <strong>α-Terpineol</strong> quý giá, được chứng minh khả năng kháng khuẩn, kháng nấm và làm dịu viêm tự nhiên vượt trội.”
+                “Kết hợp tinh hoa y học cổ truyền ngàn năm cùng công nghệ chiết xuất hiện đại, 5 công thức thảo dược kinh điển ra đời để chăm sóc dịu lành cho làn da nhạy cảm nhất của bạn và gia đình.”
               </p>
             </div>
-            <p>
-              Từ nền tảng ấy, Opodis kết hợp tri thức Đông y cổ truyền và kỹ thuật Tây y hiện đại, chuẩn hóa 5 công thức dược thảo kinh điển:
-            </p>
           </div>
 
           {/* Danh sách 5 Thảo dược chuẩn hóa */}
@@ -231,14 +228,14 @@ export default function AboutPage() {
       <section id="about-factory" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Cơ sở sản xuất chuẩn mực</span>
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Cam kết chất lượng đỉnh cao</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              Nhà máy Opodis Tây Ninh & Chuẩn GMP-WHO
+              Nhà máy chuẩn GMP-WHO — An tâm trên từng giọt sản phẩm
             </h2>
           </div>
 
           <p className="text-[13px] leading-[21px] text-gray-700">
-            Ở Opodis, <em>“chuẩn mực không chỉ là quy định, mà là văn hóa vận hành mỗi ngày.”</em> Đặt tại <strong>Lô 78, Khu CX & CN Linh Trung III, Tây Ninh</strong>, toàn bộ quy trình từ chiết xuất dược liệu đến chiết rót, đóng gói đều vận hành khép kín và tự động hóa.
+            Tại Opodis Pharma, chất lượng không dừng lại ở lời hứa mà được chứng minh trên từng lô sản phẩm xuất xưởng. Toàn bộ quy trình sản xuất khép kín tại <strong>Nhà máy Tây Ninh đạt bộ 3 chứng nhận quốc tế danh giá: GMP-WHO, CGMP-ASEAN và ISO 13485:2016</strong>, bảo toàn trọn vẹn hoạt tính sinh học tự nhiên.
           </p>
 
           {/* Ảnh thực tế nhà máy */}
@@ -258,25 +255,25 @@ export default function AboutPage() {
           <div className="mt-3.5 grid grid-cols-3 gap-2">
             <div className="p-2.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/60 text-center flex flex-col items-center">
               <span className="text-[13px] font-black text-primary">GMP-WHO</span>
-              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Thực hành tốt sản xuất thuốc</span>
+              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Dược phẩm chuẩn thế giới</span>
             </div>
             <div className="p-2.5 rounded-2xl bg-teal-50/70 border border-teal-200/60 text-center flex flex-col items-center">
               <span className="text-[13px] font-black text-teal-800">CGMP-ASEAN</span>
-              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Sản xuất mỹ phẩm ASEAN</span>
+              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Dược mỹ phẩm quốc tế</span>
             </div>
             <div className="p-2.5 rounded-2xl bg-blue-50/70 border border-blue-200/60 text-center flex flex-col items-center">
               <span className="text-[13px] font-black text-blue-800">ISO 13485</span>
-              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Thiết bị y tế quốc tế</span>
+              <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Thiết bị y tế an toàn</span>
             </div>
           </div>
 
           {/* Phòng kiểm nghiệm HPLC, GC, UV-Vis */}
           <div className="mt-4 pt-3.5 border-t border-gray-100">
             <h3 className="text-[14px] font-bold text-gray-900 mb-1.5">
-              Hệ thống kiểm soát chất lượng nội bộ
+              Hệ thống kiểm soát chất lượng chuẩn quốc tế HPLC, GC, UV-Vis
             </h3>
             <p className="text-[12.5px] leading-[20px] text-gray-600 mb-3">
-              Chất lượng được chứng minh – không chỉ là cam kết. Phòng kiểm nghiệm nội bộ phân tích từng lô sản phẩm bằng hệ thống thiết bị tối tân <strong>HPLC, GC, UV-Vis</strong>, đảm bảo hàm lượng hoạt chất và độ an toàn vi sinh đạt chuẩn tuyệt đối.
+              Chất lượng được chứng minh bằng khoa học thực nghiệm. Từng lô sản phẩm đều được phân tích hoạt chất và kiểm định vi sinh độc lập bằng hệ thống máy móc sắc ký tối tân, cam kết độ an toàn và ổn định sinh học tuyệt đối trước khi trao gửi đến khách hàng.
             </p>
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
               <img
@@ -297,14 +294,14 @@ export default function AboutPage() {
       <section id="about-products" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Hệ sinh thái sản phẩm</span>
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Giải pháp theo nhu cầu</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              4 Nhóm giải pháp chăm sóc sức khỏe
+              Hệ sinh thái chăm sóc sức khỏe toàn diện cho cả gia đình
             </h2>
           </div>
 
           <p className="text-[12.5px] leading-[19px] text-gray-600 mb-3.5">
-            Các dòng sản phẩm của Opodis Pharma được nghiên cứu tỉ mỉ nhằm phục vụ nhu cầu phòng ngừa bệnh tật và bảo vệ sức khỏe cho mọi thành viên trong gia đình:
+            Được nghiên cứu chuyên sâu để thấu hiểu và đáp ứng tối ưu từng giai đoạn cuộc sống, mang đến sự chăm sóc dịu lành và bảo vệ toàn diện:
           </p>
 
           <div className="space-y-3">
@@ -344,19 +341,19 @@ export default function AboutPage() {
             onClick={() => navigate("/catalog")}
             className="mt-4 w-full py-2.5 px-4 rounded-2xl bg-primary text-white font-bold text-[13px] shadow-md shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
-            <span>Khám phá toàn bộ 30+ sản phẩm</span>
+            <span>Khám phá ngay giải pháp phù hợp với bạn</span>
             <span>→</span>
           </button>
         </div>
       </section>
 
-      {/* 5. SỨ MỆNH, TẦM NHÌN */}
+      {/* 5. SỨ MỆNH & TẦM NHÌN */}
       <section id="about-mission" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-amber-700 tracking-wider uppercase">Triết lý cốt lõi</span>
+            <span className="text-[11px] font-bold text-amber-700 tracking-wider uppercase">Giá trị cốt lõi</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              Sứ mệnh & Tầm nhìn
+              Sứ mệnh phụng sự & Tầm nhìn tương lai
             </h2>
           </div>
 
@@ -366,7 +363,7 @@ export default function AboutPage() {
                 Sứ Mệnh — Gìn giữ tinh hoa, nâng tầm chuẩn mực Việt
               </h3>
               <p className="text-[12px] leading-[18px] text-gray-600">
-                Opodis nghiên cứu, chiết xuất và chuẩn hóa dược liệu Việt bằng công nghệ hiện đại, tạo nên những sản phẩm an toàn, hiệu quả và đáng tin cậy cho sức khỏe mỗi gia đình.
+                Đưa tinh hoa dược thảo Việt Nam tiệm cận chuẩn mực y tế quốc tế, để bất kỳ gia đình nào cũng có thể an tâm sử dụng sản phẩm chăm sóc sức khỏe chất lượng cao, an toàn với chi phí hợp lý nhất.
               </p>
             </div>
 
@@ -375,7 +372,7 @@ export default function AboutPage() {
                 Tầm Nhìn — Vì sức khỏe cộng đồng, vì niềm tin người Việt
               </h3>
               <p className="text-[12px] leading-[18px] text-gray-600">
-                Hướng tới trở thành thương hiệu dược liệu Việt Nam tiên phong, mang chuẩn mực khoa học quốc tế đến gần hơn với mọi người dân Việt.
+                Trở thành biểu tượng niềm tin hàng đầu về dược liệu chuẩn y khoa tại Việt Nam, mang đến giải pháp chăm sóc sức khỏe bền vững, hạnh phúc cho hàng triệu gia đình.
               </p>
             </div>
           </div>
@@ -386,14 +383,14 @@ export default function AboutPage() {
       <section id="about-csr" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-2.5">
-            <span className="text-[11px] font-bold text-rose-600 tracking-wider uppercase">Trách nhiệm xã hội (CSR)</span>
+            <span className="text-[11px] font-bold text-rose-600 tracking-wider uppercase">Trách nhiệm cộng đồng</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              Khoa học và nhân ái luôn song hành
+              Khoa học và nhân ái — 25 năm lan tỏa yêu thương
             </h2>
           </div>
 
           <p className="text-[12.5px] leading-[19px] text-gray-600 mb-3.5">
-            Opodis Pharma luôn tích cực lan tỏa năng lượng tích cực, chung tay cùng cộng đồng qua các chiến dịch vì thế hệ trẻ và đội ngũ y tế:
+            Opodis Pharma luôn tin rằng giá trị lớn nhất của khoa học là mang lại cuộc sống tốt đẹp hơn. Chúng tôi tự hào đồng hành cùng các chiến dịch nhân văn vì thế hệ tương lai và lực lượng y tế:
           </p>
 
           <div className="space-y-4">
@@ -412,11 +409,11 @@ export default function AboutPage() {
                   Thành Đoàn TP.HCM
                 </span>
                 <h3 className="text-[13px] font-bold text-gray-900">
-                  Tiếp sức mùa thi – Lan tỏa yêu thương
+                  Tiếp sức mùa thi — Chắp cánh ước mơ tri thức
                 </h3>
               </div>
               <p className="text-[12px] leading-[18px] text-gray-600">
-                Đồng hành cùng chương trình <em>“Tiếp sức mùa thi”</em> của Thành Đoàn TP.HCM, mang đến sự hỗ trợ thiết thực cho hàng ngàn sĩ tử. Năm 2023, Opodis vinh dự nhận <strong>Thư Cảm Ơn</strong> ghi nhận đóng góp trong hành trình 30 năm chiến dịch tình nguyện hè.
+                Đồng hành cùng chương trình <em>“Tiếp sức mùa thi”</em> của Thành Đoàn TP.HCM suốt 30 năm chiến dịch tình nguyện hè, trao gửi hàng ngàn phần quà tiếp thêm năng lượng cho sĩ tử vượt vũ môn. Năm 2023, Opodis vinh dự nhận <strong>Thư Cảm Ơn</strong> ghi nhận đóng góp bền bỉ.
               </p>
             </div>
 
@@ -435,11 +432,11 @@ export default function AboutPage() {
                   Tuyến đầu HCDC
                 </span>
                 <h3 className="text-[13px] font-bold text-gray-900">
-                  Đồng hành cùng tuyến đầu chống đại dịch
+                  Đồng hành cùng tuyến đầu — Chung tay vì sức khỏe cộng đồng
                 </h3>
               </div>
               <p className="text-[12px] leading-[18px] text-gray-600">
-                Giai đoạn cao điểm chống dịch COVID-19, Opodis kịp thời trao tặng <strong>10.000 chai dung dịch sát khuẩn y tế</strong> và <strong>1.200 phần bánh</strong> đến Trung tâm Kiểm soát Bệnh tật TP.HCM (HCDC), được HCDC gửi Thư Cảm Ơn vinh danh nghĩa cử cao đẹp.
+                Giai đoạn cao điểm phòng chống đại dịch, Opodis kịp thời chi viện <strong>10.000 chai dung dịch sát khuẩn y tế</strong> và <strong>1.200 phần bánh</strong> đến Trung tâm Kiểm soát Bệnh tật TP.HCM (HCDC), góp phần tạo nên lá chắn phòng dịch vững vàng.
               </p>
             </div>
           </div>
@@ -450,19 +447,19 @@ export default function AboutPage() {
       <section id="about-network" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Mạng lưới tin cậy</span>
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Bảo chứng niềm tin</span>
             <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
-              Hệ thống phân phối & Cơ sở pháp lý
+              Hơn 80 bệnh viện lớn & Mạng lưới phân phối uy tín
             </h2>
           </div>
 
           {/* Đối tác 80+ bệnh viện */}
           <div className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/70 mb-3.5">
             <h3 className="text-[13px] font-bold text-emerald-950 mb-1">
-              Tin dùng tại hơn 80+ Bệnh viện lớn toàn quốc
+              Bác sĩ và chuyên gia tại hơn 80 bệnh viện lớn tin chọn
             </h3>
             <p className="text-[12px] leading-[18px] text-emerald-900/80">
-              Các sản phẩm Opodis Pharma hiện diện rộng rãi tại: Bệnh viện Từ Dũ, BV Hùng Vương, BV Chợ Rẫy, BV Nhi Đồng, Viện Pasteur, BV Đại học Y Dược... khẳng định độ tin cậy y khoa cao nhất.
+              Sự hiện diện tại các bệnh viện đầu ngành như Bệnh viện Từ Dũ, BV Hùng Vương, BV Chợ Rẫy, BV Nhi Đồng, Viện Pasteur... chính là bảo chứng vững chắc nhất cho chất lượng và độ an toàn của Opodis Pharma.
             </p>
           </div>
 
@@ -474,7 +471,7 @@ export default function AboutPage() {
                 <img src={opodisLogo} alt="Opodis Pharma Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex-1">
-                <span className="text-[10px] font-bold text-primary uppercase tracking-wide">Đơn vị sản xuất</span>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-wide">Đơn vị sản xuất chuẩn GMP-WHO</span>
                 <h4 className="font-extrabold text-gray-900 leading-snug">
                   CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU OPODIS
                 </h4>
@@ -493,7 +490,7 @@ export default function AboutPage() {
                 <img src={triNghiaLogo} alt="Trí Nghĩa Pharma Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex-1">
-                <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wide">Nhà phân phối độc quyền</span>
+                <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wide">Nhà phân phối độc quyền toàn quốc</span>
                 <h4 className="font-extrabold text-gray-900 leading-snug">
                   CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU TRÍ NGHĨA
                 </h4>
@@ -515,7 +512,7 @@ export default function AboutPage() {
 
           {/* Kênh phân phối TMĐT chính hãng */}
           <div className="mt-3.5 pt-3 border-t border-gray-100">
-            <h4 className="text-[12px] font-bold text-gray-700 mb-2">Gian hàng trực tuyến chính hãng:</h4>
+            <h4 className="text-[12px] font-bold text-gray-700 mb-2">Gian hàng trực tuyến chính hãng 100%:</h4>
             <div className="grid grid-cols-3 gap-2">
               <a
                 href="https://shopee.vn/opodispharma"
@@ -549,7 +546,7 @@ export default function AboutPage() {
       {/* 8. KÊNH THÔNG TIN CHÍNH THỨC & LIÊN HỆ */}
       <section className="mx-3.5 mb-4">
         <h2 className="text-[14px] font-black text-gray-900 mb-2.5 px-1 uppercase tracking-wide">
-          Kênh liên hệ & Hỗ trợ trực tiếp
+          Kết nối với chuyên gia Opodis Pharma
         </h2>
         <div className="space-y-2.5">
           {/* Website Opodis */}
@@ -566,7 +563,7 @@ export default function AboutPage() {
               </span>
             </div>
             <span className="text-primary font-bold text-[13px] flex-none">
-              Truy cập →
+              Khám phá ngay →
             </span>
           </a>
 
@@ -576,11 +573,11 @@ export default function AboutPage() {
             className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
           >
             <div className="flex flex-col min-w-0 pr-2">
-              <span className="text-[11px] font-medium text-gray-500">Hotline tư vấn dược sĩ</span>
+              <span className="text-[11px] font-medium text-gray-500">Hotline tư vấn dược sĩ 24/7</span>
               <span className="text-[14px] font-bold text-primary truncate">(0283) 7582 741</span>
             </div>
             <span className="text-primary font-bold text-[13px] flex-none">
-              Gọi ngay →
+              Tư vấn ngay →
             </span>
           </a>
         </div>
