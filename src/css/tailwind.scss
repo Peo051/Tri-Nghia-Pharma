@@ -54,16 +54,16 @@
   --skeleton-rgb: 229 231 235;
 }
 
-/* Heading defaults - aligned with opodispharma.com (Nunito, 900, #116936) */
+/* Heading defaults - Tahoma, #116936 */
 h1, h2, h3, h4, h5, h6, .heading-font {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-weight: 800;
   color: var(--primary);
 }
 
 /* Opodis Typography Scale */
 .text-page-title {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 800;
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-section-title {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 17px;
   line-height: 24px;
   font-weight: 900;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-product-name {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-product-category {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 11px;
   line-height: 16px;
   font-weight: 800;
@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-product-price {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 15px;
   line-height: 20px;
   font-weight: 800;
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-body-custom {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 13px;
   line-height: 20px;
   font-weight: 500;
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6, .heading-font {
 }
 
 .text-body-muted {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Tahoma', sans-serif;
   font-size: 13px;
   line-height: 18px;
   font-weight: 500;

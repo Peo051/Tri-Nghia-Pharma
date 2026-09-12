@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Nunito", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        heading: ["Nunito", "sans-serif"],
+        sans: ["Tahoma", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "sans-serif"],
+        heading: ["Tahoma", "sans-serif"],
       },
       colors: {
         "brand-primary": "rgb(var(--brand-primary-rgb) / <alpha-value>)",
