@@ -201,27 +201,13 @@ const HomePage: React.FunctionComponent = () => {
       {/* 1. Promotional Carousel */}
       <Banners onSelectCategory={handleSelectCategory} />
 
-      {/* 2. Flash Sale cho một số sản phẩm nổi bật */}
-      <FlashSale products={products} />
+      {/* 2. Khối Quan tâm Zalo OA (trên phần sale) */}
+      <section className="px-4 mt-3.5 mb-1">
+        <FollowOAWidget />
+      </section>
 
-      {/* 3. Official information notice */}
-      <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/15 p-3 flex items-center gap-3 shadow-xs">
-        <div className="w-11 h-11 rounded-xl bg-white border border-primary/20 shadow-xs flex items-center justify-center p-1.5 flex-none">
-          <img
-            src={opodisLogo}
-            alt="Opodis Pharma"
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <div className="min-w-0 flex-1">
-          <span className="block text-[12px] font-bold text-primary">
-            Thông tin từ Opodis Pharma
-          </span>
-          <p className="text-[11px] leading-4 text-subtitle mt-0.5">
-            Theo dõi các nhóm sản phẩm và thông tin chăm sóc sức khỏe trên kênh chính thức.
-          </p>
-        </div>
-      </div>
+      {/* 3. Flash Sale cho một số sản phẩm nổi bật */}
+      <FlashSale products={products} />
 
       {/* 4. Category Filter Tabs */}
       <section id="home-categories" className="mt-5">
@@ -389,11 +375,6 @@ const HomePage: React.FunctionComponent = () => {
             )}
           </div>
         )}
-      </section>
-
-      {/* Khối Quan tâm Zalo OA */}
-      <section className="px-4 mt-6 mb-8">
-        <FollowOAWidget />
       </section>
     </div>
   );
