@@ -101,12 +101,12 @@ export default function ProductDetailPage() {
     <div className="w-full min-h-full pb-10 bg-background">
       {/* 1. Product Media & Gallery */}
       <div className="w-full px-4 pt-3 flex flex-col items-center">
-        <div className="w-full max-w-[360px] aspect-square rounded-3xl bg-section/80 border border-border/70 p-5 flex items-center justify-center overflow-hidden relative shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+        <div className="w-full max-w-[360px] aspect-square rounded-3xl bg-section/80 border border-border/70 p-4 flex items-center justify-center overflow-hidden relative shadow-[0_2px_8px_rgba(0,0,0,0.02)] group">
           {displayImage ? (
             <img
               src={displayImage}
               alt={product.name}
-              className="w-full h-full object-contain transition-all duration-200"
+              className="w-full h-full max-w-full max-h-full object-contain transition-all duration-300 ease-out group-hover:scale-105"
               style={{
                 viewTransitionName:
                   displayImage === product.image
@@ -138,16 +138,16 @@ export default function ProductDetailPage() {
                   type="button"
                   onClick={() => setSelectedImage(img)}
                   aria-label={`Xem ảnh ${index + 1}`}
-                  className={`w-14 h-14 rounded-xl border-2 overflow-hidden flex-none bg-section/80 p-1 cursor-pointer transition-all duration-150 ${
+                  className={`w-14 h-14 rounded-xl border-2 overflow-hidden flex-none bg-section/80 p-1 cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 ${
                     isSelected
-                      ? "border-primary shadow-sm scale-105"
-                      : "border-border/80 opacity-70 hover:opacity-100"
+                      ? "border-primary shadow-sm scale-105 ring-2 ring-primary/20"
+                      : "border-border/80 opacity-70 hover:opacity-100 hover:border-primary/50"
                   }`}
                 >
                   <img
                     src={img}
                     alt={`${product.name} thumbnail ${index + 1}`}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-transform duration-200"
                   />
                 </button>
               );

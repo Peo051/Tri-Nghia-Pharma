@@ -25,8 +25,8 @@ export default function ProductItem(props: ProductItemProps) {
     >
       {({ isTransitioning }) => (
         <>
-          {/* Image Container: 1:1 aspect ratio, object-contain, padding 12px, soft & clean background */}
-          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 p-3 flex items-center justify-center relative">
+          {/* Image Container: clean 1:1 aspect ratio, padding 10px, object-contain, hover subtle scale */}
+          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 p-2.5 flex items-center justify-center relative group">
             {/* Promotion / Discount Badge */}
             {props.product.discountPercent ? (
               <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-secondary text-white text-[10px] font-bold shadow-xs">
@@ -41,7 +41,7 @@ export default function ProductItem(props: ProductItemProps) {
             {props.product.image ? (
               <img
                 src={props.product.image}
-                className="w-full h-full object-contain transition-transform duration-200"
+                className="w-full h-full max-h-full max-w-full object-contain transition-transform duration-300 ease-out group-hover:scale-105"
                 style={{
                   viewTransitionName:
                     isTransitioning && selected

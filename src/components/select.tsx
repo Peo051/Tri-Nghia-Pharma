@@ -24,7 +24,7 @@ export default function Select<T>(props: SelectProps<T>) {
   };
 
   return (
-    <div className="flex-none h-8 border border-black/15 rounded-full relative [&>.zaui-picker-input]:absolute [&>.zaui-picker-input]:inset-0 [&>.zaui-picker-input]:opacity-0">
+    <div className="flex-none h-8 border border-black/15 hover:border-primary/50 hover:bg-primary-soft/40 transition-colors rounded-full relative cursor-pointer active:scale-95 [&>.zaui-picker-input]:absolute [&>.zaui-picker-input]:inset-0 [&>.zaui-picker-input]:opacity-0">
       <Picker
         mask
         maskClosable

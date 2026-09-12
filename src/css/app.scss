@@ -53,3 +53,94 @@ body,
     min-height: unset;
   }
 }
+
+/* Enhanced Hover & Interactive States for Popups, Sheets, Pickers, and Modals */
+.zaui-modal-content,
+.zaui-sheet-content {
+  box-shadow: 0 16px 40px -8px rgba(17, 105, 54, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Modal Actions Hover */
+.zaui-modal-content-action,
+.zaui-sheet-content-action {
+  transition: all 0.15s ease-in-out;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4) !important;
+    color: var(--brand-primary, #116936) !important;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Picker & Select Sheet Items Hover */
+.zaui-picker-item {
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4);
+    color: var(--brand-primary, #116936);
+  }
+}
+
+.zaui-picker-item-selected {
+  background-color: var(--brand-primary-soft, #f0f7f4) !important;
+  color: var(--brand-primary, #116936) !important;
+  font-weight: 700;
+}
+
+/* Picker Close & Action Buttons Hover */
+.zaui-picker-close-icon,
+.zaui-modal-close-icon {
+  transition: all 0.15s ease;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+.zaui-picker-action button,
+.zaui-picker-action .zaui-btn {
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--brand-primary-dark, #2d5a3f) !important;
+    box-shadow: 0 4px 12px rgba(17, 105, 54, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Action Sheet Actions Hover */
+.zaui-action-sheet-action-button {
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--brand-primary-soft, #f0f7f4) !important;
+    color: var(--brand-primary, #116936) !important;
+  }
+}
+
+/* Toast Hover Enhancement */
+.toast-container > div > div {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  }
+}
