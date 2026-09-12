@@ -1,5 +1,6 @@
 import { Product } from "@/domain/product";
 import { formatPrice } from "@/utils/format";
+import { getPrimaryCategory } from "@/utils/products";
 import TransitionLink from "./transition-link";
 import { useState } from "react";
 
@@ -17,43 +18,60 @@ export default function ProductItem(props: ProductItemProps) {
 
   return (
     <TransitionLink
-      className="flex flex-col cursor-pointer group bg-background rounded-card p-2 border border-border/80 shadow-[0_1px_4px_rgba(0,0,0,0.03)] hover:shadow-md transition-all active:scale-[0.98]"
+      className="flex flex-col cursor-pointer bg-background rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       to={`/product/${props.product.id}`}
       replace={props.replace}
       onClick={() => setSelected(true)}
     >
       {({ isTransitioning }) => (
         <>
-          <div className="w-full aspect-square overflow-hidden rounded-image bg-section flex items-center justify-center">
-            <img
-              src={props.product.image}
-              className="w-full h-full object-cover rounded-image transition-transform duration-200 group-hover:scale-105"
-              style={{
-                viewTransitionName:
-                  isTransitioning && selected
-                    ? `product-image-${props.product.id}`
-                    : undefined,
-              }}
-              alt={props.product.name}
-              loading="lazy"
-            />
+          {/* Image Container: 1:1 aspect ratio, object-contain, padding 12px, soft & clean background */}
+          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 p-3 flex items-center justify-center">
+            {props.product.image ? (
+              <img
+                src={props.product.image}
+                className="w-full h-full object-contain transition-transform duration-200"
+                style={{
+                  viewTransitionName:
+                    isTransitioning && selected
+                      ? `product-image-${props.product.id}`
+                      : undefined,
+                }}
+                alt={props.product.name}
+                loading="lazy"
+              />
+            ) : (
+              <span className="text-center text-xs text-subtitle">
+                Hình ảnh đang được cập nhật
+              </span>
+            )}
           </div>
-          <div className="pt-2 pb-1 flex flex-col flex-1 justify-between">
+
+          {/* Product Content: Vertical rhythm (image -> 10px -> category -> 4px -> name -> 10px -> price) */}
+          <div className="pt-2.5 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
             <div>
-              <div className="text-product-category truncate mb-0.5">
-                {props.product.category}
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase truncate">
+                  {getPrimaryCategory(props.product)}
+                </span>
+                {props.product.volume && (
+                  <span className="text-[10px] text-subtitle/90 bg-section px-1.5 py-0.5 rounded font-normal flex-none truncate max-w-[80px]">
+                    {props.product.volume.split(" và ")[0]}
+                  </span>
+                )}
               </div>
-              <h3 className="text-product-name line-clamp-2 h-10 font-medium">
+              <h3 className="text-[14px] leading-[20px] font-medium text-foreground line-clamp-2 h-10">
                 {props.product.name}
               </h3>
             </div>
-            <div className="mt-2 flex items-baseline justify-between">
-              <span className="text-product-price">
-                {formatPrice(props.product.price)}
-              </span>
-              {props.product.volume && (
-                <span className="text-[11px] text-subtitle font-normal px-1.5 py-0.5 rounded-pill bg-section">
-                  {props.product.volume}
+            <div className="mt-2.5 pt-0.5 flex items-center justify-between">
+              {props.product.price != null ? (
+                <span className="text-[15px] leading-none font-bold text-primary-dark">
+                  {formatPrice(props.product.price)}
+                </span>
+              ) : (
+                <span className="inline-flex items-center text-[13px] leading-none font-semibold text-primary">
+                  Liên hệ
                 </span>
               )}
             </div>

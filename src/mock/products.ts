@@ -1,31 +1,97 @@
 import { Product } from "@/domain/product";
-import opfluPlaceholder from "@/static/products/opflu-placeholder.svg";
-import opodex70Placeholder from "@/static/products/opodex-70-placeholder.svg";
-import opoluxPlaceholder from "@/static/products/opolux-placeholder.svg";
-import phytobebePlaceholder from "@/static/products/phytobebe-placeholder.svg";
-import phytogynoDailyPlaceholder from "@/static/products/phytogyno-daily-placeholder.svg";
-import phytogynoPlaceholder from "@/static/products/phytogyno-placeholder.svg";
-import rawProducts from "./products.json";
+import opodisSnapshot from "@/data/opodis-products.json";
+import {
+  resolveProductAsset,
+  resolveProductGallery,
+} from "@/utils/product-assets";
 
-const productImages: Record<string, string> = {
-  phytobebe: phytobebePlaceholder,
-  phytogyno: phytogynoPlaceholder,
-  "phytogyno-daily": phytogynoDailyPlaceholder,
-  opflu: opfluPlaceholder,
-  opolux: opoluxPlaceholder,
-  "opodex-70": opodex70Placeholder,
-};
+// Keep this import path for the template's existing consumers. The source of
+// truth is the generated official snapshot, not the original mock catalogue.
 
-// Prices are intentionally illustrative and must be replaced before production use.
-export const products: Product[] = rawProducts.map((product): Product => {
-  const image = productImages[product.id];
+interface OpodisProductSnapshot {
+  id: string;
+  sourceUrl: string;
+  canonicalUrl: string;
+  name: string;
+  category: string | null;
+  categories: string[] | null;
+  price: number | null;
+  currency: string | null;
+  image: string | null;
+  galleryImages: string[] | null;
+  shortDescription: string;
+  description: string;
+  volume?: string | null;
+  packaging?: string | null;
+  ingredients?: string | string[] | null;
+  activeIngredients?: string | string[] | null;
+  uses?: string | string[] | null;
+  directions?: string | string[] | null;
+  warnings?: string | string[] | null;
+  advantages?: string | string[] | null;
+  registrationNumber?: string | null;
+  purchaseLinks?: string[] | null;
+}
 
-  if (!image) {
-    throw new Error(`Missing local placeholder image for product: ${product.id}`);
-  }
+interface OpodisSnapshot {
+  products: OpodisProductSnapshot[];
+}
+
+function normalizeText(value: string | null | undefined): string | null {
+  const normalized = value?.trim() ?? "";
+  return normalized || null;
+}
+
+function normalizeTextList(
+  value: string | string[] | null | undefined
+): string[] {
+  const values = Array.isArray(value) ? value : [value ?? ""];
+
+  return [
+    ...new Set(
+      values
+        .map((item) => (typeof item === "string" ? item.trim() : ""))
+        .filter(Boolean)
+    ),
+  ];
+}
+
+const snapshot: OpodisSnapshot = opodisSnapshot;
+
+export const products: Product[] = snapshot.products.map((product) => {
+  const categories = normalizeTextList([
+    ...(product.categories ?? []),
+    product.category ?? "",
+  ]);
+  const image = product.image ? resolveProductAsset(product.image) : null;
+  const resolvedGallery = resolveProductGallery(product.galleryImages ?? []);
+  const gallery = image
+    ? resolvedGallery.filter((asset) => asset !== image)
+    : resolvedGallery;
+  const purchaseLinks = normalizeTextList(product.purchaseLinks);
 
   return {
-    ...product,
+    id: product.id,
+    sourceUrl: product.sourceUrl,
+    canonicalUrl: product.canonicalUrl,
+    name: product.name,
+    categories,
+    category: normalizeText(product.category) ?? categories[0] ?? "",
+    price: product.price,
+    currency: product.currency ?? null,
     image,
+    gallery,
+    shortDescription: product.shortDescription,
+    description: product.description,
+    registrationNumber: normalizeText(product.registrationNumber),
+    packaging: normalizeText(product.packaging),
+    volume: normalizeText(product.volume),
+    ingredients: normalizeTextList(product.ingredients),
+    activeIngredients: normalizeTextList(product.activeIngredients),
+    uses: normalizeTextList(product.uses),
+    directions: normalizeTextList(product.directions),
+    warnings: normalizeTextList(product.warnings),
+    advantages: normalizeTextList(product.advantages),
+    ...(purchaseLinks.length ? { purchaseLinks } : {}),
   };
 });

@@ -17,7 +17,9 @@
   "scripts": {
     "start": "zmp start",
     "deploy": "zmp deploy",
-    "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
+    "build:css": "postcss src/css/tailwind.css -o src/css/styles.css",
+    "sync:opodis": "node scripts/sync-opodis-products.mjs",
+    "validate:opodis": "node scripts/validate-opodis-products.mjs"
   },
   "dependencies": {
     "@react-spring/web": "^9.7.4",

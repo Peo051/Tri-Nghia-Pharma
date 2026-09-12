@@ -24,6 +24,6 @@ export default function Section(props: PropsWithChildren<SectionProps>) {
         )}
       </div>
       {props.children}
-    </div>
+    </section>
   );
 }

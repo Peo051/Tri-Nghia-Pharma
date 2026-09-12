@@ -3,22 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* Opodis Pharma Brand Design Tokens */
-  --primary: #3F873F;
-  --primary-dark: #2D6A2E;
-  --primary-soft: #EAF4EA;
-  --background: #FFFFFF;
-  --section: #F7F9F7;
-  --foreground: #1F2937;
-  --subtitle: #6B7280;
-  --border: #E5E7EB;
+  /* Opodis Pharma Official Brand Design Tokens */
+  /* Source: https://opodispharma.com/wp-content/themes/flatsome-child/custom_styles_utf8.css */
+  --primary: #116936;
+  --primary-dark: #0d522a;
+  --primary-soft: #edf5f0;
+  --secondary: #c05530;
+  --accent: #489a0d;
+  --success: #627d47;
+  --background: #ffffff;
+  --section: #f4f4f4;
+  --foreground: #141415;
+  --subtitle: #6f7071;
+  --border: #e9ebed;
 
-  /* Additional Tokens */
-  --secondary: #EAF4EA;
-  --inactive: #9CA3AF;
-  --tabIndicator: #3F873F;
-  --danger: #EF4444;
-  --skeleton: #E5E7EB;
+  /* Functional Tokens */
+  --inactive: #9ca3af;
+  --tabIndicator: #116936;
+  --danger: #ef4444;
+  --skeleton: #e5e7eb;
 }
 
 /* Opodis Typography Scale */

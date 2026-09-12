@@ -74,7 +74,7 @@ const router = createBrowserRouter(
           path: "/about",
           element: <AboutPage />,
           handle: {
-            title: "Về Opodis Pharma",
+            title: "Giới thiệu",
           },
         },
         {

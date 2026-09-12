@@ -1,12 +1,10 @@
 import ProductGrid from "@/components/product-grid";
-import { getRelatedProducts } from "@/utils/products";
+import { Product } from "@/domain/product";
 
 export interface RelatedProductsProps {
-  currentProductId: string;
+  products: Product[];
 }
 
 export default function RelatedProducts(props: RelatedProductsProps) {
-  const relatedProducts = getRelatedProducts(props.currentProductId, 4);
-
-  return <ProductGrid replace products={relatedProducts} />;
+  return <ProductGrid replace products={props.products} />;
 }

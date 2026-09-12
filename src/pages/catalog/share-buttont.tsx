@@ -8,7 +8,7 @@ export default function ShareButton(props: { product: Product }) {
       type: "zmp_deep_link",
       data: {
         title: props.product.name,
-        thumbnail: props.product.image,
+        thumbnail: props.product.image ?? "",
         path: `/product/${props.product.id}`,
       },
     });

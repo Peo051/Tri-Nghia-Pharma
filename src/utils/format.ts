@@ -1,7 +1,7 @@
-export function formatPrice(price: number) {
-  return new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
-    currencyDisplay: "code",
-  }).format(price);
+export function formatPrice(price: number | null | undefined): string {
+  if (price == null) {
+    return "Liên hệ";
+  }
+
+  return `${new Intl.NumberFormat("vi-VN").format(price)} ₫`;
 }

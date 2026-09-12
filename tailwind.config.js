@@ -11,6 +11,8 @@ module.exports = {
         "primary-dark": "var(--primary-dark)",
         "primary-soft": "var(--primary-soft)",
         secondary: "var(--secondary)",
+        accent: "var(--accent)",
+        success: "var(--success)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         section: "var(--section)",
