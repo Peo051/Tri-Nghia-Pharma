@@ -138,7 +138,7 @@ export default function SearchPage() {
   return (
     <div className="w-full min-h-full pb-10 bg-background">
       {/* 1. Sticky Header with Search Bar and Quick Tags */}
-      <div className="pt-3 pb-2 bg-background sticky top-0 z-20 border-b border-border/60 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+      <div className="pt-3 pb-2 bg-white sticky top-0 z-20 border-b border-border/60 shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
         <SearchBar
           ref={inputRef}
           value={keyword}

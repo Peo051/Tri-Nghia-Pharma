@@ -105,7 +105,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               <TransitionLink
                 key={product.id}
                 to={`/product/${product.id}`}
-                className="w-[140px] flex-none flex flex-col bg-background rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/50 active:scale-95 transition-all group"
+                className="w-[140px] flex-none flex flex-col bg-white rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/50 active:scale-95 transition-all group"
               >
                 {/* Image container */}
                 <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">

@@ -81,7 +81,7 @@ export default function AboutPage() {
 
       {/* 2. Câu chuyện thảo dược & Sứ mệnh */}
       <section aria-labelledby="story-section-title" className="mx-4 mb-4">
-        <div className="p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
       {/* 3. Dòng sản phẩm trọng tâm */}
       <section aria-labelledby="products-pillar-title" className="mx-4 mb-4">
-        <div className="p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <h2 id="products-pillar-title" className="text-[15px] font-extrabold text-primary mb-3">
             4 Nhóm giải pháp trọng tâm
           </h2>
@@ -219,7 +219,7 @@ export default function AboutPage() {
             target="_blank"
             rel="noreferrer"
             aria-label="Truy cập website chính thức opodispharma.com"
-            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all min-h-[56px] group"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all min-h-[56px] group"
           >
             <div className="flex items-center space-x-3 min-w-0 flex-1 pr-2">
               <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center text-primary flex-none">
@@ -267,7 +267,7 @@ export default function AboutPage() {
           <a
             href="tel:02837582741"
             aria-label="Gọi hotline tư vấn"
-            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all min-h-[56px] group"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all min-h-[56px] group"
           >
             <div className="flex items-center space-x-3 min-w-0 flex-1 pr-2">
               <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center text-primary flex-none">

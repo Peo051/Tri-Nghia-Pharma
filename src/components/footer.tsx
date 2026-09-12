@@ -56,7 +56,7 @@ export default function Footer() {
   const location = useLocation();
 
   return (
-    <footer className="sticky bottom-0 z-30 w-full flex-none border-t border-border/80 bg-background/95 shadow-[0_-4px_16px_rgba(17,105,54,0.08)] backdrop-blur-md">
+    <footer className="sticky bottom-0 z-30 w-full flex-none border-t border-border/80 bg-white/95 shadow-[0_-4px_16px_rgba(17,105,54,0.08)] backdrop-blur-md">
       <nav
         aria-label="Điều hướng chính"
         className="w-full max-w-lg mx-auto px-1.5 pt-1.5 grid"

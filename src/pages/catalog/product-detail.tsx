@@ -329,7 +329,7 @@ export default function ProductDetailPage() {
 
       {/* 4. Công dụng & Chỉ định */}
       {activeUses.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -362,7 +362,7 @@ export default function ProductDetailPage() {
 
       {/* 5. Thành phần & Hoạt chất */}
       {(activeIngredientsList.length > 0 || regularIngredientsList.length > 0) && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -415,7 +415,7 @@ export default function ProductDetailPage() {
 
       {/* 6. Hướng dẫn sử dụng */}
       {activeDirections.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-background border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg

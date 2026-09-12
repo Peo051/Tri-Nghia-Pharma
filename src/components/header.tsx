@@ -46,7 +46,7 @@ export default function Header() {
   };
 
   return (
-    <header className="h-14 w-full flex items-center px-4 py-2 bg-background border-b border-border/70 flex-none pr-[106px] shadow-[0_1px_4px_rgba(17,105,54,0.04)] justify-between">
+    <header className="h-14 w-full flex items-center px-4 py-2 bg-white border-b border-border/70 flex-none pr-[106px] shadow-[0_1px_4px_rgba(17,105,54,0.04)] justify-between">
       <div className="flex items-center space-x-1.5 min-w-0">
         {showBack && (
           <button
