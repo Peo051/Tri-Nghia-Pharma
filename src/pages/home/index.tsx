@@ -6,6 +6,7 @@ import CategoryFilter from "./category-filter";
 import ProductGrid from "@/components/product-grid";
 import CustomerSummary from "@/components/customer-summary";
 import QuickActions from "@/components/quick-actions";
+import opodisLogo from "@/static/logo-opodis.png";
 
 const HomePage: React.FunctionComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -59,14 +60,22 @@ const HomePage: React.FunctionComponent = () => {
       <QuickActions className="mt-4" />
 
       {/* 4. Official information notice */}
-      <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/10 p-3.5">
-        <span className="block text-[11px] font-semibold text-primary">
-          Thông tin từ Opodis Pharma
-        </span>
-        <p className="text-[12px] leading-5 text-subtitle mt-0.5">
-          Theo dõi các nhóm sản phẩm và thông tin chăm sóc sức khỏe trên kênh
-          chính thức của Opodis.
-        </p>
+      <div className="mx-4 mt-4 rounded-2xl bg-primary-soft/70 border border-primary/15 p-3 flex items-center gap-3 shadow-xs">
+        <div className="w-11 h-11 rounded-xl bg-white border border-primary/20 shadow-xs flex items-center justify-center p-1.5 flex-none">
+          <img
+            src={opodisLogo}
+            alt="Opodis Pharma"
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <span className="block text-[12px] font-bold text-primary">
+            Thông tin từ Opodis Pharma
+          </span>
+          <p className="text-[11px] leading-4 text-subtitle mt-0.5">
+            Theo dõi các nhóm sản phẩm và thông tin chăm sóc sức khỏe trên kênh chính thức.
+          </p>
+        </div>
       </div>
 
       {/* 5. Category Filter */}

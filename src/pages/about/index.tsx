@@ -1,4 +1,5 @@
 import triNghiaLogo from "@/static/logo-tringhia.png";
+import opodisLogo from "@/static/logo-opodis.png";
 
 export default function AboutPage() {
   return (
@@ -22,28 +23,30 @@ export default function AboutPage() {
         </div>
 
         <div className="relative z-10">
-          {/* Brand & Distributor Badge */}
-          <div className="flex items-center space-x-2.5 mb-3">
-            <img
-              src={triNghiaLogo}
-              alt="Logo Trí Nghĩa Pharma"
-              className="w-11 h-11 rounded-full object-contain p-0.5 bg-white border border-primary/20 shadow-xs flex-none"
-            />
-            <div className="flex flex-col">
-              <span className="text-[12px] font-bold text-primary tracking-wider uppercase">
-                TRÍ NGHĨA PHARMA
-              </span>
-              <span className="text-[10px] text-subtitle">
-                Đơn vị phân phối & phát triển
-              </span>
+          {/* Brand & Distributor Badges */}
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <div className="h-10 px-3 py-1 bg-white rounded-2xl border border-primary/20 shadow-xs flex items-center">
+              <img
+                src={opodisLogo}
+                alt="Logo Opodis Pharma"
+                className="h-7 w-auto object-contain"
+              />
             </div>
-          </div>
-
-          <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-pill bg-primary/10 text-primary mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-[11px] font-bold tracking-wider uppercase">
-              OPODIS PHARMA
-            </span>
+            <div className="flex items-center space-x-2 px-2.5 py-1 bg-white/95 rounded-2xl border border-border/80 shadow-xs">
+              <img
+                src={triNghiaLogo}
+                alt="Logo Trí Nghĩa Pharma"
+                className="w-7 h-7 rounded-full object-contain p-0.5 bg-white flex-none"
+              />
+              <div className="flex flex-col">
+                <span className="text-[11px] font-bold text-primary tracking-wide leading-tight uppercase">
+                  TRÍ NGHĨA
+                </span>
+                <span className="text-[9px] text-subtitle leading-tight">
+                  Phân phối
+                </span>
+              </div>
+            </div>
           </div>
 
           <h1 className="text-[22px] leading-[28px] font-black text-primary tracking-tight">
@@ -166,12 +169,21 @@ export default function AboutPage() {
             Cơ sở sản xuất & Doanh nghiệp
           </h2>
 
-          <div>
-            <h3 className="font-bold text-foreground">CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU OPODIS</h3>
-            <p className="text-subtitle mt-0.5 leading-[18px]">
-              Lô 78, Khu CX & CN Linh Trung III, Tây Ninh, Việt Nam
-            </p>
-            <p className="text-primary font-medium mt-0.5">Tel: (0276) 3898 656</p>
+          <div className="flex items-start space-x-3">
+            <div className="w-11 h-11 rounded-xl bg-white border border-border/80 shadow-xs flex items-center justify-center p-1 flex-none mt-0.5">
+              <img
+                src={opodisLogo}
+                alt="Logo Dược Phẩm Opodis"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <h3 className="font-bold text-foreground">CÔNG TY TNHH DƯỢC PHẨM - DƯỢC LIỆU OPODIS</h3>
+              <p className="text-subtitle mt-0.5 leading-[18px]">
+                Lô 78, Khu CX & CN Linh Trung III, Tây Ninh, Việt Nam
+              </p>
+              <p className="text-primary font-medium mt-0.5">Tel: (0276) 3898 656</p>
+            </div>
           </div>
 
           <div className="w-full h-[0.5px] bg-border/80" />

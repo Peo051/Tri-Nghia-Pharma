@@ -9,6 +9,7 @@ import { categoriesStateUpwrapped } from "@/state";
 import { BackIcon } from "./vectors";
 import { useMemo } from "react";
 import { useRouteHandle } from "@/hooks";
+import opodisLogo from "@/static/logo-opodis.png";
 
 export default function Header() {
   const categories = useAtomValue(categoriesStateUpwrapped);
@@ -30,21 +31,15 @@ export default function Header() {
 
   if (handle?.logo) {
     return (
-      <header className="h-14 w-full flex items-center justify-between px-4 py-2 bg-primary text-white flex-none pr-[106px] shadow-[0_2px_10px_rgba(17,105,54,0.16)]">
-        <div className="flex items-center space-x-2.5 min-w-0">
-          <div className="w-9 h-9 rounded-xl bg-white text-primary flex items-center justify-center font-black text-lg shadow-sm flex-none">
-            O
-          </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-[14px] font-bold tracking-tight leading-tight truncate">
-              OPODIS PHARMA
-            </span>
-            <span className="text-[10.5px] text-white/75 leading-none font-normal mt-0.5 truncate">
-              Dược phẩm & chăm sóc sức khỏe
-            </span>
-          </div>
+      <header className="h-14 w-full flex items-center justify-between px-4 py-2 bg-background border-b border-border/70 flex-none pr-[106px] shadow-[0_1px_4px_rgba(17,105,54,0.04)]">
+        <div className="flex items-center min-w-0">
+          <img
+            src={opodisLogo}
+            alt="Opodis Pharma Logo"
+            className="h-8 max-h-8 w-auto object-contain object-left"
+          />
         </div>
-        <span className="text-[10px] font-semibold tracking-[0.12em] text-white/80 uppercase flex-none">
+        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary-soft text-primary uppercase tracking-wider flex-none">
           Official
         </span>
       </header>
