@@ -11,9 +11,19 @@ import opodisLogo from "@/static/logo-opodis.png";
 import TransitionLink from "@/components/transition-link";
 
 import FlashSale from "@/components/flash-sale";
+import Pagination from "@/components/pagination";
+
+const ITEMS_PER_PAGE = 8;
 
 const HomePage: React.FunctionComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // Reset trang về 1 khi đổi danh mục
+  const handleSelectCategory = (cat: string) => {
+    setSelectedCategory(cat);
+    setCurrentPage(1);
+  };
 
   const categoryOptions = useMemo(
     () => [
@@ -52,10 +62,17 @@ const HomePage: React.FunctionComponent = () => {
     });
   }, [selectedCategory]);
 
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
+
   return (
     <div className="w-full min-h-full pb-6">
       {/* 1. Promotional Carousel */}
-      <Banners onSelectCategory={setSelectedCategory} />
+      <Banners onSelectCategory={handleSelectCategory} />
 
       {/* Flash Sale cho một số sản phẩm nổi bật */}
       <FlashSale products={products} />
@@ -95,7 +112,7 @@ const HomePage: React.FunctionComponent = () => {
         <CategoryFilter
           options={categoryOptions}
           selectedId={selectedCategory}
-          onSelectCategory={setSelectedCategory}
+          onSelectCategory={handleSelectCategory}
         />
       </section>
 
@@ -110,13 +127,14 @@ const HomePage: React.FunctionComponent = () => {
               {selectedCategory === "all"
                 ? `${products.length} sản phẩm Opodis Pharma chính hãng`
                 : `${filteredProducts.length} sản phẩm trong danh mục`}
+              {totalPages > 1 && ` (Trang ${currentPage}/${totalPages})`}
             </span>
           </div>
 
           {selectedCategory !== "all" && (
             <button
               type="button"
-              onClick={() => setSelectedCategory("all")}
+              onClick={() => handleSelectCategory("all")}
               className="text-[12px] font-semibold text-primary hover:text-primary-dark transition cursor-pointer"
             >
               Xem tất cả
@@ -124,8 +142,21 @@ const HomePage: React.FunctionComponent = () => {
           )}
         </div>
 
-        {filteredProducts.length > 0 ? (
-          <ProductGrid products={filteredProducts} />
+        {paginatedProducts.length > 0 ? (
+          <>
+            <ProductGrid products={paginatedProducts} />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={(page) => {
+                setCurrentPage(page);
+                const el = document.getElementById("home-products");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+              }}
+            />
+          </>
         ) : (
           <div className="py-12 px-4 text-center">
             <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-section flex items-center justify-center text-subtitle">

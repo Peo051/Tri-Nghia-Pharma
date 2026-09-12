@@ -5,6 +5,10 @@ import { products } from "@/mock/products";
 import { getProductCategories } from "@/utils/products";
 import TransitionLink from "@/components/transition-link";
 
+import Pagination from "@/components/pagination";
+
+const ITEMS_PER_PAGE = 8;
+
 function matchesCategory(productCategory: string, selectedCategory: string) {
   return productCategory.trim().toLocaleLowerCase("vi-VN") ===
     selectedCategory.trim().toLocaleLowerCase("vi-VN");
@@ -12,6 +16,12 @@ function matchesCategory(productCategory: string, selectedCategory: string) {
 
 export default function CatalogPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const handleSelectCategory = (cat: string) => {
+    setSelectedCategory(cat);
+    setCurrentPage(1);
+  };
 
   const categoryOptions = useMemo(
     () => [
@@ -41,6 +51,13 @@ export default function CatalogPage() {
       )
     );
   }, [selectedCategory]);
+
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProducts.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
 
   return (
     <div className="min-h-full bg-section/30 py-4 pb-6">
@@ -90,7 +107,7 @@ export default function CatalogPage() {
       <CategoryFilter
         options={categoryOptions}
         selectedId={selectedCategory}
-        onSelectCategory={setSelectedCategory}
+        onSelectCategory={handleSelectCategory}
       />
 
       <div className="px-4 mt-4 mb-2 flex items-center justify-between">
@@ -99,10 +116,20 @@ export default function CatalogPage() {
         </span>
         <span className="text-[11px] text-subtitle">
           {filteredProducts.length} sản phẩm
+          {totalPages > 1 && ` (Trang ${currentPage}/${totalPages})`}
         </span>
       </div>
 
-      <ProductGrid products={filteredProducts} />
+      <ProductGrid products={paginatedProducts} />
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(page) => {
+          setCurrentPage(page);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      />
     </div>
   );
 }
