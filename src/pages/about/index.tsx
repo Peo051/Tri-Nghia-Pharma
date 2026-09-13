@@ -457,11 +457,11 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex items-center gap-1.5 mb-1">
-                <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-bold">
+              <div className="mb-1.5">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-bold mb-1 shadow-2xs">
                   Thành Đoàn TP.HCM
                 </span>
-                <h3 className="text-[13px] font-bold text-gray-900">
+                <h3 className="text-[13px] font-bold text-gray-900 leading-snug">
                   Tiếp sức mùa thi — Chắp cánh ước mơ tri thức
                 </h3>
               </div>
@@ -480,11 +480,11 @@ export default function AboutPage() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex items-center gap-1.5 mb-1">
-                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
+              <div className="mb-1.5">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold mb-1 shadow-2xs">
                   Tuyến đầu HCDC
                 </span>
-                <h3 className="text-[13px] font-bold text-gray-900">
+                <h3 className="text-[13px] font-bold text-gray-900 leading-snug">
                   Đồng hành cùng tuyến đầu — Chung tay vì sức khỏe cộng đồng
                 </h3>
               </div>
