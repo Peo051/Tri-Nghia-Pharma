@@ -12,30 +12,35 @@
   <img alt="Vite" src="https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img alt="TailwindCSS" src="https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
   <img alt="Production Assets" src="https://img.shields.io/badge/Production%20Assets-2.80%20MiB%20(%3C%3D%206%20MiB)-116936?style=for-the-badge" />
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-0d542b?style=for-the-badge" />
 </p>
 
 ---
 
-## 📱 1. Hình Ảnh Demo Trực Tiếp Dự Án (Full Màn Hình Các Tab)
+## 📱 1. Hình Ảnh Demo Trực Tiếp Dự Án (Full Màn Hình Các Tab - Đồng Nhất Kích Thước)
 
 > [!NOTE]
-> Toàn bộ ảnh demo được chụp thực tế với tỉ lệ màn hình điện thoại di động chuẩn (20:9), hiển thị đầy đủ Header, nội dung và thanh điều hướng Bottom Navigation. Popup quảng cáo đã được tắt để quan sát trọn vẹn từng tính năng.
+> Toàn bộ ảnh demo được chụp thực tế với tỉ lệ màn hình điện thoại di động chuẩn (20:9), hiển thị đầy đủ Header, nội dung và thanh điều hướng Bottom Navigation. Mọi hình ảnh đều có **cùng kích thước hiển thị chuẩn (width 350px, tỉ lệ gốc 824 × 1830)**, đảm bảo tính trực quan, cân đối và thẩm mỹ tối đa.
 
-| 🏠 01. Trang Chủ (Home Screen) | 📑 02. Danh Mục Sản Phẩm (Catalog) | 🔍 03. Chi Tiết Sản Phẩm (Detail) |
-| :---: | :---: | :---: |
-| <img src="./docs/demo/01-home-screen.png" width="270" alt="Trang chủ Opodis Pharma Zalo Mini App" /> | <img src="./docs/demo/02-catalog-screen.png" width="270" alt="Danh mục sản phẩm Opodis Pharma" /> | <img src="./docs/demo/03-product-detail.png" width="270" alt="Chi tiết sản phẩm Phytobebe" /> |
-| *Banner, Quan tâm OA, Flash Sale thời gian thực & Phân loại* | *Bộ lọc danh mục đa tầng, lưới 2 cột hiển thị 22 sản phẩm chuẩn Y tế* | *Bộ sưu tập ảnh đa góc, giá sale, cam kết & thông tin dược lý* |
+| 🏠 01. Trang Chủ (Home Screen) | 📑 02. Danh Mục Sản Phẩm (Catalog) |
+| :---: | :---: |
+| <img src="./docs/demo/01-home-screen.png" width="350" alt="Trang chủ Opodis Pharma Zalo Mini App" /> | <img src="./docs/demo/02-catalog-screen.png" width="350" alt="Danh mục sản phẩm Opodis Pharma" /> |
+| *Banner dược phẩm, nút Quan tâm OA, Flash Sale thời gian thực với tia sét vàng & phân loại sản phẩm* | *Bộ lọc danh mục đa tầng, lưới sản phẩm 2 cột kèm giá sale, giá gốc và nhãn phần trăm giảm giá* |
 
-| 🛒 04. Giỏ Hàng (Cart Screen) | 📰 05. Tin Tức & Sự Kiện (News) | 🏛️ 06. Giới Thiệu & Đối Tác (About) |
-| :---: | :---: | :---: |
-| <img src="./docs/demo/04-cart-screen.png" width="270" alt="Giỏ hàng mua sắm" /> | <img src="./docs/demo/05-news-screen.png" width="270" alt="Tin tức y khoa & sự kiện" /> | <img src="./docs/demo/06-about-screen.png" width="270" alt="Hành trình 25 năm & Nhà máy GMP-WHO" /> |
-| *Quản lý số lượng, tính tổng tiền realtime & CTA đặt hàng* | *Bài viết tiêu điểm CSA, kiến thức y khoa với font Nunito mềm* | *Di sản 25+ năm, chứng nhận GMP-WHO & carousel 13 đối tác lớn* |
+| 🔍 03. Chi Tiết Sản Phẩm (Detail) | 🛒 04. Giỏ Hàng Mua Sắm (Cart) |
+| :---: | :---: |
+| <img src="./docs/demo/03-product-detail.png" width="350" alt="Chi tiết sản phẩm Phytobebe" /> | <img src="./docs/demo/04-cart-screen.png" width="350" alt="Giỏ hàng mua sắm thực tế" /> |
+| *Bộ sưu tập ảnh đa góc độ (1/4), giá ưu đãi, cam kết freeship & chính hãng, CTA Thêm vào giỏ hàng* | *Quản lý số lượng từng sản phẩm, tính tổng tiền tự động, lưu trữ persistent & nút Liên hệ đặt hàng* |
 
-<p align="center">
-  <b>🔎 07. Màn Hình Tìm Kiếm Sản Phẩm Thông Minh (Search)</b><br /><br />
-  <img src="./docs/demo/07-search-screen.png" width="320" alt="Màn hình tìm kiếm sản phẩm thông minh" /><br />
-  <i>Tìm kiếm tức thì theo tên/công dụng, từ khóa gợi ý hot (Phytobebe, Phytogyno, Clincare...) & sắp xếp linh hoạt</i>
-</p>
+| 📰 05. Tin Tức & Sự Kiện (News) | 🏛️ 06. Giới Thiệu & Đối Tác (About) |
+| :---: | :---: |
+| <img src="./docs/demo/05-news-screen.png" width="350" alt="Tin tức y khoa & sự kiện" /> | <img src="./docs/demo/06-about-screen.png" width="350" alt="Hành trình 25 năm & Nhà máy GMP-WHO" /> |
+| *Bài viết tiêu điểm CSA, các tab kiến thức y tế & danh sách tin tức chuẩn font chữ mềm Nunito* | *Di sản 25+ năm, nhà máy chuẩn GMP-WHO Tây Ninh, chỉ số uy tín & carousel 13 đối tác bệnh viện* |
+
+| 🔎 07. Màn Hình Tìm Kiếm (Search) | 🎁 08. Popup Tiếp Thị Khuyến Mãi (Marketing) |
+| :---: | :---: |
+| <img src="./docs/demo/07-search-screen.png" width="350" alt="Màn hình tìm kiếm sản phẩm thông minh" /> | <img src="./docs/demo/08-promo-popup.png" width="350" alt="Popup khuyến mãi Sale 09.09 Deal Đỉnh Quà Xịn" /> |
+| *Tìm kiếm tức thời theo từ khóa, gợi ý từ khóa hot (Phytobebe, Phytogyno, Clincare) & bộ lọc sắp xếp* | *Modal tiếp thị sự kiện ưu đãi thông minh, tự động ghi nhớ đóng vào sessionStorage không gây phiền* |
 
 ---
 
@@ -143,7 +148,7 @@ Nền tảng Zalo Mini App áp dụng giới hạn kích thước gói ứng d�
 ```text
 tri-nghia-pharma-app/
 ├── docs/                      # Tài liệu & hình ảnh demo dự án
-│   └── demo/                  # Ảnh chụp màn hình full di động các tab
+│   └── demo/                  # Bộ ảnh demo full màn hình chuẩn kích thước (350px)
 ├── scripts/                   # Bộ công cụ tự động hóa
 │   ├── sync-opodis-products.mjs     # Đồng bộ dữ liệu sản phẩm
 │   ├── optimize-opodis-images.mjs   # Nén và tối ưu ảnh WebP
@@ -184,6 +189,7 @@ tri-nghia-pharma-app/
 │   ├── state.ts               # Quản lý state toàn cục với Jotai & Storage
 │   └── router.tsx             # Điều hướng React Router
 ├── app-config.json            # Cấu hình Zalo Mini App (Title, Header, StatusBar)
+├── LICENSE                    # Giấy phép bản quyền MIT License
 ├── package.json               # Danh sách thư viện và scripts
 ├── tailwind.config.js         # Token bảng màu, typography, radius
 ├── vite.config.mts            # Cấu hình Vite & zmp-vite-plugin
@@ -257,6 +263,15 @@ npm run deploy
     </td>
   </tr>
 </table>
+
+---
+
+## 📄 9. Bản Quyền & Giấy Phép (License)
+
+Dự án được phân phối theo giấy phép **MIT License**. Chi tiết điều khoản xem tại tệp [LICENSE](./LICENSE).
+
+- **Mã nguồn ứng dụng (Source Code)**: Phát hành mã nguồn theo giấy phép [MIT License](./LICENSE) — cho phép tự do phát triển, mở rộng và nghiên cứu xây dựng giải pháp trên nền tảng Zalo Mini App.
+- **Thương hiệu & Nội dung Y tế**: Mọi quyền sở hữu trí tuệ đối với logo thương hiệu, tên thương mại (*Opodis, Trí Nghĩa, Phytobebe, Phytogyno, Clincare, Opolux...*), bao bì sản phẩm, dữ liệu dược lý và hồ sơ công bố sản phẩm thuộc quyền sở hữu độc quyền của **Công ty TNHH Dược phẩm - Dược liệu Trí Nghĩa** và **Công ty TNHH Dược phẩm - Dược liệu Opodis**. Nghiêm cấm mọi hành vi sao chép hình ảnh hoặc mạo danh thương hiệu khi chưa có văn bản chấp thuận.
 
 ---
 

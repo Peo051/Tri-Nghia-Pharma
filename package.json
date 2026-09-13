@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "zmp-blank-templates",
   "repository": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "browserslist": [
     "Android >= 5",
     "IOS >= 9.3",
