@@ -6,7 +6,7 @@ const STORAGE_COLLAPSE_KEY = "floating_contact_collapsed";
 const BUTTON_WIDTH = 56;
 const BUTTON_HEIGHT = 56;
 const PADDING = 8;
-const HEADER_OFFSET = 52;
+const HEADER_OFFSET = 60;
 const FOOTER_OFFSET = 68;
 
 function clamp(val: number, min: number, max: number): number {
@@ -63,8 +63,10 @@ export default function FloatingContact() {
   const hasMovedRef = useRef(false);
   const dragStartRef = useRef({ pointerX: 0, pointerY: 0, posX: 0, posY: 0 });
 
-  // Tự động điều chỉnh hướng bung (bung xuống nếu ở nửa trên màn hình, bung lên nếu ở nửa dưới)
-  const expandDirection = position.y < 240 ? "down" : "up";
+  // Đảm bảo FAB không bị mở rộng đè qua header (chiều cao FAB ~185px, header 56px).
+  // Khi ở nửa dưới hoặc cách header >= 250px (đã qua khỏi header an toàn): chuyển hướng bung LÊN TRÊN.
+  // Khi ở gần header (< 250px): bung XUỐNG DƯỚI để tuyệt đối không tràn qua header.
+  const expandDirection = position.y < 250 ? "down" : "up";
 
   useEffect(() => {
     const handleResize = () => {
@@ -215,15 +217,15 @@ const openExternalUrl = (url: string) => {
   // Danh sách 3 nút liên hệ nhanh
   const contactButtonsNode = (
     <div
-      className={`flex flex-col items-center gap-1.5 transition-all duration-300 ${
-        expandDirection === "up" ? "origin-bottom" : "origin-top"
+      className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 transition-all duration-300 ${
+        expandDirection === "up"
+          ? "bottom-full mb-1.5 origin-bottom"
+          : "top-full mt-1.5 origin-top"
       } ${
         isExpanded
-          ? `opacity-100 scale-100 max-h-[260px] pointer-events-auto ${
-              expandDirection === "up" ? "mb-1.5" : "mt-1.5"
-            }`
+          ? "opacity-100 scale-100 max-h-[260px] pointer-events-auto"
           : `opacity-0 scale-75 max-h-0 pointer-events-none overflow-hidden ${
-              expandDirection === "up" ? "-translate-y-2 mb-0" : "translate-y-2 mt-0"
+              expandDirection === "up" ? "translate-y-2" : "-translate-y-2"
             }`
       }`}
     >
@@ -343,7 +345,7 @@ const openExternalUrl = (url: string) => {
 
   // Nút Thu gọn / Mở rộng (Toggle Button)
   const toggleButtonNode = (
-    <div className="relative w-14 h-10 flex items-center justify-center pointer-events-auto">
+    <div className="relative w-14 h-14 flex items-center justify-center pointer-events-auto">
       {isExpanded ? (
         <button
           type="button"
@@ -433,11 +435,13 @@ const openExternalUrl = (url: string) => {
         position: "fixed",
         left: 0,
         top: 0,
+        width: `${BUTTON_WIDTH}px`,
+        height: `${BUTTON_HEIGHT}px`,
         transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
         transition: isDragging ? "none" : "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
         touchAction: "none",
       }}
-      className={`z-40 flex flex-col items-center select-none touch-none ${
+      className={`z-50 flex items-center justify-center select-none touch-none ${
         isDragging
           ? "cursor-grabbing opacity-95 scale-105"
           : "cursor-grab"
@@ -448,18 +452,10 @@ const openExternalUrl = (url: string) => {
       onPointerCancel={handlePointerUp}
       onClickCapture={handleClickCapture}
     >
-      {/* Khi bung lên: Nút con ở trên, nút toggle ở dưới. Khi bung xuống: Nút toggle ở trên, nút con ở dưới */}
-      {expandDirection === "up" ? (
-        <>
-          {contactButtonsNode}
-          {toggleButtonNode}
-        </>
-      ) : (
-        <>
-          {toggleButtonNode}
-          {contactButtonsNode}
-        </>
-      )}
+      {/* Cụm 3 nút FAB mở rộng */}
+      {contactButtonsNode}
+      {/* Nút Toggle chính cố định */}
+      {toggleButtonNode}
     </aside>
   );
 }
