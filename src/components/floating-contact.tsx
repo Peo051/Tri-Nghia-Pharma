@@ -80,8 +80,10 @@ export default function FloatingContact() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleExpand = useCallback(() => {
-    if (hasMovedRef.current) return;
+  const toggleExpand = useCallback((e?: React.MouseEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     setIsExpanded((prev) => {
       const next = !prev;
       try {
@@ -93,7 +95,11 @@ export default function FloatingContact() {
 
   const handlePointerDown = (e: React.PointerEvent<HTMLElement>) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
-    isDraggingRef.current = true;
+    // Bỏ qua sự kiện kéo nếu nhấn vào nút thu gọn / mở rộng có data-no-drag
+    if ((e.target as HTMLElement).closest('[data-no-drag="true"]')) {
+      return;
+    }
+    isDraggingRef.current = false;
     hasMovedRef.current = false;
     dragStartRef.current = {
       pointerX: e.clientX,
@@ -101,19 +107,20 @@ export default function FloatingContact() {
       posX: position.x,
       posY: position.y,
     };
-    try {
-      e.currentTarget.setPointerCapture(e.pointerId);
-    } catch {}
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (!isDraggingRef.current) return;
+    if (!dragStartRef.current.pointerX && !dragStartRef.current.pointerY) return;
     const dx = e.clientX - dragStartRef.current.pointerX;
     const dy = e.clientY - dragStartRef.current.pointerY;
 
-    if (!hasMovedRef.current && Math.hypot(dx, dy) > 5) {
+    if (!hasMovedRef.current && Math.hypot(dx, dy) > 10) {
       hasMovedRef.current = true;
+      isDraggingRef.current = true;
       setIsDragging(true);
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {}
     }
 
     if (hasMovedRef.current) {
@@ -125,27 +132,28 @@ export default function FloatingContact() {
   };
 
   const handlePointerUp = (e: React.PointerEvent<HTMLElement>) => {
-    if (!isDraggingRef.current) return;
-    isDraggingRef.current = false;
-    try {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {}
+    dragStartRef.current = { pointerX: 0, pointerY: 0, posX: 0, posY: 0 };
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {}
 
-    if (hasMovedRef.current) {
       setIsDragging(false);
       try {
         localStorage.setItem(STORAGE_POS_KEY, JSON.stringify(position));
       } catch {}
-      // Ngăn chặn sự kiện click nhầm ngay sau khi kéo thả
       setTimeout(() => {
         hasMovedRef.current = false;
-      }, 100);
+      }, 80);
     } else {
+      hasMovedRef.current = false;
       setIsDragging(false);
     }
   };
 
   const handleClickCapture = (e: React.MouseEvent) => {
+    // Chỉ chặn click nếu thực sự vừa thực hiện kéo di chuyển
     if (hasMovedRef.current) {
       e.stopPropagation();
       e.preventDefault();
@@ -301,18 +309,19 @@ export default function FloatingContact() {
 
   // Nút Thu gọn / Mở rộng (Toggle Button)
   const toggleButtonNode = (
-    <div className="relative flex items-center justify-center pointer-events-auto">
+    <div className="relative w-14 h-10 flex items-center justify-center pointer-events-auto">
       {isExpanded ? (
         <button
           type="button"
+          data-no-drag="true"
           onClick={toggleExpand}
           aria-label="Thu gọn liên hệ"
           title="Thu gọn"
-          className="w-7 h-7 rounded-full bg-white/95 text-gray-500 hover:text-primary active:scale-90 hover:scale-110 shadow-md border border-gray-200/90 flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm"
+          className="w-8 h-8 rounded-full bg-white text-gray-600 hover:text-primary active:scale-90 hover:scale-105 shadow-md border border-gray-200/90 flex items-center justify-center transition-all cursor-pointer backdrop-blur-sm"
         >
           <svg
-            width="14"
-            height="14"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
