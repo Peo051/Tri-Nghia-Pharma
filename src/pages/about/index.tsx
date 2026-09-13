@@ -8,6 +8,9 @@ import factory1Img from "@/static/about/factory-1.webp";
 import factory2Img from "@/static/about/factory-2.webp";
 import csrMuaThiImg from "@/static/about/csr-mua-thi.webp";
 import csrHcdcImg from "@/static/about/csr-hcdc.webp";
+import shopeeLogo from "@/static/ecommerce/shopee.png";
+import lazadaLogo from "@/static/ecommerce/lazada.png";
+import tiktokLogo from "@/static/ecommerce/tiktok.png";
 
 const NAV_SECTIONS = [
   { id: "story", label: "Câu chuyện thảo dược" },
@@ -568,25 +571,28 @@ export default function AboutPage() {
                 href="https://shopee.vn/opodispharma"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-2 rounded-xl bg-orange-50 border border-orange-200/80 text-orange-700 font-bold text-[11px] text-center hover:bg-orange-100 transition-colors"
+                className="py-2 px-1.5 rounded-xl bg-orange-50/90 border border-orange-200/80 text-[#ee4d2d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-orange-100 transition-all active:scale-95 shadow-2xs"
               >
-                Shopee Mall
+                <img src={shopeeLogo} alt="Shopee Mall" className="w-4 h-4 rounded-full object-contain shrink-0" />
+                <span className="truncate">Shopee Mall</span>
               </a>
               <a
                 href="https://www.lazada.vn/shop/mn7k3oup/"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-2 rounded-xl bg-blue-50 border border-blue-200/80 text-blue-700 font-bold text-[11px] text-center hover:bg-blue-100 transition-colors"
+                className="py-2 px-1.5 rounded-xl bg-blue-50/90 border border-blue-200/80 text-[#0f146d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-blue-100 transition-all active:scale-95 shadow-2xs"
               >
-                Lazada Mall
+                <img src={lazadaLogo} alt="Lazada Mall" className="w-4 h-4 rounded-full object-contain shrink-0" />
+                <span className="truncate">Lazada Mall</span>
               </a>
               <a
                 href="https://www.tiktok.com/@opodis.pharma"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-2 rounded-xl bg-gray-100 border border-gray-300 text-gray-800 font-bold text-[11px] text-center hover:bg-gray-200 transition-colors"
+                className="py-2 px-1.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-gray-100 transition-all active:scale-95 shadow-2xs"
               >
-                TikTok Shop
+                <img src={tiktokLogo} alt="TikTok Shop" className="w-4 h-4 rounded-full object-contain shrink-0" />
+                <span className="truncate">TikTok Shop</span>
               </a>
             </div>
           </div>
