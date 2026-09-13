@@ -109,40 +109,44 @@ export default function AboutPage() {
         <div className="absolute -left-10 -bottom-10 w-52 h-52 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
-          {/* Huy hiệu 25 Năm - 1 dòng gọn gàng, không bị rớt chữ */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10.5px] font-extrabold uppercase tracking-wider mb-3.5 backdrop-blur-xs shadow-2xs">
+          {/* Huy hiệu 25 Năm - Đảm bảo luôn nằm trên 1 dòng duy nhất, không rớt chữ */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10px] font-extrabold uppercase tracking-wide mb-3.5 backdrop-blur-xs shadow-2xs whitespace-nowrap">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse flex-none" />
-            <span>Hành trình 25 năm • Vì sức khỏe gia đình Việt</span>
+            <span>25 Năm Đồng Hành • Vì Sức Khỏe Gia Đình Việt</span>
           </div>
 
-          {/* Logo 2 đơn vị: Cân đối đối xứng 2 cột đồng bộ */}
+          {/* Logo 2 đơn vị: Hiển thị đầy đủ tên thương hiệu, không bao giờ bị cắt chữ hay ba chấm */}
           <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="flex items-center gap-2 h-11 px-2.5 bg-white/95 rounded-2xl shadow-sm border border-white/20">
+            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-2xl shadow-sm border border-white/20 text-center">
               <img
                 src={opodisLogo}
                 alt="Logo Dược Phẩm Opodis"
-                className="h-6 w-auto object-contain flex-none"
+                className="h-6 w-auto object-contain mb-1 flex-none"
               />
-              <div className="flex flex-col min-w-0">
-                <span className="text-[11px] font-black text-primary leading-tight truncate">OPODIS PHARMA</span>
-                <span className="text-[9px] text-gray-500 font-medium leading-tight truncate">Nhà sản xuất</span>
-              </div>
+              <span className="text-[11.5px] font-black text-primary leading-tight">
+                OPODIS PHARMA
+              </span>
+              <span className="text-[9.5px] text-gray-500 font-semibold leading-tight mt-0.5">
+                Nhà sản xuất
+              </span>
             </div>
 
-            <div className="flex items-center gap-2 h-11 px-2.5 bg-white/95 rounded-2xl shadow-sm border border-white/20">
+            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-2xl shadow-sm border border-white/20 text-center">
               <img
                 src={triNghiaLogo}
                 alt="Logo Trí Nghĩa Pharma"
-                className="w-6 h-6 rounded-full object-contain p-0.5 bg-gray-50 flex-none"
+                className="w-6 h-6 rounded-full object-contain p-0.5 bg-gray-50 mb-1 flex-none"
               />
-              <div className="flex flex-col min-w-0">
-                <span className="text-[11px] font-black text-primary leading-tight truncate">TRÍ NGHĨA PHARMA</span>
-                <span className="text-[9px] text-gray-500 font-medium leading-tight truncate">Phân phối độc quyền</span>
-              </div>
+              <span className="text-[11.5px] font-black text-primary leading-tight">
+                TRÍ NGHĨA PHARMA
+              </span>
+              <span className="text-[9.5px] text-gray-500 font-semibold leading-tight mt-0.5">
+                Phân phối độc quyền
+              </span>
             </div>
           </div>
 
-          <h1 className="text-[22px] leading-[28px] font-black tracking-tight text-white brand-story-heading">
+          <h1 className="text-[22px] leading-[28px] font-black tracking-tight text-white">
             TINH HOA DƯỢC THẢO VIỆT
           </h1>
           <p className="text-[15px] leading-[22px] font-extrabold text-emerald-200 mt-1">
