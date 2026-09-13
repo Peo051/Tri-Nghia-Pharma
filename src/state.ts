@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 import { Cart } from "@/domain/cart";
 import { Product } from "@/domain/product";
 import { products } from "@/mock/products";
@@ -11,7 +12,7 @@ export interface CartProductItem {
   lineTotal: number;
 }
 
-export const cartState = atom<Cart>([]);
+export const cartState = atomWithStorage<Cart>("opodis_cart", []);
 
 /**
  * Resolves local cart entries against the current catalogue. Invalid product

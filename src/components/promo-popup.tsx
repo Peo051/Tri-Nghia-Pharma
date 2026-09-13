@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from "react";
 import promoPopupImg from "@/static/promo-popup.jpg";
 
-let hasDismissedPopup = false;
+const POPUP_STORAGE_KEY = "opodis_promo_popup_dismissed";
+
+const isDismissed = () => {
+  try {
+    return sessionStorage.getItem(POPUP_STORAGE_KEY) === "true";
+  } catch {
+    return false;
+  }
+};
 
 export default function PromoPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (!hasDismissedPopup) {
+    if (!isDismissed()) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 400);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, []);
 
   const handleClose = () => {
-    hasDismissedPopup = true;
+    try {
+      sessionStorage.setItem(POPUP_STORAGE_KEY, "true");
+    } catch {}
     setIsOpen(false);
   };
 
