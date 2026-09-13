@@ -109,57 +109,67 @@ export default function AboutPage() {
         <div className="absolute -left-10 -bottom-10 w-52 h-52 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
-          {/* Huy hiệu 25 Năm */}
-          <div className="inline-block px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-[11px] font-extrabold uppercase tracking-wider mb-3 backdrop-blur-xs">
-            Hành trình 25 năm • Bảo vệ triệu gia đình Việt
+          {/* Huy hiệu 25 Năm - 1 dòng gọn gàng, không bị rớt chữ */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10.5px] font-extrabold uppercase tracking-wider mb-3.5 backdrop-blur-xs shadow-2xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse flex-none" />
+            <span>Hành trình 25 năm • Vì sức khỏe gia đình Việt</span>
           </div>
 
-          {/* Logo 2 đơn vị */}
-          <div className="flex items-center justify-between gap-2 mb-3.5">
-            <div className="h-10 px-3 py-1 bg-white rounded-2xl shadow-sm flex items-center">
-              <img src={opodisLogo} alt="Logo Dược Phẩm Opodis" className="h-7 w-auto object-contain" />
+          {/* Logo 2 đơn vị: Cân đối đối xứng 2 cột đồng bộ */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <div className="flex items-center gap-2 h-11 px-2.5 bg-white/95 rounded-2xl shadow-sm border border-white/20">
+              <img
+                src={opodisLogo}
+                alt="Logo Dược Phẩm Opodis"
+                className="h-6 w-auto object-contain flex-none"
+              />
+              <div className="flex flex-col min-w-0">
+                <span className="text-[11px] font-black text-primary leading-tight truncate">OPODIS PHARMA</span>
+                <span className="text-[9px] text-gray-500 font-medium leading-tight truncate">Nhà sản xuất</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 px-2.5 py-1 bg-white/95 rounded-2xl shadow-sm text-foreground">
+
+            <div className="flex items-center gap-2 h-11 px-2.5 bg-white/95 rounded-2xl shadow-sm border border-white/20">
               <img
                 src={triNghiaLogo}
                 alt="Logo Trí Nghĩa Pharma"
-                className="w-7 h-7 rounded-full object-contain p-0.5 bg-white flex-none"
+                className="w-6 h-6 rounded-full object-contain p-0.5 bg-gray-50 flex-none"
               />
-              <div className="flex flex-col">
-                <span className="text-[11px] font-black text-primary leading-tight">TRÍ NGHĨA PHARMA</span>
-                <span className="text-[9px] text-gray-500 font-medium leading-tight">Phân phối độc quyền</span>
+              <div className="flex flex-col min-w-0">
+                <span className="text-[11px] font-black text-primary leading-tight truncate">TRÍ NGHĨA PHARMA</span>
+                <span className="text-[9px] text-gray-500 font-medium leading-tight truncate">Phân phối độc quyền</span>
               </div>
             </div>
           </div>
 
-          <h1 className="text-[23px] leading-[30px] font-black tracking-tight text-white brand-story-heading">
+          <h1 className="text-[22px] leading-[28px] font-black tracking-tight text-white brand-story-heading">
             TINH HOA DƯỢC THẢO VIỆT
           </h1>
-          <p className="text-[16px] leading-[23px] font-extrabold text-emerald-200 mt-0.5">
+          <p className="text-[15px] leading-[22px] font-extrabold text-emerald-200 mt-1">
             Chăm sóc sức khỏe chuẩn y khoa
           </p>
 
-          <p className="text-[12.5px] leading-[20px] text-white/90 mt-2.5 max-w-[330px]">
+          <p className="text-[12.5px] leading-[20px] text-white/90 mt-2.5">
             Kế thừa hơn 25 năm nghiên cứu từ <strong>Dược liệu Trung Ương 2</strong>, Opodis Pharma tiên phong chuẩn hóa dược thảo Việt theo tiêu chuẩn GMP-WHO khắt khe nhất, trao gửi sự an tâm tuyệt đối và chăm sóc trọn vẹn sức khỏe cho bạn và gia đình mỗi ngày.
           </p>
 
-          {/* 4 Chỉ số giá trị thương hiệu */}
+          {/* 4 Chỉ số giá trị thương hiệu: Đồng bộ màu vàng sang trọng và typography cân đối */}
           <div className="mt-4 pt-3.5 border-t border-white/15 grid grid-cols-4 gap-1.5 text-center">
-            <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[17px] font-black text-amber-300 leading-tight">25+</span>
-              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Năm uy tín</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none">25+</span>
+              <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Năm uy tín</span>
             </div>
-            <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[15px] font-black text-white leading-tight">GMP</span>
-              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Chuẩn WHO</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[15px] font-black text-amber-300 leading-none">GMP</span>
+              <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Chuẩn WHO</span>
             </div>
-            <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[17px] font-black text-amber-300 leading-tight">80+</span>
-              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Viện tin dùng</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none">80+</span>
+              <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Viện tin dùng</span>
             </div>
-            <div className="flex flex-col bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[15px] font-black text-white leading-tight">Triệu</span>
-              <span className="text-[9px] text-white/85 font-medium leading-tight mt-0.5">Gia đình tin yêu</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none">1Tr+</span>
+              <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Gia đình tin yêu</span>
             </div>
           </div>
         </div>
