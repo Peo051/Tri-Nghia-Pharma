@@ -1,6 +1,5 @@
 {
-  "cwd": "/Users/lap15182-local/Documents/zmp-blank-templates",
-  "name": "zmp-blank-templates",
+  "name": "tri-nghia-pharma-app",
   "framework": "react-typescript",
   "cssPreProcessor": "scss",
   "includeTailwind": true,

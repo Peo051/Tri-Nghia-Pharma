@@ -84,7 +84,7 @@ export function ProductItemSkeleton() {
 export function SelectSkeleton(props: { width: number }) {
   return (
     <div
-      className="h-8 rounded-full bg-skeleton animate-pulse px-3 flex items-center justify-end"
+      className="h-8 rounded-lg bg-skeleton animate-pulse px-3 flex items-center justify-end"
       style={{ width: props.width }}
     >
       <ChevronDown />

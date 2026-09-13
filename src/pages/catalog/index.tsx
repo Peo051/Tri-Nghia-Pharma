@@ -65,7 +65,7 @@ export default function CatalogPage() {
         <span className="text-[11px] font-bold tracking-[0.12em] text-primary uppercase">
           OPODIS PHARMA
         </span>
-        <h1 className="text-[22px] leading-7 font-black text-primary mt-1">
+        <h1 className="text-[22px] leading-7 font-extrabold text-primary mt-1 font-heading">
           Danh mục sản phẩm
         </h1>
         <p className="text-[12px] leading-5 text-subtitle mt-1">
@@ -77,7 +77,7 @@ export default function CatalogPage() {
       <div className="px-4 mb-3.5">
         <TransitionLink
           to="/search"
-          className="w-full h-11 px-3.5 rounded-2xl bg-white border border-border/80 flex items-center gap-2.5 text-subtitle shadow-xs active:scale-[0.99] transition-all cursor-pointer"
+          className="w-full h-11 px-3.5 rounded-xl bg-white border border-border/80 flex items-center gap-2.5 text-subtitle shadow-xs active:scale-[0.99] transition-all cursor-pointer"
           aria-label="Tìm kiếm sản phẩm"
         >
           <div className="text-primary flex-none">
@@ -98,7 +98,7 @@ export default function CatalogPage() {
           <span className="text-[13px] text-subtitle/80 flex-1 truncate">
             Tìm tên sản phẩm, hoạt chất, công dụng...
           </span>
-          <span className="text-[11px] font-bold text-primary px-2.5 py-1 rounded-xl bg-primary-soft flex-none">
+          <span className="text-[11px] font-bold text-primary px-2.5 py-1 rounded-lg bg-primary-soft flex-none">
             Tìm kiếm
           </span>
         </TransitionLink>

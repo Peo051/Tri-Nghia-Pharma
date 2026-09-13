@@ -23,7 +23,7 @@ const NEWS_LIST: NewsItem[] = [
   {
     id: "hanh-trinh-yeu-thuong",
     title:
-      "HÀNH TRÌNH YÊU THƯƠNG: OPODIS PHARMA ĐỒNG HÀNH CÙNG MẸ BẦU TẠI BỆNH VIỆN QUỐC TẾ CITY VÀ BỆNH VIỆN ĐA KHOA HOÀN MỸ THỦ ĐỨC",
+      "Hành trình yêu thương: Opodis Pharma đồng hành cùng mẹ bầu tại Bệnh viện Quốc tế City và Bệnh viện Đa khoa Hoàn Mỹ Thủ Đức",
     category: "csa",
     categoryLabel: "Hoạt động CSA",
     date: "18/08/2026",
@@ -100,9 +100,9 @@ export default function NewsPage() {
   return (
     <div className="w-full min-h-full pb-12 bg-background">
       {/* 1. Website Banner Box */}
-      <div className="mx-4 mt-3.5 mb-4 rounded-2xl bg-gradient-to-br from-white via-primary-soft/40 to-primary-soft/80 border border-primary/20 p-3.5 shadow-[0_2px_10px_rgba(17,105,54,0.05)] flex items-center justify-between gap-3">
+      <div className="mx-4 mt-3.5 mb-4 rounded-xl bg-gradient-to-br from-white via-primary-soft/40 to-primary-soft/80 border border-primary/20 p-3.5 shadow-[0_2px_10px_rgba(17,105,54,0.05)] flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-11 h-11 rounded-xl bg-white p-1 border border-primary/20 shadow-xs flex items-center justify-center flex-none">
+          <div className="w-11 h-11 rounded-lg bg-white p-1 border border-primary/20 shadow-xs flex items-center justify-center flex-none">
             <img
               src={opodisLogo}
               alt="Opodis Pharma"
@@ -113,7 +113,7 @@ export default function NewsPage() {
             <span className="text-[10.5px] font-bold text-primary uppercase tracking-wide block">
               Website chính thức
             </span>
-            <h2 className="text-[13.5px] font-black text-foreground truncate">
+            <h2 className="text-[13.5px] font-black text-foreground truncate font-display">
               opodispharma.com
             </h2>
           </div>
@@ -121,7 +121,7 @@ export default function NewsPage() {
         <button
           type="button"
           onClick={() => handleOpenLink("https://opodispharma.com/")}
-          className="flex-none px-3 py-1.5 rounded-xl bg-primary text-white text-[12px] font-bold hover:bg-primary-dark transition active:scale-95 shadow-xs flex items-center gap-1 cursor-pointer"
+          className="flex-none px-3 py-1.5 rounded-lg bg-primary text-white text-[12px] font-bold hover:bg-primary-dark transition active:scale-95 shadow-xs flex items-center gap-1 cursor-pointer font-display"
         >
           <span>Xem web</span>
           <svg
@@ -142,10 +142,10 @@ export default function NewsPage() {
         </button>
       </div>
 
-      {/* 2. Tiêu đề & Danh mục Tabs (Chuẩn theo ảnh mẫu) */}
+      {/* 2. Tiêu đề & Danh mục Tabs (Font Nunito mềm mại) */}
       <section className="px-4 mb-3">
-        <h1 className="text-[18px] leading-tight font-black text-primary uppercase tracking-tight mb-3">
-          TIN TỨC VÀ SỰ KIỆN
+        <h1 className="text-page-title text-primary tracking-tight mb-3 font-heading font-extrabold text-[20px]">
+          Tin tức và Sự kiện
         </h1>
 
         {/* Category Tabs */}
@@ -157,7 +157,7 @@ export default function NewsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-xl text-[12px] font-bold whitespace-nowrap transition cursor-pointer flex-none ${
+                className={`px-3 py-1.5 rounded-lg text-[12px] font-bold font-soft whitespace-nowrap transition cursor-pointer flex-none ${
                   isActive
                     ? "bg-[#116936] text-white shadow-xs"
                     : "bg-white text-primary/80 border border-primary/20 hover:bg-primary-soft/50"
@@ -170,58 +170,98 @@ export default function NewsPage() {
         </div>
       </section>
 
-      {/* 3. Danh sách bài viết Tin tức */}
-      <div className="px-4 space-y-4">
-        {filteredNews.map((item) => (
-          <article
-            key={item.id}
-            onClick={() => handleOpenLink(item.link)}
-            className="group rounded-2xl bg-white border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer hover:shadow-md transition-all active:scale-[0.99] flex flex-col"
-          >
-            {/* Hình ảnh bài viết với Date Badge góc trái */}
-            <div className="relative w-full aspect-[16/9] bg-section/40 overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+      {/* 3. Danh sách bài viết Tin tức: Bài 1 Featured Card lớn, các bài sau là Compact Row */}
+      <div className="px-4 space-y-3">
+        {filteredNews.map((item, index) => {
+          if (index === 0) {
+            // Featured Card lớn cho bài đầu tiên
+            return (
+              <article
+                key={item.id}
+                onClick={() => handleOpenLink(item.link)}
+                className="group rounded-card bg-white border border-border/80 shadow-card overflow-hidden cursor-pointer hover:shadow-card-hover transition-all active:scale-[0.99] flex flex-col"
+              >
+                {/* Hình ảnh bài viết với Date Badge góc trái */}
+                <div className="relative w-full aspect-[16/9] bg-section/40 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
 
-              {/* Date Badge chuẩn theo ảnh mẫu */}
-              <div className="absolute top-2.5 left-2.5 z-10 bg-white/95 backdrop-blur-xs border-2 border-[#116936] rounded-md px-2 py-1 flex flex-col items-center justify-center min-w-[38px] shadow-xs">
-                <span className="text-[14px] font-black text-[#116936] leading-none">
-                  {item.day}
-                </span>
-                <span className="text-[9.5px] font-bold text-[#116936] uppercase leading-tight mt-0.5">
-                  {item.month}
+                  {/* Date Badge */}
+                  <div className="absolute top-2.5 left-2.5 z-10 bg-white/95 backdrop-blur-xs border-2 border-primary rounded-md px-2 py-1 flex flex-col items-center justify-center min-w-[38px] shadow-xs">
+                    <span className="text-[14px] font-bold text-primary leading-none">
+                      {item.day}
+                    </span>
+                    <span className="text-[9.5px] font-bold text-primary uppercase leading-tight mt-0.5">
+                      {item.month}
+                    </span>
+                  </div>
+
+                  {/* Category label pill góc phải */}
+                  <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10.5px] font-bold font-soft px-2 py-0.5 rounded-md">
+                    {item.categoryLabel}
+                  </div>
+                </div>
+
+                {/* Nội dung bài viết */}
+                <div className="p-3.5 flex flex-col flex-1">
+                  <h2 className="text-[15px] leading-[22px] font-bold text-foreground group-hover:text-primary transition line-clamp-2 tracking-tight mb-1.5 font-heading">
+                    {item.title}
+                  </h2>
+
+                  <p className="text-[12px] leading-[18px] text-subtitle line-clamp-2 mb-2.5 flex-1">
+                    {item.excerpt}
+                  </p>
+
+                  <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11.5px] font-medium text-primary">
+                    <span>Đọc bài viết trên opodispharma.com</span>
+                    <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+                  </div>
+                </div>
+              </article>
+            );
+          }
+
+          // Compact List Card cho các bài viết tiếp theo: [thumbnail 96x80] + Title + Date/Category
+          return (
+            <article
+              key={item.id}
+              onClick={() => handleOpenLink(item.link)}
+              className="group rounded-card bg-white border border-border/80 shadow-card p-2.5 cursor-pointer hover:shadow-card-hover transition-all active:scale-[0.99] flex gap-3 items-center"
+            >
+              {/* Thumbnail 96x80 */}
+              <div className="relative w-24 h-20 rounded-lg overflow-hidden bg-section/40 flex-none border border-border/50">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span className="absolute bottom-1 right-1 bg-black/65 backdrop-blur-xs text-white text-[9px] font-medium px-1.5 py-0.2 rounded">
+                  {item.day}/{item.month}
                 </span>
               </div>
 
-              {/* Category label pill góc phải */}
-              <div className="absolute top-2.5 right-2.5 z-10 bg-black/55 backdrop-blur-xs text-white text-[10.5px] font-semibold px-2 py-0.5 rounded-full">
-                {item.categoryLabel}
+              {/* Thông tin bài viết */}
+              <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="text-[10.5px] text-primary font-bold uppercase tracking-wider font-soft">
+                    {item.categoryLabel}
+                  </span>
+                  <span className="text-border">•</span>
+                  <span className="text-[11px] text-subtitle">{item.date}</span>
+                </div>
+
+                <h3 className="text-[13.5px] leading-[19px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2 font-heading">
+                  {item.title}
+                </h3>
               </div>
-            </div>
-
-            {/* Nội dung bài viết */}
-            <div className="p-3.5 flex flex-col flex-1">
-              <h2 className="text-[14px] leading-[20px] font-bold text-primary group-hover:text-primary-dark transition line-clamp-2 uppercase tracking-tight mb-1.5">
-                {item.title}
-              </h2>
-
-              <p className="text-[12px] leading-[18px] text-subtitle line-clamp-2 mb-3 flex-1">
-                {item.excerpt}
-              </p>
-
-              <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11.5px] font-semibold text-primary">
-                <span>Đọc bài viết trên opodispharma.com</span>
-                <span className="group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
-                  <span>→</span>
-                </span>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
 
       {/* 4. Quan tâm Zalo OA */}

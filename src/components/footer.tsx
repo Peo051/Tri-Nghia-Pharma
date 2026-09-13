@@ -26,10 +26,7 @@ const NAV_ITEMS: NavItem[] = [
     name: "Danh mục",
     path: "/catalog",
     icon: CategoryIcon,
-    isActiveRoute: (pathname) =>
-      pathname.startsWith("/catalog") ||
-      pathname.startsWith("/categories") ||
-      pathname.startsWith("/category/"),
+    isActiveRoute: (pathname) => pathname.startsWith("/catalog"),
   },
   {
     name: "Giỏ hàng",
@@ -41,8 +38,7 @@ const NAV_ITEMS: NavItem[] = [
     name: "Tin tức",
     path: "/news",
     icon: NewsIcon,
-    isActiveRoute: (pathname) =>
-      pathname.startsWith("/news") || pathname.startsWith("/customer"),
+    isActiveRoute: (pathname) => pathname.startsWith("/news"),
   },
   {
     name: "Giới thiệu",
@@ -84,7 +80,7 @@ export default function Footer() {
                 <item.icon active={isActive} />
               </div>
               <span
-                className={`text-[10px] leading-4 mt-0.5 tracking-tight whitespace-nowrap ${
+                className={`text-[10.5px] leading-4 font-medium mt-0.5 tracking-tight whitespace-nowrap ${
                   isActive ? "text-primary font-semibold" : "text-subtitle"
                 }`}
               >

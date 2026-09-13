@@ -34,7 +34,7 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
             ref={ref}
             type="search"
             value={value}
-            className={`w-full h-11 pl-10 pr-10 bg-section/70 hover:bg-section focus:bg-white text-[14px] text-foreground font-medium rounded-2xl border border-border/80 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-subtitle/70 placeholder:font-normal ${className}`}
+            className={`w-full h-11 pl-10 pr-10 bg-section/70 hover:bg-section focus:bg-white text-[14px] text-foreground font-medium rounded-xl border border-border/80 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-subtitle/70 placeholder:font-normal ${className}`}
             placeholder={placeholder}
             {...props}
           />

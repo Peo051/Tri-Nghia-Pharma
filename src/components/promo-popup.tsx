@@ -71,7 +71,7 @@ export default function PromoPopup() {
         {/* Khung chứa ảnh Poster khuyến mãi */}
         <div
           onClick={handleAction}
-          className="w-full rounded-3xl overflow-hidden shadow-2xl border border-white/30 bg-white cursor-pointer group active:scale-[0.98] transition-transform"
+          className="w-full rounded-xl overflow-hidden shadow-2xl border border-white/30 bg-white cursor-pointer group active:scale-[0.98] transition-transform"
         >
           <img
             src={promoPopupImg}
@@ -84,7 +84,7 @@ export default function PromoPopup() {
         <button
           type="button"
           onClick={handleAction}
-          className="mt-3.5 w-full py-2.5 px-4 rounded-2xl bg-gradient-to-r from-primary to-primary-dark text-white font-extrabold text-[14px] shadow-lg shadow-primary/30 hover:brightness-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-1.5"
+          className="mt-3.5 w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-primary to-primary-dark text-white font-extrabold text-[14px] shadow-lg shadow-primary/30 hover:brightness-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-1.5 font-display"
         >
           <span>SĂN DEAL NGAY</span>
           <span>→</span>

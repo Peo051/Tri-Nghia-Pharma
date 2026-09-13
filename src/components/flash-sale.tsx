@@ -16,7 +16,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
       .slice(0, 6);
   }, [products]);
 
-  // Bộ đếm ngược demo cho flash sale (ví dụ: 03 giờ 45 phút 20 giây)
+  // Bộ đếm ngược cho flash sale (ví dụ: 03 giờ 45 phút 20 giây)
   const [timeLeft, setTimeLeft] = useState({
     hours: 3,
     minutes: 45,
@@ -49,7 +49,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
   return (
     <section className={`mx-4 mt-5 ${className}`} aria-labelledby="flash-sale-heading">
       {/* Header Flash Sale */}
-      <div className="relative overflow-hidden rounded-t-2xl bg-gradient-to-r from-[#0a4622] via-[#116936] to-[#22a458] p-3.5 flex items-center justify-between text-white shadow-sm">
+      <div className="relative overflow-hidden rounded-t-xl bg-gradient-to-r from-[#0a4622] via-[#116936] to-[#22a458] p-3.5 flex items-center justify-between text-white shadow-sm">
         {/* Decorative lighting elements for radiant depth */}
         <div className="absolute -right-6 -top-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none" />
         <div className="absolute left-1/3 -bottom-6 w-24 h-24 bg-[#34d399]/15 rounded-full blur-lg pointer-events-none" />
@@ -60,17 +60,17 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               width="16"
               height="16"
               viewBox="0 0 24 24"
-              fill="#f472b6"
-              className="animate-bounce"
+              fill="#facc15"
+              className="animate-bounce drop-shadow-[0_0_4px_rgba(250,204,21,0.6)]"
             >
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
             </svg>
           </div>
           <div>
-            <h2 id="flash-sale-heading" className="text-[15px] font-black tracking-wide text-white uppercase flex items-center gap-1.5">
+            <h2 id="flash-sale-heading" className="text-[15px] font-black tracking-wide text-white uppercase flex items-center gap-1.5 font-display">
               Flash Sale
             </h2>
-            <span className="text-[10px] text-[#0d542b] bg-white font-black px-2 py-0.5 rounded-full inline-block mt-0.5 shadow-xs">
+            <span className="text-[10px] text-[#0d542b] bg-white font-black px-2 py-0.5 rounded-md inline-block mt-0.5 shadow-xs">
               Giá sốc trong ngày
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
       </div>
 
       {/* Product list horizontal carousel */}
-      <div className="bg-surface rounded-b-2xl border-x border-b border-border/80 p-3 shadow-sm">
+      <div className="bg-surface rounded-b-xl border-x border-b border-border/80 p-3 shadow-sm">
         <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1 pt-0.5">
           {flashSaleItems.map((product) => {
             const soldRate = product.soldCount
@@ -108,7 +108,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                 className="w-[140px] flex-none flex flex-col bg-white rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/50 active:scale-95 transition-all group"
               >
                 {/* Image container */}
-                <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">
+                <div className="w-full aspect-square rounded-lg bg-white border border-border/50 p-2 overflow-hidden relative flex items-center justify-center">
                   {product.discountPercent && (
                     <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-[#c81e1e] text-white text-[10px] font-black shadow-xs">
                       -{product.discountPercent}%
@@ -118,7 +118,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   ) : (

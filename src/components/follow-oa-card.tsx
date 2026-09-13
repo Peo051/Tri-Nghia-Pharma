@@ -55,7 +55,7 @@ export default function FollowOAWidget({
           message: "Xin chào Opodis Pharma, tôi muốn quan tâm OA",
         });
       } catch {
-        window.open("https://zalo.me/02837582741", "_blank");
+        window.open("https://zalo.me/0789394239", "_blank");
       }
     }
   };
@@ -70,15 +70,15 @@ export default function FollowOAWidget({
 
       {/* Fallback & Custom Styled OA Card (Chuẩn theo giao diện Zalo OA) */}
       {!hasNativeWidget && (
-        <div className="w-full rounded-2xl bg-white border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 transition-all">
+        <div className="w-full rounded-xl bg-white border border-border/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)] p-4 transition-all">
           <p className="text-[13.5px] font-semibold text-foreground/85 leading-snug mb-3">
             {guidingText}
           </p>
-          <div className="pt-3 border-t border-border/60 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
+          <div className="pt-3 border-t border-border/60 flex items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2.5 min-w-0 flex-1">
               {/* Logo / Avatar với verified checkmark badge */}
-              <div className="relative w-12 h-12 flex-none">
-                <div className="w-12 h-12 rounded-2xl bg-white p-1.5 border border-primary/20 shadow-xs flex items-center justify-center overflow-hidden">
+              <div className="relative w-11 h-11 flex-none">
+                <div className="w-11 h-11 rounded-xl bg-white p-1 border border-primary/20 shadow-xs flex items-center justify-center overflow-hidden">
                   <img
                     src={opodisLogo}
                     alt="Opodis Pharma"
@@ -87,7 +87,7 @@ export default function FollowOAWidget({
                 </div>
                 {/* Verified Checkmark Badge */}
                 <div
-                  className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#f59e0b] border-2 border-white flex items-center justify-center shadow-xs"
+                  className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#f59e0b] border-2 border-white flex items-center justify-center shadow-xs"
                   title="Official Account đã xác thực"
                 >
                   <svg
@@ -105,22 +105,22 @@ export default function FollowOAWidget({
                 </div>
               </div>
 
-              {/* Tên OA & Official Account */}
-              <div className="min-w-0">
-                <h4 className="text-[15px] font-bold text-foreground truncate leading-tight">
+              {/* Tên OA & Official Account: Luôn hiển thị đầy đủ, không bị cắt chữ hay ba chấm */}
+              <div className="min-w-0 flex-1">
+                <h4 className="text-[14px] font-bold text-foreground leading-tight whitespace-nowrap">
                   Opodis Pharma
                 </h4>
-                <p className="text-[12px] text-subtitle leading-tight mt-0.5">
+                <p className="text-[11.5px] text-subtitle leading-tight mt-0.5 whitespace-nowrap">
                   Official Account
                 </p>
               </div>
             </div>
 
-            {/* Nút Quan tâm */}
+            {/* Nút Quan tâm: Kích thước tinh gọn, đảm bảo không gian cho tên thương hiệu */}
             <button
               type="button"
               onClick={handleFollow}
-              className={`flex-none px-5 py-2 rounded-xl text-[13px] font-bold transition-all shadow-xs cursor-pointer flex items-center gap-1 active:scale-95 ${
+              className={`flex-none px-3.5 py-1.5 rounded-lg text-[12.5px] font-bold transition-all shadow-xs cursor-pointer flex items-center gap-1 active:scale-95 ${
                 followed
                   ? "bg-section text-subtitle border border-border/80"
                   : "bg-[#0068ff] hover:bg-[#0058db] text-white"
@@ -129,8 +129,8 @@ export default function FollowOAWidget({
               {followed ? (
                 <>
                   <svg
-                    width="14"
-                    height="14"
+                    width="13"
+                    height="13"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

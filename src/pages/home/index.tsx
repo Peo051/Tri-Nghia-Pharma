@@ -50,10 +50,9 @@ const DISINFECTION_IDS = new Set([
 interface ProductRowProps {
   products: Product[];
   onViewAll: () => void;
-  pinkAccent?: boolean;
 }
 
-function ProductRow({ products, onViewAll, pinkAccent }: ProductRowProps) {
+function ProductRow({ products, onViewAll }: ProductRowProps) {
   return (
     <div className="w-full flex gap-3 overflow-x-auto no-scrollbar px-4 pb-2 pt-0.5 scroll-px-4 items-stretch">
       {products.map((product) => (
@@ -64,19 +63,9 @@ function ProductRow({ products, onViewAll, pinkAccent }: ProductRowProps) {
       <button
         type="button"
         onClick={onViewAll}
-        className={`w-[110px] flex-none rounded-2xl border border-dashed flex flex-col items-center justify-center p-3 text-center transition active:scale-95 cursor-pointer my-0.5 ${
-          pinkAccent
-            ? "border-pink-300 bg-pink-50/50 hover:bg-pink-100/70 text-pink-600"
-            : "border-primary/30 bg-primary-soft/40 hover:bg-primary-soft/70 text-primary"
-        }`}
+        className="w-[110px] flex-none rounded-xl border border-dashed border-primary/30 bg-primary-soft/40 hover:bg-primary-soft/70 text-primary flex flex-col items-center justify-center p-3 text-center transition active:scale-95 cursor-pointer my-0.5"
       >
-        <div
-          className={`w-9 h-9 rounded-full shadow-xs border flex items-center justify-center mb-2 ${
-            pinkAccent
-              ? "bg-white border-pink-200 text-pink-600"
-              : "bg-white border-primary/20 text-primary"
-          }`}
-        >
+        <div className="w-9 h-9 rounded-full shadow-xs border border-primary/20 bg-white text-primary flex items-center justify-center mb-2">
           <svg
             width="17"
             height="17"
@@ -159,9 +148,6 @@ const HomePage: React.FunctionComponent = () => {
         id: "solution",
         label: "Dung dịch vệ sinh & Chăm sóc",
         count: solutionProducts.length,
-        activeClassName: "bg-pink-600 text-white font-semibold shadow-sm",
-        inactiveClassName:
-          "bg-pink-50/90 text-pink-700 hover:bg-pink-100 border border-pink-200/80 font-medium",
       },
       { id: "disinfection", label: "Khử khuẩn & Sát khuẩn", count: disinfectionProducts.length },
     ],
@@ -218,7 +204,7 @@ const HomePage: React.FunctionComponent = () => {
       {/* 4. Category Filter Tabs */}
       <section id="home-categories" className="mt-5">
         <div className="px-4 mb-2 flex items-center justify-between">
-          <h2 className="text-section-title font-black text-primary tracking-tight">
+          <h2 className="text-section-title font-extrabold text-primary tracking-tight font-heading">
             Phân loại sản phẩm
           </h2>
           {selectedCategory !== "all" && (
@@ -246,11 +232,11 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 1: Sản phẩm nổi bật */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-[16px] font-black text-primary">
-                  Sản phẩm <span className="text-pink-600">nổi bật</span>
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
+                  Sản phẩm nổi bật
                 </h3>
-                <p className="text-[11.5px] text-subtitle">
-                  Sản phẩm <span className="text-pink-600 font-medium">tiêu biểu</span> được tin dùng hàng đầu của Opodis
+                <p className="text-[12px] text-subtitle">
+                  Sản phẩm tiêu biểu được tin dùng hàng đầu của Opodis Pharma
                 </p>
               </div>
               <ProductRow
@@ -262,11 +248,11 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 2: Sản phẩm bán chạy */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-[16px] font-black text-primary">
-                  Sản phẩm <span className="text-pink-600">bán chạy</span>
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
+                  Sản phẩm bán chạy
                 </h3>
-                <p className="text-[11.5px] text-subtitle">
-                  Lượt mua cao nhất từ <span className="text-pink-600 font-medium">bệnh viện & người tiêu dùng</span>
+                <p className="text-[12px] text-subtitle">
+                  Lượt mua cao nhất từ bệnh viện & người tiêu dùng
                 </p>
               </div>
               <ProductRow
@@ -278,28 +264,27 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 3: Dung dịch vệ sinh & Chăm sóc */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-[16px] font-black text-pink-600">
-                  Dung dịch <span className="text-pink-600">vệ sinh & chăm sóc</span>
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
+                  Dung dịch vệ sinh & chăm sóc
                 </h3>
-                <p className="text-[11.5px] text-subtitle">
-                  Dung dịch vệ sinh phụ nữ, nam giới và <span className="text-pink-600 font-medium">chăm sóc thảo dược</span> dịu nhẹ
+                <p className="text-[12px] text-subtitle">
+                  Dung dịch vệ sinh phụ nữ, nam giới và chăm sóc thảo dược dịu nhẹ
                 </p>
               </div>
               <ProductRow
                 products={solutionProducts}
                 onViewAll={() => handleSelectCategory("solution")}
-                pinkAccent
               />
             </div>
 
             {/* Khối 4: Khử khuẩn & Sát khuẩn */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-[16px] font-black text-primary">
-                  Khử khuẩn & Sát khuẩn
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
+                  Khử khuẩn & sát khuẩn
                 </h3>
-                <p className="text-[11.5px] text-subtitle">
-                  Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt <span className="text-pink-600 font-medium">chuẩn Bộ Y Tế</span>
+                <p className="text-[12px] text-subtitle">
+                  Chế phẩm diệt khuẩn y tế, khử khuẩn tay và bề mặt chuẩn Bộ Y Tế
                 </p>
               </div>
               <ProductRow
@@ -313,26 +298,16 @@ const HomePage: React.FunctionComponent = () => {
           <div>
             <div className="px-4 mb-3 flex items-center justify-between">
               <div className="flex flex-col">
-                <h2 className="text-section-title font-black text-primary tracking-tight">
-                  {selectedCategory === "featured" ? (
-                    <>
-                      Sản phẩm <span className="text-pink-600">nổi bật</span>
-                    </>
-                  ) : selectedCategory === "best-seller" ? (
-                    <>
-                      Sản phẩm <span className="text-pink-600">bán chạy</span>
-                    </>
-                  ) : selectedCategory === "solution" ? (
-                    <>
-                      Dung dịch <span className="text-pink-600">vệ sinh & chăm sóc</span>
-                    </>
-                  ) : selectedCategory === "disinfection" ? (
-                    <>
-                      Khử khuẩn <span className="text-pink-600">& sát khuẩn</span>
-                    </>
-                  ) : (
-                    "Tất cả sản phẩm"
-                  )}
+                <h2 className="text-section-title font-extrabold text-foreground tracking-tight font-heading">
+                  {selectedCategory === "featured"
+                    ? "Sản phẩm nổi bật"
+                    : selectedCategory === "best-seller"
+                    ? "Sản phẩm bán chạy"
+                    : selectedCategory === "solution"
+                    ? "Dung dịch vệ sinh & chăm sóc"
+                    : selectedCategory === "disinfection"
+                    ? "Khử khuẩn & sát khuẩn"
+                    : "Tất cả sản phẩm"}
                 </h2>
                 <span className="text-[12px] text-subtitle mt-0.5">
                   {filteredProducts.length} sản phẩm Opodis Pharma chính hãng

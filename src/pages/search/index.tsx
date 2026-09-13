@@ -162,7 +162,7 @@ export default function SearchPage() {
                 key={tag}
                 type="button"
                 onClick={() => handleSelectTag(tag)}
-                className={`flex-none px-2.5 py-1 rounded-full text-[11.5px] font-semibold transition-all cursor-pointer ${
+                className={`flex-none px-2.5 py-1 rounded-lg text-[11.5px] font-semibold transition-all cursor-pointer ${
                   isSelected
                     ? "bg-primary text-white shadow-xs"
                     : "bg-section/80 text-foreground/80 hover:bg-primary-soft hover:text-primary border border-border/70"
@@ -268,7 +268,7 @@ export default function SearchPage() {
 
         {/* 3. Expandable Filter Panel */}
         {showFilters && (
-          <div className="mx-4 mt-2.5 p-3 rounded-2xl bg-section/70 border border-border/80 text-[12px] space-y-2.5 animate-fadeIn">
+          <div className="mx-4 mt-2.5 p-3 rounded-xl bg-section/70 border border-border/80 text-[12px] space-y-2.5 animate-fadeIn">
             {/* Khoảng giá (0 - 1 triệu đồng) */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
@@ -433,8 +433,8 @@ export default function SearchPage() {
           <ProductGrid products={filteredProducts} />
         ) : (
           /* Empty state */
-          <div className="mx-4 my-8 p-6 rounded-3xl bg-section/40 border border-border/70 text-center flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-primary-soft flex items-center justify-center text-primary mb-3">
+          <div className="mx-4 my-8 p-6 rounded-xl bg-section/40 border border-border/70 text-center flex flex-col items-center">
+            <div className="w-14 h-14 rounded-lg bg-primary-soft flex items-center justify-center text-primary mb-3">
               <svg
                 width="26"
                 height="26"
@@ -450,7 +450,7 @@ export default function SearchPage() {
                 <line x1="8" y1="11" x2="14" y2="11" />
               </svg>
             </div>
-            <h3 className="text-[15px] font-bold text-foreground">
+            <h3 className="text-[15px] font-bold text-foreground font-display">
               Không tìm thấy sản phẩm phù hợp
             </h3>
             <p className="text-[12.5px] text-subtitle leading-relaxed mt-1 max-w-[260px]">
@@ -463,13 +463,13 @@ export default function SearchPage() {
                   handleClear();
                   resetFilters();
                 }}
-                className="px-4 py-2 rounded-full bg-primary text-white text-[12px] font-semibold shadow-xs active:scale-95 transition cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-primary text-white text-[12px] font-semibold shadow-xs active:scale-95 transition cursor-pointer font-display"
               >
                 Đặt lại tất cả
               </button>
               <a
                 href="tel:02837582741"
-                className="px-4 py-2 rounded-full bg-white border border-border text-primary text-[12px] font-semibold active:scale-95 transition"
+                className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-[12px] font-semibold active:scale-95 transition font-display"
               >
                 Hotline tư vấn
               </a>
