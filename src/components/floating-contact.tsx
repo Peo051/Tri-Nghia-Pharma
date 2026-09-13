@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { openChat } from "zmp-sdk";
+import { openOutApp, openWebview } from "zmp-sdk";
 
 const STORAGE_POS_KEY = "floating_contact_pos_v2";
 const STORAGE_COLLAPSE_KEY = "floating_contact_collapsed";
@@ -160,17 +160,56 @@ export default function FloatingContact() {
     }
   };
 
-  const handleOpenZalo = () => {
-    if (hasMovedRef.current) return;
-    window.open("https://zalo.me/0789394239", "_blank");
+const ZALO_OA_URL = "https://zalo.me/0789394239";
+const MESSENGER_URL =
+  "https://www.messenger.com/t/678768355318156/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0";
+
+const openExternalUrl = (url: string) => {
+  try {
+    openOutApp({ url }).catch(() => {
+      try {
+        openWebview({
+          url,
+          config: { style: "normal", leftButton: "back" },
+          fail: () => {
+            window.location.href = url;
+          },
+        });
+      } catch {
+        window.location.href = url;
+      }
+    });
+  } catch {
+    try {
+      openWebview({
+        url,
+        config: { style: "normal", leftButton: "back" },
+        fail: () => {
+          window.location.href = url;
+        },
+      });
+    } catch {
+      window.location.href = url;
+    }
+  }
+};
+
+  const handleOpenZalo = (e: React.MouseEvent) => {
+    if (hasMovedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    openExternalUrl(ZALO_OA_URL);
   };
 
-  const handleOpenMessenger = () => {
-    if (hasMovedRef.current) return;
-    window.open(
-      "https://www.messenger.com/t/678768355318156/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0",
-      "_blank"
-    );
+  const handleOpenMessenger = (e: React.MouseEvent) => {
+    if (hasMovedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    openExternalUrl(MESSENGER_URL);
   };
 
   // Danh sách 3 nút liên hệ nhanh
@@ -198,8 +237,10 @@ export default function FloatingContact() {
           className="absolute inset-0 m-auto w-11 h-11 rounded-full bg-[#8b5cf6]/40 floating-pulse-inner pointer-events-none"
           style={{ animationDelay: "0s" }}
         />
-        <button
-          type="button"
+        <a
+          href={MESSENGER_URL}
+          target="_blank"
+          rel="noreferrer"
           onClick={handleOpenMessenger}
           aria-label="Chat qua Facebook Messenger"
           title="Chat qua Messenger"
@@ -214,7 +255,7 @@ export default function FloatingContact() {
           >
             <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.517 3.735 7.209.195.144.316.368.324.61l.07 1.905c.023.637.674 1.053 1.24.786l2.122-.998c.19-.089.41-.097.607-.024.898.333 1.877.514 2.902.514 5.523 0 10-4.145 10-9.258C22 6.145 17.523 2 12 2zm1.066 12.428l-2.545-2.715-4.966 2.715 5.46-5.797 2.609 2.715 4.903-2.715-5.461 5.797z" />
           </svg>
-        </button>
+        </a>
       </div>
 
       {/* 2. Zalo Button */}
@@ -227,8 +268,10 @@ export default function FloatingContact() {
           className="absolute inset-0 m-auto w-11 h-11 rounded-full bg-[#0068ff]/40 floating-pulse-inner pointer-events-none"
           style={{ animationDelay: "0.4s" }}
         />
-        <button
-          type="button"
+        <a
+          href={ZALO_OA_URL}
+          target="_blank"
+          rel="noreferrer"
           onClick={handleOpenZalo}
           aria-label="Chat qua Zalo OA"
           title="Chat qua Zalo"
@@ -258,7 +301,7 @@ export default function FloatingContact() {
               Zalo
             </text>
           </svg>
-        </button>
+        </a>
       </div>
 
       {/* 3. Hotline Call Button */}
