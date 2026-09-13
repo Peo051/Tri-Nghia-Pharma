@@ -6,6 +6,7 @@ import {
   getProductById,
   getRelatedProducts,
 } from "@/utils/products";
+import { useAddToCart } from "@/hooks";
 import { useEffect, useMemo, useState } from "react";
 
 function parseBulletPoints(items: string[]): string[] {
@@ -25,6 +26,7 @@ export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const product = id ? getProductById(id) : undefined;
+  const { addToCart } = useAddToCart(product);
 
   const allImages = useMemo(() => {
     if (!product) return [];
@@ -212,6 +214,16 @@ export default function ProductDetailPage() {
             </div>
           )}
         </div>
+
+        {product.price != null && (
+          <button
+            type="button"
+            onClick={() => addToCart(1)}
+            className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded-pill bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition active:scale-[0.98]"
+          >
+            Thêm vào giỏ hàng
+          </button>
+        )}
 
         {/* Chương trình ưu đãi & Cam kết */}
         <div className="mt-3 p-3 rounded-2xl bg-surface border border-border/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-2 text-[12px]">

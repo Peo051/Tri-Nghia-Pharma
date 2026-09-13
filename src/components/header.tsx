@@ -2,26 +2,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { BackIcon } from "./vectors";
 import { useRouteHandle } from "@/hooks";
 import opodisLogo from "@/static/logo-opodis.png";
-import { useAtomValue } from "jotai";
-import { userState } from "@/state";
-import { Suspense } from "react";
 import TransitionLink from "./transition-link";
 
 import defaultUserAvatar from "@/static/user-avatar.png";
 
 function UserHeaderAvatar() {
-  const user = useAtomValue(userState);
-  const avatarSrc = user?.userInfo?.avatar || defaultUserAvatar;
-
   return (
     <TransitionLink
-      to="/profile"
+      to="/customer"
       className="w-8 h-8 rounded-full overflow-hidden border border-primary/40 bg-white flex items-center justify-center flex-none hover:ring-2 hover:ring-primary/20 active:scale-95 transition-all shadow-xs cursor-pointer p-0.5"
-      aria-label="Trang cá nhân"
+      aria-label="Kết nối Opodis"
     >
       <img
-        src={avatarSrc}
-        alt={user?.userInfo?.name || "User avatar"}
+        src={defaultUserAvatar}
+        alt="Ảnh đại diện mặc định"
         className="w-full h-full object-contain rounded-full"
       />
     </TransitionLink>
@@ -65,13 +59,7 @@ export default function Header() {
         />
       </div>
 
-      <Suspense
-        fallback={
-          <div className="w-8 h-8 rounded-full bg-primary-soft animate-pulse flex-none" />
-        }
-      >
-        <UserHeaderAvatar />
-      </Suspense>
+      <UserHeaderAvatar />
     </header>
   );
 }

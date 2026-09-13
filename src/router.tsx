@@ -1,17 +1,15 @@
 import Layout from "@/components/layout";
-import CartPage from "@/pages/cart";
-import ProductListPage from "@/pages/catalog/product-list";
-import CategoryListPage from "@/pages/catalog/category-list";
-import ProductDetailPage from "@/pages/catalog/product-detail";
-import HomePage from "@/pages/home";
-import ProfilePage from "@/pages/profile";
-import SearchPage from "@/pages/search";
 import AboutPage from "@/pages/about";
+import CartPage from "@/pages/cart";
 import CatalogPage from "@/pages/catalog";
-import OffersPage from "@/pages/offers";
+import ProductDetailPage from "@/pages/catalog/product-detail";
+import CustomerPage from "@/pages/customer";
+import HomePage from "@/pages/home";
 import NewsPage from "@/pages/news";
-import { createBrowserRouter } from "react-router-dom";
+import NotFoundPage from "@/pages/not-found";
+import SearchPage from "@/pages/search";
 import { getBasePath } from "@/utils/zma";
+import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter(
   [
@@ -20,14 +18,12 @@ const router = createBrowserRouter(
       element: <Layout />,
       children: [
         {
-          path: "/",
+          index: true,
           element: <HomePage />,
-          handle: {
-            logo: true,
-          },
+          handle: { logo: true },
         },
         {
-          path: "/catalog",
+          path: "catalog",
           element: <CatalogPage />,
           handle: {
             title: "Danh mục sản phẩm",
@@ -35,88 +31,50 @@ const router = createBrowserRouter(
           },
         },
         {
-          path: "/offers",
-          element: <OffersPage />,
-          handle: {
-            title: "Ưu đãi",
-            back: false,
-          },
-        },
-        {
-          path: "/news",
-          element: <NewsPage />,
-          handle: {
-            title: "Tin tức & Sự kiện",
-            back: false,
-          },
-        },
-        {
-          path: "/customer",
-          element: <NewsPage />,
-          handle: {
-            title: "Tin tức & Sự kiện",
-            back: false,
-          },
-        },
-        {
-          // TODO(phase-5): Remove the legacy Fashion routes after the
-          // remaining template links no longer reference them.
-          path: "/categories",
-          element: <CategoryListPage />,
-          handle: {
-            title: "Danh mục sản phẩm",
-            back: false,
-          },
-        },
-        {
-          path: "/cart",
+          path: "cart",
           element: <CartPage />,
+          handle: { title: "Giỏ hàng" },
+        },
+        {
+          path: "news",
+          element: <NewsPage />,
           handle: {
-            title: "Giỏ hàng",
+            title: "Tin tức & Sự kiện",
+            back: false,
           },
         },
         {
-          path: "/profile",
-          element: <ProfilePage />,
+          path: "customer",
+          element: <CustomerPage />,
           handle: {
-            logo: true,
+            title: "Kết nối Opodis",
+            back: false,
           },
         },
         {
-          path: "/flash-sales",
-          element: <ProductListPage />,
-          handle: {
-            title: "Flash Sales",
-          },
-        },
-        {
-          path: "/category/:id",
-          element: <ProductListPage />,
-          handle: {
-            title: ({ categories, params }) =>
-              categories.find((c) => c.id === Number(params.id))?.name,
-          },
-        },
-        {
-          path: "/product/:id",
+          path: "product/:id",
           element: <ProductDetailPage />,
           handle: {
             title: "Chi tiết sản phẩm",
-            scrollRestoration: 0, // when user selects another product in related products, scroll to the top of the page
+            scrollRestoration: 0,
           },
         },
         {
-          path: "/about",
+          path: "about",
           element: <AboutPage />,
-          handle: {
-            title: "Giới thiệu",
-          },
+          handle: { title: "Giới thiệu" },
         },
         {
-          path: "/search",
+          path: "search",
           element: <SearchPage />,
+          handle: { title: "Tìm kiếm" },
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
           handle: {
-            title: "Tìm kiếm",
+            title: "Không tìm thấy trang",
+            back: false,
           },
         },
       ],

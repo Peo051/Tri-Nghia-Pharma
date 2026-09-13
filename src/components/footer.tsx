@@ -26,10 +26,7 @@ const NAV_ITEMS: NavItem[] = [
     name: "Danh mục",
     path: "/catalog",
     icon: CategoryIcon,
-    isActiveRoute: (pathname) =>
-      pathname.startsWith("/catalog") ||
-      pathname.startsWith("/categories") ||
-      pathname.startsWith("/category/"),
+    isActiveRoute: (pathname) => pathname.startsWith("/catalog"),
   },
   {
     name: "Giỏ hàng",
@@ -41,8 +38,7 @@ const NAV_ITEMS: NavItem[] = [
     name: "Tin tức",
     path: "/news",
     icon: NewsIcon,
-    isActiveRoute: (pathname) =>
-      pathname.startsWith("/news") || pathname.startsWith("/customer"),
+    isActiveRoute: (pathname) => pathname.startsWith("/news"),
   },
   {
     name: "Giới thiệu",

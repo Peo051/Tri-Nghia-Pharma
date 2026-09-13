@@ -1,77 +1,60 @@
 import { atom } from "jotai";
-import { Cart, Category, Color } from "@/types";
-import banners from "@/mock/banners.json";
-import categories from "@/mock/categories.json";
+import { Cart } from "@/domain/cart";
+import { Product } from "@/domain/product";
 import { products } from "@/mock/products";
-import { getUserInfo } from "zmp-sdk";
 import { searchProducts } from "@/utils/products";
 
-export const userState = atom(() =>
-  getUserInfo({
-    avatarType: "normal",
-  })
-);
-
-export const bannersState = atom<string[]>(banners);
-
-export const tabsState = atom(["Tất cả", "Nam", "Nữ", "Trẻ em"]);
-
-export const selectedTabIndexState = atom(0);
-
-export const categoriesState = atom<Category[]>(categories);
-
-export const categoriesStateUpwrapped = categoriesState;
-
-export const sizesState = atom(["S", "M", "L", "XL"]);
-
-export const selectedSizeState = atom<string | undefined>(undefined);
-
-export const colorsState = atom<Color[]>([
-  {
-    name: "Đỏ",
-    hex: "#FFC7C7",
-  },
-  {
-    name: "Xanh dương",
-    hex: "#DBEBFF",
-  },
-  {
-    name: "Xanh lá",
-    hex: "#D1F0DB",
-  },
-  {
-    name: "Xám",
-    hex: "#D9E2ED",
-  },
-]);
-
-export const selectedColorState = atom<Color | undefined>(undefined);
+export interface CartProductItem {
+  product: Product;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+}
 
 export const cartState = atom<Cart>([]);
 
-export const selectedCartItemIdsState = atom<number[]>([]);
-
-export const checkoutItemsState = atom((get) => {
-  const ids = get(selectedCartItemIdsState);
+/**
+ * Resolves local cart entries against the current catalogue. Invalid product
+ * IDs are omitted deliberately so a stale entry cannot break the cart UI.
+ */
+export const cartProductItemsState = atom<CartProductItem[]>((get) => {
   const cart = get(cartState);
-  return cart.filter((item) => ids.includes(item.id));
+
+  return cart.flatMap((item) => {
+    const product = products.find((candidate) => candidate.id === item.productId);
+    if (!product) {
+      return [];
+    }
+
+    const quantity =
+      Number.isFinite(item.quantity) && item.quantity > 0
+        ? Math.floor(item.quantity)
+        : 1;
+    const unitPrice =
+      typeof product.price === "number" && Number.isFinite(product.price)
+        ? product.price
+        : 0;
+
+    return [
+      {
+        product,
+        quantity,
+        unitPrice,
+        lineTotal: unitPrice * quantity,
+      },
+    ];
+  });
 });
 
 export const cartTotalState = atom((get) => {
-  const items = get(checkoutItemsState);
+  const items = get(cartProductItemsState);
+
   return {
-    totalItems: items.length,
-    totalAmount: items.reduce(
-      (total, item) => total + item.product.price * item.quantity,
-      0
-    ),
+    totalItems: items.reduce((total, item) => total + item.quantity, 0),
+    totalAmount: items.reduce((total, item) => total + item.lineTotal, 0),
   };
 });
 
 export const keywordState = atom("");
 
-export const searchResultState = atom((get) => {
-  const keyword = get(keywordState);
-  return searchProducts(keyword);
-});
-
+export const searchResultState = atom((get) => searchProducts(get(keywordState)));

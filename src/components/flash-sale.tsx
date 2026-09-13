@@ -16,7 +16,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
       .slice(0, 6);
   }, [products]);
 
-  // Bộ đếm ngược demo cho flash sale (ví dụ: 03 giờ 45 phút 20 giây)
+  // Bộ đếm ngược cho flash sale (ví dụ: 03 giờ 45 phút 20 giây)
   const [timeLeft, setTimeLeft] = useState({
     hours: 3,
     minutes: 45,
