@@ -60,8 +60,8 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
               width="16"
               height="16"
               viewBox="0 0 24 24"
-              fill="#f472b6"
-              className="animate-bounce"
+              fill="#facc15"
+              className="animate-bounce drop-shadow-[0_0_4px_rgba(250,204,21,0.6)]"
             >
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
             </svg>
