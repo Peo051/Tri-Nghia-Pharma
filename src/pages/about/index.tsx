@@ -568,7 +568,7 @@ export default function AboutPage() {
             <h4 className="text-[12px] font-bold text-gray-700 mb-2">Gian hàng trực tuyến chính hãng 100%:</h4>
             <div className="grid grid-cols-3 gap-2">
               <a
-                href="https://shopee.vn/opodispharma"
+                href="https://shopee.vn/opodispharma?entryPoint=ShopBySearch&searchKeyword=opodis%20pharma"
                 target="_blank"
                 rel="noreferrer"
                 className="py-2 px-1.5 rounded-xl bg-orange-50/90 border border-orange-200/80 text-[#ee4d2d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-orange-100 transition-all active:scale-95 shadow-2xs"
@@ -577,7 +577,7 @@ export default function AboutPage() {
                 <span className="truncate">Shopee Mall</span>
               </a>
               <a
-                href="https://www.lazada.vn/shop/mn7k3oup/"
+                href="https://www.lazada.vn/shop/mn7k3oup/?path=index.htm&spm=a2o4n.pdp_revamp.seller.1.66ed7633EhzkGb&itemId=3165045408&channelSource=pdp"
                 target="_blank"
                 rel="noreferrer"
                 className="py-2 px-1.5 rounded-xl bg-blue-50/90 border border-blue-200/80 text-[#0f146d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-blue-100 transition-all active:scale-95 shadow-2xs"
@@ -586,7 +586,7 @@ export default function AboutPage() {
                 <span className="truncate">Lazada Mall</span>
               </a>
               <a
-                href="https://www.tiktok.com/@opodis.pharma"
+                href="https://www.tiktok.com/@opodis.pharma?lang=vi-VN"
                 target="_blank"
                 rel="noreferrer"
                 className="py-2 px-1.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-gray-100 transition-all active:scale-95 shadow-2xs"
