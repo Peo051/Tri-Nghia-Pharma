@@ -17,10 +17,10 @@
 
 ---
 
-## 📱 1. Hình Ảnh Demo Trực Tiếp Dự Án (Full Màn Hình Các Tab - Đồng Nhất Kích Thước)
+## 📱 1. Hình Ảnh Demo Trực Tiếp Dự Án
 
 > [!NOTE]
-> Toàn bộ ảnh demo được chụp thực tế với tỉ lệ màn hình điện thoại di động chuẩn (20:9), hiển thị đầy đủ Header, nội dung và thanh điều hướng Bottom Navigation. Mọi hình ảnh đều có **cùng kích thước hiển thị chuẩn (width 350px, tỉ lệ gốc 824 × 1830)**, đảm bảo tính trực quan, cân đối và thẩm mỹ tối đa.
+> Toàn bộ ảnh demo thực tế với tỉ lệ màn hình điện thoại di động chuẩn (20:9), hiển thị đầy đủ Header, nội dung và thanh điều hướng Bottom Navigation. Mọi hình ảnh đều có **cùng kích thước hiển thị chuẩn (width 350px, tỉ lệ gốc 824 × 1830)**, đảm bảo tính trực quan, cân đối và thẩm mỹ tối đa.
 
 | 🏠 01. Trang Chủ (Home Screen) | 📑 02. Danh Mục Sản Phẩm (Catalog) |
 | :---: | :---: |
