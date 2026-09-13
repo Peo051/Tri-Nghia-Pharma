@@ -62,13 +62,13 @@ export default function ProductItem(props: ProductItemProps) {
           {/* Product Content: Category ↓ Product name ↓ Volume ↓ Price */}
           <div className="pt-2 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
             <div>
-              {/* Category (Eyebrow 11px / 700) */}
-              <div className="text-[11px] leading-4 text-primary font-bold tracking-wider uppercase truncate">
+              {/* Category (Eyebrow 11px / 700 - Font Nunito mềm mại) */}
+              <div className="text-[11px] leading-4 text-primary font-bold tracking-wide uppercase truncate font-soft">
                 {getPrimaryCategory(props.product)}
               </div>
 
               {/* Product name (14px / 600) */}
-              <h3 className="text-[14px] leading-[20px] font-semibold text-foreground line-clamp-2 min-h-[40px] mt-1">
+              <h3 className="text-[14px] leading-[20px] font-semibold text-foreground line-clamp-2 min-h-[40px] mt-1 font-heading">
                 {props.product.name}
               </h3>
 

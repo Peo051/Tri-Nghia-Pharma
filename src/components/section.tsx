@@ -12,7 +12,7 @@ export default function Section(props: PropsWithChildren<SectionProps>) {
   return (
     <section className="bg-background py-2">
       <div className="flex items-center justify-between px-4 pb-1">
-        <h2 className="text-section-title truncate">{props.title}</h2>
+        <h2 className="text-section-title truncate font-heading">{props.title}</h2>
         {props.viewMoreTo && (
           <TransitionLink
             className="text-[13px] font-semibold text-primary flex items-center space-x-1 cursor-pointer flex-none hover:text-primary-dark transition-colors"

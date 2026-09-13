@@ -23,7 +23,7 @@ const NEWS_LIST: NewsItem[] = [
   {
     id: "hanh-trinh-yeu-thuong",
     title:
-      "HÀNH TRÌNH YÊU THƯƠNG: OPODIS PHARMA ĐỒNG HÀNH CÙNG MẸ BẦU TẠI BỆNH VIỆN QUỐC TẾ CITY VÀ BỆNH VIỆN ĐA KHOA HOÀN MỸ THỦ ĐỨC",
+      "Hành trình yêu thương: Opodis Pharma đồng hành cùng mẹ bầu tại Bệnh viện Quốc tế City và Bệnh viện Đa khoa Hoàn Mỹ Thủ Đức",
     category: "csa",
     categoryLabel: "Hoạt động CSA",
     date: "18/08/2026",
@@ -142,10 +142,10 @@ export default function NewsPage() {
         </button>
       </div>
 
-      {/* 2. Tiêu đề & Danh mục Tabs (Chuẩn theo ảnh mẫu) */}
+      {/* 2. Tiêu đề & Danh mục Tabs (Font Nunito mềm mại) */}
       <section className="px-4 mb-3">
-        <h1 className="text-page-title text-primary uppercase tracking-tight mb-3 font-display">
-          TIN TỨC VÀ SỰ KIỆN
+        <h1 className="text-page-title text-primary tracking-tight mb-3 font-heading font-extrabold text-[20px]">
+          Tin tức và Sự kiện
         </h1>
 
         {/* Category Tabs */}
@@ -157,7 +157,7 @@ export default function NewsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-lg text-[12px] font-bold whitespace-nowrap transition cursor-pointer flex-none ${
+                className={`px-3 py-1.5 rounded-lg text-[12px] font-bold font-soft whitespace-nowrap transition cursor-pointer flex-none ${
                   isActive
                     ? "bg-[#116936] text-white shadow-xs"
                     : "bg-white text-primary/80 border border-primary/20 hover:bg-primary-soft/50"
@@ -201,14 +201,14 @@ export default function NewsPage() {
                   </div>
 
                   {/* Category label pill góc phải */}
-                  <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10.5px] font-medium px-2 py-0.5 rounded-md">
+                  <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10.5px] font-bold font-soft px-2 py-0.5 rounded-md">
                     {item.categoryLabel}
                   </div>
                 </div>
 
                 {/* Nội dung bài viết */}
                 <div className="p-3.5 flex flex-col flex-1">
-                  <h2 className="text-[14px] leading-[20px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2 uppercase tracking-tight mb-1.5 font-display">
+                  <h2 className="text-[15px] leading-[22px] font-bold text-foreground group-hover:text-primary transition line-clamp-2 tracking-tight mb-1.5 font-heading">
                     {item.title}
                   </h2>
 
@@ -248,14 +248,14 @@ export default function NewsPage() {
               {/* Thông tin bài viết */}
               <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                 <div className="flex items-center gap-1.5 mb-1">
-                  <span className="text-[10.5px] text-primary font-bold uppercase tracking-wider">
+                  <span className="text-[10.5px] text-primary font-bold uppercase tracking-wider font-soft">
                     {item.categoryLabel}
                   </span>
                   <span className="text-border">•</span>
                   <span className="text-[11px] text-subtitle">{item.date}</span>
                 </div>
 
-                <h3 className="text-[13.5px] leading-[18px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2">
+                <h3 className="text-[13.5px] leading-[19px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2 font-heading">
                   {item.title}
                 </h3>
               </div>

@@ -8,8 +8,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["'Be Vietnam Pro'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-        heading: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        display: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
+        heading: ["'Nunito'", "'Be Vietnam Pro'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        soft: ["'Nunito'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
+        quicksand: ["'Quicksand'", "'Nunito'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
+        display: ["'Nunito'", "'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
         brand: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
       },
       colors: {

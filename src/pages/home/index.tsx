@@ -204,7 +204,7 @@ const HomePage: React.FunctionComponent = () => {
       {/* 4. Category Filter Tabs */}
       <section id="home-categories" className="mt-5">
         <div className="px-4 mb-2 flex items-center justify-between">
-          <h2 className="text-section-title font-black text-primary tracking-tight">
+          <h2 className="text-section-title font-extrabold text-primary tracking-tight font-heading">
             Phân loại sản phẩm
           </h2>
           {selectedCategory !== "all" && (
@@ -232,7 +232,7 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 1: Sản phẩm nổi bật */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-section-title font-bold text-foreground">
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
                   Sản phẩm nổi bật
                 </h3>
                 <p className="text-[12px] text-subtitle">
@@ -248,7 +248,7 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 2: Sản phẩm bán chạy */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-section-title font-bold text-foreground">
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
                   Sản phẩm bán chạy
                 </h3>
                 <p className="text-[12px] text-subtitle">
@@ -264,7 +264,7 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 3: Dung dịch vệ sinh & Chăm sóc */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-section-title font-bold text-foreground">
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
                   Dung dịch vệ sinh & chăm sóc
                 </h3>
                 <p className="text-[12px] text-subtitle">
@@ -280,7 +280,7 @@ const HomePage: React.FunctionComponent = () => {
             {/* Khối 4: Khử khuẩn & Sát khuẩn */}
             <div>
               <div className="px-4 mb-2.5">
-                <h3 className="text-section-title font-bold text-foreground">
+                <h3 className="text-section-title font-extrabold text-foreground font-heading">
                   Khử khuẩn & sát khuẩn
                 </h3>
                 <p className="text-[12px] text-subtitle">
@@ -298,7 +298,7 @@ const HomePage: React.FunctionComponent = () => {
           <div>
             <div className="px-4 mb-3 flex items-center justify-between">
               <div className="flex flex-col">
-                <h2 className="text-section-title font-bold text-foreground tracking-tight">
+                <h2 className="text-section-title font-extrabold text-foreground tracking-tight font-heading">
                   {selectedCategory === "featured"
                     ? "Sản phẩm nổi bật"
                     : selectedCategory === "best-seller"

@@ -65,7 +65,7 @@ export default function CatalogPage() {
         <span className="text-[11px] font-bold tracking-[0.12em] text-primary uppercase">
           OPODIS PHARMA
         </span>
-        <h1 className="text-[22px] leading-7 font-black text-primary mt-1">
+        <h1 className="text-[22px] leading-7 font-extrabold text-primary mt-1 font-heading">
           Danh mục sản phẩm
         </h1>
         <p className="text-[12px] leading-5 text-subtitle mt-1">
