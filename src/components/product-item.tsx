@@ -60,63 +60,41 @@ export default function ProductItem(props: ProductItemProps) {
             )}
           </div>
 
-          {/* Product Content */}
+          {/* Product Content: Category ↓ Product name ↓ Volume ↓ Price */}
           <div className="pt-2 pb-0.5 px-0.5 flex flex-col flex-1 justify-between">
             <div>
-              <div className="flex flex-wrap items-center justify-between gap-1 mb-1">
-                <span className="text-[11px] leading-4 text-primary font-semibold tracking-wide uppercase">
-                  {getPrimaryCategory(props.product)}
-                </span>
-                {props.product.volume && (
-                  <span className="text-[10px] text-subtitle/90 bg-section px-1.5 py-0.5 rounded font-normal flex-none">
-                    {props.product.volume.split(" và ")[0]}
-                  </span>
-                )}
+              {/* Category (Eyebrow 11px / 700) */}
+              <div className="text-[11px] leading-4 text-primary font-bold tracking-wider uppercase truncate">
+                {getPrimaryCategory(props.product)}
               </div>
-              <h3 className="text-[13.5px] leading-[19px] font-medium text-foreground min-h-[38px]">
+
+              {/* Product name (14px / 600) */}
+              <h3 className="text-[14px] leading-[20px] font-semibold text-foreground line-clamp-2 min-h-[40px] mt-1">
                 {props.product.name}
               </h3>
 
-              {/* Social Proof: Rating & Sold count */}
-              <div className="flex items-center gap-1.5 mt-1 text-[11px] text-subtitle">
-                {props.product.rating && (
-                  <div className="flex items-center text-amber-500 font-bold">
-                    <span>★</span>
-                    <span className="ml-0.5 text-foreground text-[11px]">
-                      {props.product.rating.toFixed(1)}
-                    </span>
-                  </div>
-                )}
-                {props.product.soldCount && (
-                  <>
-                    <span className="text-border">|</span>
-                    <span className="truncate">
-                      Đã bán{" "}
-                      {props.product.soldCount >= 1000
-                        ? `${(props.product.soldCount / 1000).toFixed(1)}k`
-                        : props.product.soldCount}
-                    </span>
-                  </>
-                )}
-              </div>
+              {/* Volume (Metadata 12px / 400) */}
+              <p className="text-[12px] leading-4 text-subtitle font-normal mt-1 truncate">
+                {props.product.volume || "Quy cách chuẩn"}
+              </p>
             </div>
 
-            {/* Price section with optional strike-through */}
-            <div className="mt-2 pt-0.5 flex items-baseline justify-between gap-1 flex-wrap">
+            {/* Price (Card title / Price 15px / 600) */}
+            <div className="mt-2.5 pt-1.5 border-t border-border/40 flex items-baseline justify-between gap-1 flex-wrap">
               {props.product.price != null ? (
                 <div className="flex items-baseline gap-1.5 flex-wrap">
-                  <span className="text-[15px] leading-none font-bold text-primary-dark">
+                  <span className="text-[15px] leading-none font-semibold text-primary-dark">
                     {formatPrice(props.product.price)}
                   </span>
                   {props.product.originalPrice &&
                     props.product.originalPrice > props.product.price && (
-                      <span className="text-[11px] leading-none text-subtitle line-through">
+                      <span className="text-[12px] leading-none text-subtitle line-through">
                         {formatPrice(props.product.originalPrice)}
                       </span>
                     )}
                 </div>
               ) : (
-                <span className="inline-flex items-center text-[13px] leading-none font-semibold text-primary">
+                <span className="inline-flex items-center text-[14px] leading-none font-semibold text-primary">
                   Liên hệ
                 </span>
               )}

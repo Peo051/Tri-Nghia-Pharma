@@ -7,8 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Tahoma", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "sans-serif"],
-        heading: ["Tahoma", "sans-serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        heading: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
       },
       colors: {
         "brand-primary": "rgb(var(--brand-primary-rgb) / <alpha-value>)",
@@ -40,6 +41,14 @@ module.exports = {
         pill: "9999px",
       },
       fontSize: {
+        nav: ["10.5px", "16px"],
+        eyebrow: ["11px", "16px"],
+        metadata: ["12px", "16px"],
+        body: ["14px", "20px"],
+        product: ["14px", "20px"],
+        card: ["15px", "20px"],
+        section: ["18px", "24px"],
+        page: ["22px", "28px"],
         "3xs": ["11px", "16px"],
         "2xs": ["12px", "16px"],
         xs: ["13px", "18px"],

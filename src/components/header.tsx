@@ -61,7 +61,7 @@ export default function Header() {
         <img
           src={opodisLogo}
           alt="Opodis Pharma Logo"
-          className="h-8 max-h-8 w-auto object-contain object-left"
+          className="h-[36px] max-h-[36px] w-auto object-contain object-left"
         />
       </div>
 

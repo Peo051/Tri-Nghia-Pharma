@@ -54,70 +54,83 @@
   --skeleton-rgb: 229 231 235;
 }
 
-/* Heading defaults - Tahoma, #116936 */
+/* Heading defaults - Clean Sans-serif */
 h1, h2, h3, h4, h5, h6, .heading-font {
-  font-family: 'Tahoma', sans-serif;
-  font-weight: 800;
-  color: var(--primary);
-}
-
-/* Opodis Typography Scale */
-.text-page-title {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.01em;
-}
-
-.text-section-title {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 17px;
-  line-height: 24px;
-  font-weight: 900;
-  color: var(--primary);
-  letter-spacing: -0.01em;
-}
-
-.text-product-name {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
+  font-family: inherit;
   color: var(--foreground);
 }
 
-.text-product-category {
-  font-family: 'Tahoma', sans-serif;
+/* Opodis Typography Hierarchy */
+.text-page-title {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.text-section-title {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+.text-card-title {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.text-product-name {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.text-product-category,
+.text-eyebrow {
   font-size: 11px;
   line-height: 16px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .text-product-price {
-  font-family: 'Tahoma', sans-serif;
   font-size: 15px;
   line-height: 20px;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary-dark);
 }
 
-.text-body-custom {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 13px;
+.text-body-custom,
+.text-body {
+  font-size: 14px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--foreground);
 }
 
-.text-body-muted {
-  font-family: 'Tahoma', sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 500;
+.text-body-muted,
+.text-metadata {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
   color: var(--subtitle);
+}
+
+.text-bottom-nav {
+  font-size: 10.5px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+/* Brand storytelling heading - exclusively for narrative brand moments */
+.brand-story-heading {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }

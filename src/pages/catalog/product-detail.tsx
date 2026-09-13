@@ -156,17 +156,13 @@ export default function ProductDetailPage() {
         )}
       </div>
 
-      {/* 2. Primary Summary Card */}
+      {/* 2. Primary Summary Card: Category ↓ Product name ↓ Volume ↓ Price */}
       <div className="px-4 pt-4 pb-2">
-        <div className="inline-flex items-center space-x-2 mb-1.5 flex-wrap gap-y-1">
-          <span className="px-2.5 py-0.5 rounded-full bg-primary-soft text-primary text-[11px] font-semibold tracking-wide uppercase">
+        {/* Category (Eyebrow 11px / 700) */}
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] leading-4 font-bold text-primary tracking-wider uppercase">
             {getPrimaryCategory(product)}
           </span>
-          {product.volume && (
-            <span className="px-2 py-0.5 rounded-full bg-section text-subtitle text-[11px] font-medium border border-border/60">
-              {product.volume.split(" và ")[0]}
-            </span>
-          )}
           {product.promotionBadge && (
             <span className="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[11px] font-bold">
               {product.promotionBadge}
@@ -174,33 +170,19 @@ export default function ProductDetailPage() {
           )}
         </div>
 
-        <h1 className="text-[21px] leading-[27px] font-black text-foreground mt-1 tracking-tight">
+        {/* Product Name (Page title 22px / 700) */}
+        <h1 className="text-[22px] leading-[28px] font-bold text-foreground mt-1.5 tracking-tight">
           {product.name}
         </h1>
 
-        {/* Social Proof: Rating & Sold count */}
-        <div className="flex items-center gap-2 mt-2 text-[12px] text-subtitle">
-          {product.rating && (
-            <div className="flex items-center text-amber-500 font-bold">
-              <span>★</span>
-              <span className="ml-1 text-foreground font-black">{product.rating.toFixed(1)}</span>
-              {product.reviewCount && (
-                <span className="text-subtitle font-normal ml-0.5">({product.reviewCount} đánh giá)</span>
-              )}
-            </div>
-          )}
-          {product.soldCount && (
-            <>
-              <span className="text-border">|</span>
-              <span>
-                Đã bán{" "}
-                {product.soldCount >= 1000
-                  ? `${(product.soldCount / 1000).toFixed(1)}k`
-                  : product.soldCount}
-              </span>
-            </>
-          )}
-        </div>
+        {/* Volume (Metadata 12px / 400) */}
+        {product.volume && (
+          <div className="mt-1.5 flex items-center gap-1.5">
+            <span className="text-[12px] leading-4 text-subtitle font-normal">
+              Quy cách đóng gói: <span className="font-medium text-foreground">{product.volume}</span>
+            </span>
+          </div>
+        )}
 
         {/* Pricing Box with discount percentage */}
         <div className="mt-3 p-3.5 rounded-2xl bg-primary-soft/60 border border-primary/20 flex items-center justify-between">

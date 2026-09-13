@@ -84,7 +84,7 @@ export default function Footer() {
                 <item.icon active={isActive} />
               </div>
               <span
-                className={`text-[10px] leading-4 mt-0.5 tracking-tight whitespace-nowrap ${
+                className={`text-[10.5px] leading-4 font-medium mt-0.5 tracking-tight whitespace-nowrap ${
                   isActive ? "text-primary font-semibold" : "text-subtitle"
                 }`}
               >

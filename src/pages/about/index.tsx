@@ -127,7 +127,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <h1 className="text-[23px] leading-[30px] font-black tracking-tight text-white">
+          <h1 className="text-[23px] leading-[30px] font-black tracking-tight text-white brand-story-heading">
             TINH HOA DƯỢC THẢO VIỆT
           </h1>
           <p className="text-[16px] leading-[23px] font-extrabold text-emerald-200 mt-0.5">
