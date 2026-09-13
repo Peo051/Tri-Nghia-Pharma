@@ -44,7 +44,7 @@ export const PARTNERS_ROW_2: PartnerItem[] = [
 function PartnerCard({ partner }: { partner: PartnerItem }) {
   return (
     <div
-      className="w-[124px] h-[64px] bg-white rounded-2xl border border-gray-200/80 shadow-2xs px-2.5 py-1.5 flex flex-col items-center justify-center flex-none select-none transition-all hover:border-primary/40 active:scale-95"
+      className="w-[124px] h-[64px] bg-white rounded-xl border border-gray-200/80 shadow-2xs px-2.5 py-1.5 flex flex-col items-center justify-center flex-none select-none transition-all hover:border-primary/40 active:scale-95"
       title={partner.name}
     >
       <div className="h-8 w-full flex items-center justify-center">

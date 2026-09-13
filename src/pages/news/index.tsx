@@ -100,9 +100,9 @@ export default function NewsPage() {
   return (
     <div className="w-full min-h-full pb-12 bg-background">
       {/* 1. Website Banner Box */}
-      <div className="mx-4 mt-3.5 mb-4 rounded-2xl bg-gradient-to-br from-white via-primary-soft/40 to-primary-soft/80 border border-primary/20 p-3.5 shadow-[0_2px_10px_rgba(17,105,54,0.05)] flex items-center justify-between gap-3">
+      <div className="mx-4 mt-3.5 mb-4 rounded-xl bg-gradient-to-br from-white via-primary-soft/40 to-primary-soft/80 border border-primary/20 p-3.5 shadow-[0_2px_10px_rgba(17,105,54,0.05)] flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-11 h-11 rounded-xl bg-white p-1 border border-primary/20 shadow-xs flex items-center justify-center flex-none">
+          <div className="w-11 h-11 rounded-lg bg-white p-1 border border-primary/20 shadow-xs flex items-center justify-center flex-none">
             <img
               src={opodisLogo}
               alt="Opodis Pharma"
@@ -113,7 +113,7 @@ export default function NewsPage() {
             <span className="text-[10.5px] font-bold text-primary uppercase tracking-wide block">
               Website chính thức
             </span>
-            <h2 className="text-[13.5px] font-black text-foreground truncate">
+            <h2 className="text-[13.5px] font-black text-foreground truncate font-display">
               opodispharma.com
             </h2>
           </div>
@@ -121,7 +121,7 @@ export default function NewsPage() {
         <button
           type="button"
           onClick={() => handleOpenLink("https://opodispharma.com/")}
-          className="flex-none px-3 py-1.5 rounded-xl bg-primary text-white text-[12px] font-bold hover:bg-primary-dark transition active:scale-95 shadow-xs flex items-center gap-1 cursor-pointer"
+          className="flex-none px-3 py-1.5 rounded-lg bg-primary text-white text-[12px] font-bold hover:bg-primary-dark transition active:scale-95 shadow-xs flex items-center gap-1 cursor-pointer font-display"
         >
           <span>Xem web</span>
           <svg
@@ -144,7 +144,7 @@ export default function NewsPage() {
 
       {/* 2. Tiêu đề & Danh mục Tabs (Chuẩn theo ảnh mẫu) */}
       <section className="px-4 mb-3">
-        <h1 className="text-page-title text-primary uppercase tracking-tight mb-3">
+        <h1 className="text-page-title text-primary uppercase tracking-tight mb-3 font-display">
           TIN TỨC VÀ SỰ KIỆN
         </h1>
 
@@ -157,7 +157,7 @@ export default function NewsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-3 py-1.5 rounded-xl text-[12px] font-bold whitespace-nowrap transition cursor-pointer flex-none ${
+                className={`px-3 py-1.5 rounded-lg text-[12px] font-bold whitespace-nowrap transition cursor-pointer flex-none ${
                   isActive
                     ? "bg-[#116936] text-white shadow-xs"
                     : "bg-white text-primary/80 border border-primary/20 hover:bg-primary-soft/50"
@@ -201,14 +201,14 @@ export default function NewsPage() {
                   </div>
 
                   {/* Category label pill góc phải */}
-                  <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10.5px] font-medium px-2 py-0.5 rounded-full">
+                  <div className="absolute top-2.5 right-2.5 z-10 bg-black/60 backdrop-blur-xs text-white text-[10.5px] font-medium px-2 py-0.5 rounded-md">
                     {item.categoryLabel}
                   </div>
                 </div>
 
                 {/* Nội dung bài viết */}
                 <div className="p-3.5 flex flex-col flex-1">
-                  <h2 className="text-[14px] leading-[20px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2 uppercase tracking-tight mb-1.5">
+                  <h2 className="text-[14px] leading-[20px] font-semibold text-foreground group-hover:text-primary transition line-clamp-2 uppercase tracking-tight mb-1.5 font-display">
                     {item.title}
                   </h2>
 
@@ -233,7 +233,7 @@ export default function NewsPage() {
               className="group rounded-card bg-white border border-border/80 shadow-card p-2.5 cursor-pointer hover:shadow-card-hover transition-all active:scale-[0.99] flex gap-3 items-center"
             >
               {/* Thumbnail 96x80 */}
-              <div className="relative w-24 h-20 rounded-xl overflow-hidden bg-section/40 flex-none border border-border/50">
+              <div className="relative w-24 h-20 rounded-lg overflow-hidden bg-section/40 flex-none border border-border/50">
                 <img
                   src={item.image}
                   alt={item.title}

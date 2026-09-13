@@ -63,7 +63,7 @@ function ProductRow({ products, onViewAll }: ProductRowProps) {
       <button
         type="button"
         onClick={onViewAll}
-        className="w-[110px] flex-none rounded-2xl border border-dashed border-primary/30 bg-primary-soft/40 hover:bg-primary-soft/70 text-primary flex flex-col items-center justify-center p-3 text-center transition active:scale-95 cursor-pointer my-0.5"
+        className="w-[110px] flex-none rounded-xl border border-dashed border-primary/30 bg-primary-soft/40 hover:bg-primary-soft/70 text-primary flex flex-col items-center justify-center p-3 text-center transition active:scale-95 cursor-pointer my-0.5"
       >
         <div className="w-9 h-9 rounded-full shadow-xs border border-primary/20 bg-white text-primary flex items-center justify-center mb-2">
           <svg

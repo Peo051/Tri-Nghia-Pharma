@@ -49,7 +49,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
   return (
     <section className={`mx-4 mt-5 ${className}`} aria-labelledby="flash-sale-heading">
       {/* Header Flash Sale */}
-      <div className="relative overflow-hidden rounded-t-2xl bg-gradient-to-r from-[#0a4622] via-[#116936] to-[#22a458] p-3.5 flex items-center justify-between text-white shadow-sm">
+      <div className="relative overflow-hidden rounded-t-xl bg-gradient-to-r from-[#0a4622] via-[#116936] to-[#22a458] p-3.5 flex items-center justify-between text-white shadow-sm">
         {/* Decorative lighting elements for radiant depth */}
         <div className="absolute -right-6 -top-6 w-28 h-28 bg-white/10 rounded-full blur-xl pointer-events-none" />
         <div className="absolute left-1/3 -bottom-6 w-24 h-24 bg-[#34d399]/15 rounded-full blur-lg pointer-events-none" />
@@ -67,10 +67,10 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
             </svg>
           </div>
           <div>
-            <h2 id="flash-sale-heading" className="text-[15px] font-black tracking-wide text-white uppercase flex items-center gap-1.5">
+            <h2 id="flash-sale-heading" className="text-[15px] font-black tracking-wide text-white uppercase flex items-center gap-1.5 font-display">
               Flash Sale
             </h2>
-            <span className="text-[10px] text-[#0d542b] bg-white font-black px-2 py-0.5 rounded-full inline-block mt-0.5 shadow-xs">
+            <span className="text-[10px] text-[#0d542b] bg-white font-black px-2 py-0.5 rounded-md inline-block mt-0.5 shadow-xs">
               Giá sốc trong ngày
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
       </div>
 
       {/* Product list horizontal carousel */}
-      <div className="bg-surface rounded-b-2xl border-x border-b border-border/80 p-3 shadow-sm">
+      <div className="bg-surface rounded-b-xl border-x border-b border-border/80 p-3 shadow-sm">
         <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1 pt-0.5">
           {flashSaleItems.map((product) => {
             const soldRate = product.soldCount

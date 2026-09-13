@@ -7,9 +7,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-        heading: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        sans: ["'Be Vietnam Pro'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
+        brand: ["'Plus Jakarta Sans'", "'Be Vietnam Pro'", "-apple-system", "sans-serif"],
       },
       colors: {
         "brand-primary": "rgb(var(--brand-primary-rgb) / <alpha-value>)",
@@ -36,9 +37,17 @@ module.exports = {
         skeleton: "rgb(var(--skeleton-rgb) / <alpha-value>)",
       },
       borderRadius: {
-        card: "16px",
-        hero: "24px",
-        image: "14px",
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "6px",
+        md: "8px",
+        lg: "10px",
+        xl: "12px",
+        "2xl": "14px",
+        "3xl": "16px",
+        card: "10px",
+        hero: "14px",
+        image: "8px",
         pill: "9999px",
       },
       boxShadow: {

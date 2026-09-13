@@ -50,7 +50,7 @@ export default function Banners({ onSelectCategory }: BannersProps) {
           <div
             key={banner.id}
             onClick={() => onSelectCategory?.(banner.category)}
-            className="w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-border/70 bg-section/80 cursor-pointer active:scale-[0.99] transition-transform"
+            className="w-full aspect-[16/9] rounded-xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.06)] border border-border/70 bg-section/80 cursor-pointer active:scale-[0.99] transition-transform"
           >
             <img
               src={banner.image}

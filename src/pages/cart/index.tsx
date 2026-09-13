@@ -64,7 +64,7 @@ export default function CartPage() {
         </div>
         <TransitionLink
           to="/catalog"
-          className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary text-white text-[14px] font-semibold shadow-xs active:scale-95 transition-transform cursor-pointer"
+          className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-primary text-white text-[14px] font-semibold shadow-xs active:scale-95 transition-transform cursor-pointer font-display"
         >
           Khám phá sản phẩm ngay
         </TransitionLink>
@@ -74,7 +74,7 @@ export default function CartPage() {
 
   return (
     <div className="w-full min-h-full bg-background pb-5 pt-3">
-      <div className="mx-4 overflow-hidden rounded-2xl border border-border/70 bg-white shadow-xs">
+      <div className="mx-4 overflow-hidden rounded-xl border border-border/70 bg-white shadow-xs">
         {cartItems.map((item, index) => (
           <article
             key={item.product.id}
@@ -83,7 +83,7 @@ export default function CartPage() {
               index < cartItems.length - 1 ? "border-b border-border/60" : "",
             ].join(" ")}
           >
-            <div className="h-20 w-20 flex-none overflow-hidden rounded-xl border border-border/60 bg-section/50 p-1.5">
+            <div className="h-20 w-20 flex-none overflow-hidden rounded-lg border border-border/60 bg-section/50 p-1.5">
               {item.product.image ? (
                 <img
                   src={item.product.image}
@@ -121,7 +121,7 @@ export default function CartPage() {
 
               <div className="mt-2 flex items-center justify-between gap-2">
                 <div>
-                  <p className="text-[14px] font-bold text-primary-dark">
+                  <p className="text-[14px] font-bold text-primary-dark font-display">
                     {formatPrice(item.unitPrice)}
                   </p>
                   {item.product.originalPrice &&
@@ -144,7 +144,7 @@ export default function CartPage() {
         ))}
       </div>
 
-      <section className="mx-4 mt-4 rounded-2xl border border-border/70 bg-surface p-4 shadow-xs">
+      <section className="mx-4 mt-4 rounded-xl border border-border/70 bg-surface p-4 shadow-xs">
         <div className="flex items-center justify-between text-[12px] text-subtitle">
           <span>Tạm tính ({totalItems} sản phẩm)</span>
           <span>{formatPrice(totalAmount)}</span>
@@ -153,7 +153,7 @@ export default function CartPage() {
           <span className="text-[14px] font-semibold text-foreground">
             Tổng cộng
           </span>
-          <span className="text-[19px] font-black text-primary-dark">
+          <span className="text-[19px] font-black text-primary-dark font-display">
             {formatPrice(totalAmount)}
           </span>
         </div>
@@ -161,7 +161,7 @@ export default function CartPage() {
           type="button"
           onClick={contact}
           disabled={totalItems === 0}
-          className="mt-4 flex min-h-[44px] w-full items-center justify-center rounded-pill bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
+          className="mt-4 flex min-h-[44px] w-full items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 font-display"
         >
           Liên hệ đặt hàng
         </button>

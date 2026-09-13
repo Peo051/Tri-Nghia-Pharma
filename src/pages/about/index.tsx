@@ -47,26 +47,26 @@ export default function AboutPage() {
   return (
     <div className="w-full min-h-full pb-12 bg-[#F8FAF9] text-foreground">
       {/* 1. HERO BANNER: THƯƠNG HIỆU 25 NĂM & BẢO CHỨNG VÀNG */}
-      <section className="mx-3.5 mt-3 mb-4 rounded-3xl bg-gradient-to-br from-[#0B4A24] via-[#116936] to-[#08351B] text-white p-5 relative overflow-hidden shadow-xl shadow-primary/25">
+      <section className="mx-3.5 mt-3 mb-4 rounded-2xl bg-gradient-to-br from-[#0B4A24] via-[#116936] to-[#08351B] text-white p-5 relative overflow-hidden shadow-xl shadow-primary/25">
         <div className="absolute -right-10 -top-10 w-52 h-52 rounded-full bg-white/10 blur-3xl pointer-events-none" />
         <div className="absolute -left-10 -bottom-10 w-52 h-52 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
           {/* Huy hiệu 25 Năm - 1 dòng duy nhất */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10px] font-extrabold uppercase tracking-wide mb-3.5 backdrop-blur-xs shadow-2xs whitespace-nowrap">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-400/15 border border-amber-300/30 text-amber-200 text-[10px] font-extrabold uppercase tracking-wide mb-3.5 backdrop-blur-xs shadow-2xs whitespace-nowrap font-display">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse flex-none" />
             <span>25 Năm Đồng Hành • Vì Sức Khỏe Gia Đình Việt</span>
           </div>
 
           {/* Cặp Thẻ Logo Đối Tác: Hiển thị đầy đủ tên thương hiệu, không bị cắt chữ */}
           <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-2xl shadow-sm border border-white/20 text-center">
+            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-xl shadow-sm border border-white/20 text-center">
               <img
                 src={opodisLogo}
                 alt="Logo Dược Phẩm Opodis"
                 className="h-6 w-auto object-contain mb-1 flex-none"
               />
-              <span className="text-[11.5px] font-black text-primary leading-tight">
+              <span className="text-[11.5px] font-black text-primary leading-tight font-display">
                 OPODIS PHARMA
               </span>
               <span className="text-[9.5px] text-gray-500 font-semibold leading-tight mt-0.5">
@@ -74,13 +74,13 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-2xl shadow-sm border border-white/20 text-center">
+            <div className="flex flex-col items-center justify-center py-2.5 px-2 bg-white/95 rounded-xl shadow-sm border border-white/20 text-center">
               <img
                 src={triNghiaLogo}
                 alt="Logo Trí Nghĩa Pharma"
                 className="w-6 h-6 rounded-full object-contain p-0.5 bg-gray-50 mb-1 flex-none"
               />
-              <span className="text-[11.5px] font-black text-primary leading-tight">
+              <span className="text-[11.5px] font-black text-primary leading-tight font-display">
                 TRÍ NGHĨA PHARMA
               </span>
               <span className="text-[9.5px] text-gray-500 font-semibold leading-tight mt-0.5">
@@ -89,10 +89,10 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <h1 className="text-[22px] leading-[28px] font-black tracking-tight text-white">
+          <h1 className="text-[22px] leading-[28px] font-black tracking-tight text-white font-display">
             TINH HOA DƯỢC THẢO VIỆT
           </h1>
-          <p className="text-[15px] leading-[22px] font-extrabold text-emerald-200 mt-1">
+          <p className="text-[15px] leading-[22px] font-extrabold text-emerald-200 mt-1 font-display">
             Chăm sóc sức khỏe chuẩn y khoa
           </p>
 
@@ -102,20 +102,20 @@ export default function AboutPage() {
 
           {/* 4 Chỉ số giá trị thương hiệu */}
           <div className="mt-4 pt-3.5 border-t border-white/15 grid grid-cols-4 gap-1.5 text-center">
-            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[16px] font-black text-amber-300 leading-none">25+</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none stat-number">25+</span>
               <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Năm uy tín</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[15px] font-black text-amber-300 leading-none">GMP</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[15px] font-black text-amber-300 leading-none stat-number">GMP</span>
               <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Chuẩn WHO</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[16px] font-black text-amber-300 leading-none">80+</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none stat-number">80+</span>
               <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Viện tin dùng</span>
             </div>
-            <div className="flex flex-col items-center justify-center bg-white/10 rounded-2xl py-2 px-1 backdrop-blur-xs border border-white/10">
-              <span className="text-[16px] font-black text-amber-300 leading-none">1Tr+</span>
+            <div className="flex flex-col items-center justify-center bg-white/10 rounded-xl py-2 px-1 backdrop-blur-xs border border-white/10">
+              <span className="text-[16px] font-black text-amber-300 leading-none stat-number">1Tr+</span>
               <span className="text-[9.5px] text-white/85 font-medium leading-tight mt-1.5">Gia đình tin yêu</span>
             </div>
           </div>
@@ -124,12 +124,12 @@ export default function AboutPage() {
 
       {/* 2. TIÊU CHUẨN CHẤT LƯỢNG QUỐC TẾ */}
       <section className="mx-3.5 mb-4">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
+        <div className="p-4 rounded-xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">
               Cam kết chất lượng chuẩn y khoa
             </span>
-            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5 font-display">
               Nhà máy chuẩn GMP-WHO — An tâm trên từng sản phẩm
             </h2>
           </div>
@@ -139,7 +139,7 @@ export default function AboutPage() {
           </p>
 
           {/* Ảnh thực tế nhà máy */}
-          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm mb-3">
+          <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-3">
             <img
               src={factory1Img}
               alt="Nhà máy Opodis Pharma đạt chuẩn GMP-WHO tại Tây Ninh"
@@ -153,16 +153,16 @@ export default function AboutPage() {
 
           {/* 3 Tiêu chuẩn Quốc tế */}
           <div className="grid grid-cols-3 gap-2">
-            <div className="p-2.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/60 text-center flex flex-col items-center">
-              <span className="text-[13px] font-black text-primary">GMP-WHO</span>
+            <div className="p-2.5 rounded-xl bg-emerald-50/70 border border-emerald-200/60 text-center flex flex-col items-center">
+              <span className="text-[13px] font-black text-primary font-display">GMP-WHO</span>
               <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Dược phẩm thế giới</span>
             </div>
-            <div className="p-2.5 rounded-2xl bg-teal-50/70 border border-teal-200/60 text-center flex flex-col items-center">
-              <span className="text-[13px] font-black text-teal-800">CGMP-ASEAN</span>
+            <div className="p-2.5 rounded-xl bg-teal-50/70 border border-teal-200/60 text-center flex flex-col items-center">
+              <span className="text-[13px] font-black text-teal-800 font-display">CGMP-ASEAN</span>
               <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Dược mỹ phẩm quốc tế</span>
             </div>
-            <div className="p-2.5 rounded-2xl bg-blue-50/70 border border-blue-200/60 text-center flex flex-col items-center">
-              <span className="text-[13px] font-black text-blue-800">ISO 13485</span>
+            <div className="p-2.5 rounded-xl bg-blue-50/70 border border-blue-200/60 text-center flex flex-col items-center">
+              <span className="text-[13px] font-black text-blue-800 font-display">ISO 13485</span>
               <span className="text-[10px] text-gray-600 mt-0.5 leading-tight">Thiết bị y tế an toàn</span>
             </div>
           </div>
@@ -171,12 +171,12 @@ export default function AboutPage() {
 
       {/* 3. BẢO CHỨNG NIỀM TIN: HỆ THỐNG PHÂN PHỐI & ĐỐI TÁC Y TẾ (CAROUSEL ĐỘNG) */}
       <section className="mx-3.5 mb-4">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
+        <div className="p-4 rounded-xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-2.5">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">
               Bảo chứng niềm tin • 80+ Bệnh viện lớn
             </span>
-            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5 font-display">
               Hệ thống phân phối & Đối tác y tế
             </h2>
           </div>
@@ -198,7 +198,7 @@ export default function AboutPage() {
             <PartnerCarousel />
           </div>
 
-          <div className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/70 text-[12px] text-emerald-950 leading-[18px]">
+          <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-200/70 text-[12px] text-emerald-950 leading-[18px]">
             <strong>Bảo chứng chất lượng:</strong> Sự hiện diện bền bỉ tại các bệnh viện đầu ngành (Từ Dũ, Chợ Rẫy, Quân Y 175, Nhi Đồng 1...) và chuỗi nhà thuốc lớn (FPT Long Châu, Pharmacity, VNVC) chính là lời khẳng định vững chắc nhất cho chất lượng và độ an toàn của Opodis Pharma.
           </div>
         </div>
@@ -206,12 +206,12 @@ export default function AboutPage() {
 
       {/* 4. HỆ SINH THÁI GIẢI PHÁP CHĂM SÓC TOÀN DIỆN */}
       <section className="mx-3.5 mb-4">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
+        <div className="p-4 rounded-xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">
               Hệ sinh thái sản phẩm
             </span>
-            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5 font-display">
               Giải pháp y khoa trọn vẹn cho cả gia đình
             </h2>
           </div>
@@ -220,11 +220,11 @@ export default function AboutPage() {
             {PRODUCT_SOLUTIONS.map((item, idx) => (
               <div
                 key={idx}
-                className={`p-3 rounded-2xl border ${item.border} flex flex-col gap-1 transition-all`}
+                className={`p-3 rounded-xl border ${item.border} flex flex-col gap-1 transition-all`}
               >
                 <div className="flex items-center justify-between gap-1">
                   <h3 className="text-[12.5px] font-bold text-gray-900">{item.title}</h3>
-                  <span className="px-2 py-0.5 rounded-full bg-white text-primary text-[10px] font-extrabold border border-primary/20 flex-none shadow-2xs">
+                  <span className="px-2 py-0.5 rounded-md bg-white text-primary text-[10px] font-extrabold border border-primary/20 flex-none shadow-2xs font-display">
                     {item.badge}
                   </span>
                 </div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
           <button
             type="button"
             onClick={() => navigate("/catalog")}
-            className="mt-3.5 w-full py-2.5 px-4 rounded-2xl bg-primary text-white font-bold text-[13px] shadow-sm shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            className="mt-3.5 w-full py-2.5 px-4 rounded-lg bg-primary text-white font-bold text-[13px] font-display shadow-sm shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <span>Khám phá toàn bộ danh mục sản phẩm</span>
             <span>→</span>
@@ -247,19 +247,19 @@ export default function AboutPage() {
 
       {/* 5. THÔNG TIN DOANH NGHIỆP, LIÊN HỆ & SÀN TMĐT CHÍNH HÃNG */}
       <section className="mx-3.5 mb-4">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
+        <div className="p-4 rounded-xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">
               Thông tin pháp lý & Liên hệ
             </span>
-            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5 font-display">
               Đơn vị sản xuất & Phân phối chính thức
             </h2>
           </div>
 
           <div className="space-y-3 text-[12.5px]">
             {/* Đơn vị sản xuất */}
-            <div className="p-3 rounded-2xl bg-gray-50 border border-gray-200/80 flex items-start space-x-3">
+            <div className="p-3 rounded-xl bg-gray-50 border border-gray-200/80 flex items-start space-x-3">
               <div className="w-11 h-11 rounded-xl bg-white border border-gray-200 shadow-2xs flex items-center justify-center p-1.5 flex-none mt-0.5">
                 <img src={opodisLogo} alt="Opodis Pharma Logo" className="w-full h-full object-contain" />
               </div>
@@ -280,7 +280,7 @@ export default function AboutPage() {
             </div>
 
             {/* Đơn vị phân phối độc quyền */}
-            <div className="p-3 rounded-2xl bg-gray-50 border border-gray-200/80 flex items-start space-x-3">
+            <div className="p-3 rounded-xl bg-gray-50 border border-gray-200/80 flex items-start space-x-3">
               <div className="w-11 h-11 rounded-xl bg-white border border-gray-200 shadow-2xs flex items-center justify-center p-1.5 flex-none mt-0.5">
                 <img src={triNghiaLogo} alt="Trí Nghĩa Pharma Logo" className="w-full h-full object-contain" />
               </div>
@@ -315,7 +315,7 @@ export default function AboutPage() {
                 href="https://shopee.vn/opodispharma?entryPoint=ShopBySearch&searchKeyword=opodis%20pharma"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-1.5 rounded-xl bg-orange-50/90 border border-orange-200/80 text-[#ee4d2d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-orange-100 transition-all active:scale-95 shadow-2xs"
+                className="py-2 px-1.5 rounded-xl bg-orange-50/90 border border-orange-200/80 text-[#ee4d2d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-orange-100 transition-all active:scale-95 shadow-2xs font-display"
               >
                 <img src={shopeeLogo} alt="Shopee Mall" className="w-4 h-4 rounded-full object-contain shrink-0" />
                 <span className="truncate">Shopee Mall</span>
@@ -324,7 +324,7 @@ export default function AboutPage() {
                 href="https://www.lazada.vn/shop/mn7k3oup/?path=index.htm&spm=a2o4n.pdp_revamp.seller.1.66ed7633EhzkGb&itemId=3165045408&channelSource=pdp"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-1.5 rounded-xl bg-blue-50/90 border border-blue-200/80 text-[#0f146d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-blue-100 transition-all active:scale-95 shadow-2xs"
+                className="py-2 px-1.5 rounded-xl bg-blue-50/90 border border-blue-200/80 text-[#0f146d] font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-blue-100 transition-all active:scale-95 shadow-2xs font-display"
               >
                 <img src={lazadaLogo} alt="Lazada Mall" className="w-4 h-4 rounded-full object-contain shrink-0" />
                 <span className="truncate">Lazada Mall</span>
@@ -333,7 +333,7 @@ export default function AboutPage() {
                 href="https://www.tiktok.com/@opodis.pharma?lang=vi-VN"
                 target="_blank"
                 rel="noreferrer"
-                className="py-2 px-1.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-gray-100 transition-all active:scale-95 shadow-2xs"
+                className="py-2 px-1.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 font-bold text-[11px] flex items-center justify-center gap-1.5 hover:bg-gray-100 transition-all active:scale-95 shadow-2xs font-display"
               >
                 <img src={tiktokLogo} alt="TikTok Shop" className="w-4 h-4 rounded-full object-contain shrink-0" />
                 <span className="truncate">TikTok Shop</span>
@@ -349,7 +349,7 @@ export default function AboutPage() {
           href="https://opodispharma.com/"
           target="_blank"
           rel="noreferrer"
-          className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
+          className="w-full flex items-center justify-between p-3.5 rounded-xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
         >
           <div className="flex flex-col min-w-0 pr-2">
             <span className="text-[11px] font-medium text-gray-500">Website chính thức</span>
@@ -360,7 +360,7 @@ export default function AboutPage() {
 
         <a
           href="tel:02837582741"
-          className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
+          className="w-full flex items-center justify-between p-3.5 rounded-xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
         >
           <div className="flex flex-col min-w-0 pr-2">
             <span className="text-[11px] font-medium text-gray-500">Hotline tư vấn dược sĩ 24/7</span>

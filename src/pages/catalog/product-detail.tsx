@@ -80,7 +80,7 @@ export default function ProductDetailPage() {
         <button
           type="button"
           onClick={() => navigate("/")}
-          className="min-h-[42px] px-6 py-2 rounded-pill bg-primary text-white font-semibold text-sm shadow-sm active:scale-95 transition cursor-pointer"
+          className="min-h-[42px] px-6 py-2 rounded-lg bg-primary text-white font-semibold text-sm shadow-sm active:scale-95 transition cursor-pointer font-display"
         >
           Về trang sản phẩm
         </button>
@@ -103,7 +103,7 @@ export default function ProductDetailPage() {
     <div className="w-full min-h-full pb-10 bg-background">
       {/* 1. Product Media & Gallery */}
       <div className="w-full px-4 pt-3 flex flex-col items-center">
-        <div className="w-full max-w-[360px] aspect-square rounded-3xl bg-white border border-border/70 p-4 flex items-center justify-center overflow-hidden relative shadow-card group">
+        <div className="w-full max-w-[360px] aspect-square rounded-2xl bg-white border border-border/70 p-4 flex items-center justify-center overflow-hidden relative shadow-card group">
           {displayImage ? (
             <img
               src={displayImage}
@@ -123,7 +123,7 @@ export default function ProductDetailPage() {
           )}
 
           {allImages.length > 1 && (
-            <span className="absolute bottom-3 right-3 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-foreground/60 text-white backdrop-blur-sm">
+            <span className="absolute bottom-3 right-3 text-[11px] font-semibold px-2 py-0.5 rounded-md bg-foreground/75 text-white backdrop-blur-sm font-display shadow-2xs">
               {currentImageIndex >= 0 ? currentImageIndex + 1 : 1} / {allImages.length}
             </span>
           )}
@@ -140,7 +140,7 @@ export default function ProductDetailPage() {
                   type="button"
                   onClick={() => setSelectedImage(img)}
                   aria-label={`Xem ảnh ${index + 1}`}
-                  className={`w-14 h-14 rounded-xl border-2 overflow-hidden flex-none bg-section/80 p-1 cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 ${
+                  className={`w-14 h-14 rounded-lg border-2 overflow-hidden flex-none bg-section/80 p-1 cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95 ${
                     isSelected
                       ? "border-primary shadow-sm scale-105 ring-2 ring-primary/20"
                       : "border-border/80 opacity-70 hover:opacity-100 hover:border-primary/50"
@@ -166,14 +166,14 @@ export default function ProductDetailPage() {
             {getPrimaryCategory(product)}
           </span>
           {product.promotionBadge && (
-            <span className="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary text-[11px] font-bold">
+            <span className="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary text-[11px] font-bold">
               {product.promotionBadge}
             </span>
           )}
         </div>
 
         {/* Product Name (Page title 22px / 700) */}
-        <h1 className="text-[22px] leading-[28px] font-bold text-foreground mt-1.5 tracking-tight">
+        <h1 className="text-[22px] leading-[28px] font-bold text-foreground mt-1.5 tracking-tight font-display">
           {product.name}
         </h1>
 
@@ -187,12 +187,12 @@ export default function ProductDetailPage() {
         )}
 
         {/* Pricing Box with discount percentage */}
-        <div className="mt-3 p-3.5 rounded-2xl bg-primary-soft/60 border border-primary/20 flex items-center justify-between">
+        <div className="mt-3 p-3.5 rounded-xl bg-primary-soft/60 border border-primary/20 flex items-center justify-between">
           {product.price != null ? (
             <div className="flex flex-col">
               <span className="text-[11px] text-subtitle">Giá bán ưu đãi</span>
               <div className="flex items-baseline gap-2 mt-0.5">
-                <span className="text-[22px] leading-tight font-black text-primary-dark">
+                <span className="text-[22px] leading-tight font-black text-primary-dark font-display">
                   {formatPrice(product.price)}
                 </span>
                 {product.discountPercent && (
@@ -208,7 +208,7 @@ export default function ProductDetailPage() {
               )}
             </div>
           ) : (
-            <div className="inline-flex items-center px-3 py-1.5 rounded-xl bg-primary-soft text-primary text-[13px] font-semibold">
+            <div className="inline-flex items-center px-3 py-1.5 rounded-lg bg-primary-soft text-primary text-[13px] font-semibold">
               <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse" />
               Liên hệ tư vấn & báo giá
             </div>
@@ -219,14 +219,14 @@ export default function ProductDetailPage() {
           <button
             type="button"
             onClick={() => addToCart(1)}
-            className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded-pill bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition active:scale-[0.98]"
+            className="mt-3 flex min-h-[44px] w-full items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition active:scale-[0.98] font-display"
           >
             Thêm vào giỏ hàng
           </button>
         )}
 
         {/* Chương trình ưu đãi & Cam kết */}
-        <div className="mt-3 p-3 rounded-2xl bg-surface border border-border/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-2 text-[12px]">
+        <div className="mt-3 p-3 rounded-xl bg-surface border border-border/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-2 text-[12px]">
           <div className="flex items-center gap-2 text-primary font-black">
             <svg
               width="15"
@@ -271,7 +271,7 @@ export default function ProductDetailPage() {
       </div>
 
       {/* 3. Specifications Card */}
-      <div className="mx-4 mt-3 p-4 rounded-2xl bg-section/60 border border-border/70">
+      <div className="mx-4 mt-3 p-4 rounded-xl bg-section/60 border border-border/70">
         <h2 className="text-[14px] font-black uppercase tracking-wide text-primary mb-3">
           Thông tin sản phẩm
         </h2>
@@ -323,7 +323,7 @@ export default function ProductDetailPage() {
 
       {/* 4. Công dụng & Chỉ định */}
       {activeUses.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -356,7 +356,7 @@ export default function ProductDetailPage() {
 
       {/* 5. Thành phần & Hoạt chất */}
       {(activeIngredientsList.length > 0 || regularIngredientsList.length > 0) && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -409,7 +409,7 @@ export default function ProductDetailPage() {
 
       {/* 6. Hướng dẫn sử dụng */}
       {activeDirections.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        <div className="mx-4 mt-3.5 p-4 rounded-xl bg-white border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
           <div className="flex items-center space-x-2 mb-2.5">
             <div className="w-6 h-6 rounded-lg bg-primary-soft text-primary flex items-center justify-center flex-none">
               <svg
@@ -442,7 +442,7 @@ export default function ProductDetailPage() {
 
       {/* 7. Lưu ý & Bảo quản */}
       {activeWarnings.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-section/50 border border-border/70">
+        <div className="mx-4 mt-3.5 p-4 rounded-xl bg-section/50 border border-border/70">
           <div className="flex items-center space-x-2 mb-2">
             <div className="w-6 h-6 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center flex-none">
               <svg
@@ -477,7 +477,7 @@ export default function ProductDetailPage() {
 
       {/* 8. Ưu điểm nổi bật (nếu có) */}
       {activeAdvantages.length > 0 && (
-        <div className="mx-4 mt-3.5 p-4 rounded-2xl bg-primary-soft/40 border border-primary/20">
+        <div className="mx-4 mt-3.5 p-4 rounded-xl bg-primary-soft/40 border border-primary/20">
           <h2 className="text-[14px] font-extrabold text-primary mb-2">
             Ưu điểm nổi bật
           </h2>
@@ -503,7 +503,7 @@ export default function ProductDetailPage() {
       {/* 8.5. Customer Reviews */}
       {product.reviews && product.reviews.length > 0 && (
         <section aria-labelledby="customer-reviews-title" className="mx-4 mt-4">
-          <div className="p-4 rounded-2xl bg-surface border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+          <div className="p-4 rounded-xl bg-surface border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
             <div className="flex items-center justify-between mb-3 border-b border-border/60 pb-3">
               <div>
                 <h2
@@ -516,9 +516,9 @@ export default function ProductDetailPage() {
                   Nhận xét thực tế từ người dùng đã mua sản phẩm
                 </span>
               </div>
-              <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-amber-50 border border-amber-200 flex-none">
+              <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 border border-amber-200 flex-none">
                 <span className="text-amber-500 font-black text-[15px]">★</span>
-                <span className="text-[14px] font-black text-foreground">
+                <span className="text-[14px] font-black text-foreground font-display">
                   {product.rating ? product.rating.toFixed(1) : "5.0"}
                 </span>
                 <span className="text-[11px] text-subtitle">/5</span>
@@ -552,14 +552,14 @@ export default function ProductDetailPage() {
       )}
 
       {/* 9. Contact / Tư vấn Opodis Pharma Banner */}
-      <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-sm">
+      <div className="mx-4 mt-4 p-4 rounded-xl bg-gradient-to-br from-primary to-primary-dark text-white shadow-sm">
         <div className="flex items-center space-x-2 mb-1">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           <span className="text-[11px] uppercase tracking-wider font-bold text-white/80">
             Tư vấn sản phẩm chính hãng
           </span>
         </div>
-        <p className="text-[14px] font-bold text-white">
+        <p className="text-[14px] font-bold text-white font-display">
           Opodis Pharma — Khoa học & Dược thảo
         </p>
         <p className="text-[12px] text-white/85 mt-1 leading-relaxed">
@@ -568,7 +568,7 @@ export default function ProductDetailPage() {
         <div className="mt-3 flex flex-wrap gap-2 pt-1 border-t border-white/15 text-[12px]">
           <a
             href="tel:02837582741"
-            className="inline-flex items-center px-3 py-1.5 rounded-full bg-white text-primary font-bold text-[12px] shadow-sm active:scale-95 transition"
+            className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white text-primary font-bold text-[12px] shadow-sm active:scale-95 transition font-display"
           >
             Hotline: (0283) 7582 741
           </a>
@@ -576,7 +576,7 @@ export default function ProductDetailPage() {
             href="https://opodispharma.com/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/15 text-white font-medium text-[12px] hover:bg-white/25 transition"
+            className="inline-flex items-center px-3 py-1.5 rounded-lg bg-white/15 text-white font-medium text-[12px] hover:bg-white/25 transition"
           >
             opodispharma.com ↗
           </a>
