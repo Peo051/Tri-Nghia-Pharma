@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import triNghiaLogo from "@/static/logo-tringhia.png";
 import opodisLogo from "@/static/logo-opodis.png";
 import FollowOAWidget from "@/components/follow-oa-card";
+import PartnerCarousel from "@/components/partner-carousel";
 
 import factory1Img from "@/static/about/factory-1.webp";
 import factory2Img from "@/static/about/factory-2.webp";
@@ -514,10 +515,29 @@ export default function AboutPage() {
       <section id="about-network" className="mx-3.5 mb-4 scroll-mt-14">
         <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Bảo chứng niềm tin</span>
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">
+              Bảo chứng niềm tin • 80+ Bệnh viện lớn
+            </span>
             <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
-              Hơn 80 bệnh viện lớn & Mạng lưới phân phối uy tín
+              Hệ thống phân phối & Đối tác y tế
             </h2>
+          </div>
+
+          <div className="space-y-2 text-[12.5px] leading-[19px] text-gray-700 font-normal mb-3.5">
+            <p className="font-semibold text-primary">
+              Vì một cộng đồng khỏe mạnh, an toàn và hạnh phúc hơn.
+            </p>
+            <p>
+              Trong quá trình nghiên cứu và phát triển sản phẩm, Opodis tự hào được đồng hành cùng các chuyên gia y dược, các bệnh viện, viện nghiên cứu và tổ chức chuyên ngành hàng đầu, góp phần mang đến những giải pháp chăm sóc sức khỏe thiết thực, hiệu quả và an toàn cho người Việt.
+            </p>
+            <p className="text-[12px] text-gray-500 italic">
+              Các sản phẩm của Opodis Pharma hiện đang được tin dùng và sử dụng rộng rãi tại nhiều bệnh viện lớn, trung tâm y tế và hệ thống phân phối trên toàn quốc.
+            </p>
+          </div>
+
+          {/* Carousel động chạy ngang các nhà phân phối & bệnh viện đối tác */}
+          <div className="mb-4 -mx-1">
+            <PartnerCarousel />
           </div>
 
           {/* Đối tác 80+ bệnh viện */}
