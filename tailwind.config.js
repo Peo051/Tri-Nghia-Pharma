@@ -37,8 +37,13 @@ module.exports = {
       },
       borderRadius: {
         card: "16px",
+        hero: "24px",
         image: "14px",
         pill: "9999px",
+      },
+      boxShadow: {
+        card: "0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)",
+        "card-hover": "0 4px 12px rgba(0, 0, 0, 0.06)",
       },
       fontSize: {
         nav: ["10.5px", "16px"],

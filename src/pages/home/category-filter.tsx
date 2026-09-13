@@ -48,8 +48,6 @@ export default function CategoryFilter({
                 className={`ml-1.5 text-[11px] px-1.5 py-0.2 rounded-full font-semibold ${
                   isSelected
                     ? "bg-white/20 text-white"
-                    : item.inactiveClassName
-                    ? "bg-white text-pink-700 border border-pink-200/80"
                     : "bg-white text-subtitle border border-border/60"
                 }`}
               >

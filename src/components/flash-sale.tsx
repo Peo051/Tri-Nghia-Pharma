@@ -108,7 +108,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                 className="w-[140px] flex-none flex flex-col bg-white rounded-xl p-2 border border-border/70 shadow-xs hover:border-primary/50 active:scale-95 transition-all group"
               >
                 {/* Image container */}
-                <div className="w-full aspect-square rounded-lg bg-section/70 overflow-hidden relative flex items-center justify-center">
+                <div className="w-full aspect-square rounded-lg bg-white border border-border/50 p-2 overflow-hidden relative flex items-center justify-center">
                   {product.discountPercent && (
                     <span className="absolute top-1.5 left-1.5 z-10 px-1.5 py-0.5 rounded bg-[#c81e1e] text-white text-[10px] font-black shadow-xs">
                       -{product.discountPercent}%
@@ -118,7 +118,7 @@ export default function FlashSale({ products, className = "" }: FlashSaleProps) 
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   ) : (

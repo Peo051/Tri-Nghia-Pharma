@@ -24,10 +24,10 @@ export default function CategoryListPage() {
           >
             <img
               src={category.image}
-              className="aspect-square object-cover rounded-full border-[0.5px] border-black/15"
+              className="aspect-square object-cover rounded-full border border-border/70 p-0.5 bg-white shadow-2xs"
               alt={category.name}
             />
-            <div className="text-center text-sm w-full line-clamp-2 text-subtitle">
+            <div className="text-center text-[12px] font-medium w-full line-clamp-2 text-foreground">
               {category.name}
             </div>
           </TransitionLink>

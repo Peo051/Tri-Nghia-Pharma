@@ -101,12 +101,12 @@ export default function ProductDetailPage() {
     <div className="w-full min-h-full pb-10 bg-background">
       {/* 1. Product Media & Gallery */}
       <div className="w-full px-4 pt-3 flex flex-col items-center">
-        <div className="w-full max-w-[360px] aspect-square rounded-3xl bg-section/80 border border-border/70 flex items-center justify-center overflow-hidden relative shadow-[0_2px_8px_rgba(0,0,0,0.02)] group">
+        <div className="w-full max-w-[360px] aspect-square rounded-3xl bg-white border border-border/70 p-4 flex items-center justify-center overflow-hidden relative shadow-card group">
           {displayImage ? (
             <img
               src={displayImage}
               alt={product.name}
-              className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
+              className="w-full h-full object-contain transition-all duration-300 ease-out group-hover:scale-105"
               style={{
                 viewTransitionName:
                   displayImage === product.image

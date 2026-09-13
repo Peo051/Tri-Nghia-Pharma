@@ -86,6 +86,8 @@ const PRODUCT_PILLARS = [
 export default function AboutPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("story");
+  const [showAllHerbs, setShowAllHerbs] = useState(false);
+  const [showAllPillars, setShowAllPillars] = useState(false);
 
   const scrollToSection = (id: string) => {
     setActiveTab(id);
@@ -160,30 +162,34 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* THANH ĐIỀU HƯỚNG NHANH CÁC MỤC (Sticky/Scrollable Pills) */}
-      <div className="sticky top-0 z-20 bg-[#F8FAF9]/95 backdrop-blur-md py-2 px-3 border-b border-gray-200/70 mb-4 overflow-x-auto no-scrollbar flex items-center gap-1.5">
-        {NAV_SECTIONS.map((sec) => (
-          <button
-            key={sec.id}
-            type="button"
-            onClick={() => scrollToSection(sec.id)}
-            className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-[12px] font-bold transition-all flex-none cursor-pointer ${
-              activeTab === sec.id
-                ? "bg-primary text-white shadow-sm shadow-primary/30"
-                : "bg-white text-gray-700 border border-gray-200/80 hover:bg-gray-50"
-            }`}
-          >
-            {sec.label}
-          </button>
-        ))}
+      {/* THANH ĐIỀU HƯỚNG NHANH CÁC MỤC (Sticky/Scrollable Pills với subtle fade hint) */}
+      <div className="sticky top-0 z-20 bg-[#F8FAF9]/95 backdrop-blur-md py-2.5 border-b border-gray-200/70 mb-4 relative">
+        <div className="overflow-x-auto no-scrollbar flex items-center gap-2 px-4 scroll-px-4">
+          {NAV_SECTIONS.map((sec) => (
+            <button
+              key={sec.id}
+              type="button"
+              onClick={() => scrollToSection(sec.id)}
+              className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all flex-none cursor-pointer ${
+                activeTab === sec.id
+                  ? "bg-primary text-white font-semibold shadow-xs"
+                  : "bg-white text-subtitle border border-border/80 hover:bg-gray-50"
+              }`}
+            >
+              {sec.label}
+            </button>
+          ))}
+        </div>
+        {/* Subtle right fade hint */}
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#F8FAF9] to-transparent pointer-events-none" />
       </div>
 
       {/* 2. CÂU CHUYỆN THẢO DƯỢC & DI SẢN DƯỢC LIỆU TRUNG ƯƠNG 2 */}
       <section id="about-story" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Bí quyết từ thiên nhiên</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Sức mạnh kháng khuẩn tự nhiên từ đại ngàn tràm gió
             </h2>
           </div>
@@ -199,9 +205,9 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Danh sách 5 Thảo dược chuẩn hóa */}
+          {/* Danh sách Thảo dược chuẩn hóa (Mặc định hiển thị 2 thảo dược tiêu biểu + nút Mở rộng) */}
           <div className="mt-3.5 space-y-2.5">
-            {HERBS.map((herb, idx) => (
+            {(showAllHerbs ? HERBS : HERBS.slice(0, 2)).map((herb, idx) => (
               <div
                 key={idx}
                 className={`p-3 rounded-2xl bg-gradient-to-r ${herb.color} border border-gray-200/70 flex flex-col gap-1`}
@@ -221,15 +227,37 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* Nút Xem thêm / Thu gọn thảo dược */}
+          <button
+            type="button"
+            onClick={() => setShowAllHerbs(!showAllHerbs)}
+            className="mt-3 w-full py-2 px-3 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200/80 text-[12px] font-semibold text-primary flex items-center justify-center gap-1.5 transition active:scale-98 cursor-pointer"
+          >
+            <span>{showAllHerbs ? "Thu gọn danh sách thảo dược" : `Xem thêm ${HERBS.length - 2} công thức thảo dược khác`}</span>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`transition-transform duration-200 ${showAllHerbs ? "rotate-180" : ""}`}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
         </div>
       </section>
 
       {/* 3. CHUẨN HÓA NHÀ MÁY & HỆ THỐNG KIỂM SOÁT CHẤT LƯỢNG */}
       <section id="about-factory" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Cam kết chất lượng đỉnh cao</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Nhà máy chuẩn GMP-WHO — An tâm trên từng giọt sản phẩm
             </h2>
           </div>
@@ -292,20 +320,20 @@ export default function AboutPage() {
 
       {/* 4. 4 NHÓM GIẢI PHÁP TRỌNG TÂM */}
       <section id="about-products" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Giải pháp theo nhu cầu</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Hệ sinh thái chăm sóc sức khỏe toàn diện cho cả gia đình
             </h2>
           </div>
 
-          <p className="text-[12.5px] leading-[19px] text-gray-600 mb-3.5">
+          <p className="text-[13px] leading-[20px] text-gray-600 mb-3.5">
             Được nghiên cứu chuyên sâu để thấu hiểu và đáp ứng tối ưu từng giai đoạn cuộc sống, mang đến sự chăm sóc dịu lành và bảo vệ toàn diện:
           </p>
 
           <div className="space-y-3">
-            {PRODUCT_PILLARS.map((item, idx) => (
+            {(showAllPillars ? PRODUCT_PILLARS : PRODUCT_PILLARS.slice(0, 2)).map((item, idx) => (
               <div
                 key={idx}
                 className="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80 hover:border-primary/30 transition-all flex flex-col gap-1.5"
@@ -335,11 +363,33 @@ export default function AboutPage() {
             ))}
           </div>
 
+          {/* Nút Xem thêm / Thu gọn giải pháp */}
+          <button
+            type="button"
+            onClick={() => setShowAllPillars(!showAllPillars)}
+            className="mt-3 w-full py-2 px-3 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200/80 text-[12px] font-semibold text-primary flex items-center justify-center gap-1.5 transition active:scale-98 cursor-pointer"
+          >
+            <span>{showAllPillars ? "Thu gọn giải pháp" : `Xem thêm ${PRODUCT_PILLARS.length - 2} nhóm giải pháp khác`}</span>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`transition-transform duration-200 ${showAllPillars ? "rotate-180" : ""}`}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
           {/* Nút Khám phá tất cả sản phẩm */}
           <button
             type="button"
             onClick={() => navigate("/catalog")}
-            className="mt-4 w-full py-2.5 px-4 rounded-2xl bg-primary text-white font-bold text-[13px] shadow-md shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            className="mt-3.5 w-full py-2.5 px-4 rounded-2xl bg-primary text-white font-bold text-[13px] shadow-sm shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <span>Khám phá ngay giải pháp phù hợp với bạn</span>
             <span>→</span>
@@ -349,10 +399,10 @@ export default function AboutPage() {
 
       {/* 5. SỨ MỆNH & TẦM NHÌN */}
       <section id="about-mission" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
-            <span className="text-[11px] font-bold text-amber-700 tracking-wider uppercase">Giá trị cốt lõi</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Giá trị cốt lõi</span>
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Sứ mệnh phụng sự & Tầm nhìn tương lai
             </h2>
           </div>
@@ -381,10 +431,10 @@ export default function AboutPage() {
 
       {/* 6. HOẠT ĐỘNG XÃ HỘI & TRÁCH NHIỆM CỘNG ĐỒNG (CSR) */}
       <section id="about-csr" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-2.5">
-            <span className="text-[11px] font-bold text-rose-600 tracking-wider uppercase">Trách nhiệm cộng đồng</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Trách nhiệm cộng đồng</span>
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Khoa học và nhân ái — 25 năm lan tỏa yêu thương
             </h2>
           </div>
@@ -445,10 +495,10 @@ export default function AboutPage() {
 
       {/* 7. DOANH NGHIỆP, NHÀ PHÂN PHỐI & 80+ BỆNH VIỆN */}
       <section id="about-network" className="mx-3.5 mb-4 scroll-mt-14">
-        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs">
+        <div className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-card">
           <div className="mb-3">
             <span className="text-[11px] font-bold text-primary tracking-wider uppercase">Bảo chứng niềm tin</span>
-            <h2 className="text-[16px] font-black text-gray-900 leading-tight mt-0.5">
+            <h2 className="text-section-title font-bold text-foreground leading-tight mt-0.5">
               Hơn 80 bệnh viện lớn & Mạng lưới phân phối uy tín
             </h2>
           </div>

@@ -19,15 +19,15 @@ export default function ProductItem(props: ProductItemProps) {
 
   return (
     <TransitionLink
-      className={`flex flex-col cursor-pointer bg-white rounded-2xl p-2.5 border border-border/70 shadow-[0_1px_3px_rgba(0,0,0,0.02)] active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative h-full ${props.className ?? ""}`}
+      className={`flex flex-col cursor-pointer bg-white rounded-card p-3 border border-border/70 shadow-card active:scale-[0.985] transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary relative h-full ${props.className ?? ""}`}
       to={`/product/${props.product.id}`}
       replace={props.replace}
       onClick={() => setSelected(true)}
     >
       {({ isTransitioning }) => (
         <>
-          {/* Image Container: edge-to-edge 1:1 aspect ratio, fill the frame, clean background */}
-          <div className="w-full aspect-square overflow-hidden rounded-xl bg-section/70 flex items-center justify-center relative group">
+          {/* Normalized Image Container: 1:1 aspect ratio, object-contain with 12px padding, packaging fills ~80% */}
+          <div className="w-full aspect-square overflow-hidden rounded-xl bg-white border border-border/50 p-3 flex items-center justify-center relative group">
             {/* Promotion / Discount Badge */}
             {props.product.discountPercent ? (
               <span className="absolute top-2 left-2 z-10 px-1.5 py-0.5 rounded-md bg-[#c81e1e] text-white text-[10px] font-bold shadow-xs">
@@ -39,11 +39,10 @@ export default function ProductItem(props: ProductItemProps) {
               </span>
             ) : null}
 
-
             {props.product.image ? (
               <img
                 src={props.product.image}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-108"
+                className="w-full h-full object-contain transition-transform duration-300 ease-out group-hover:scale-105"
                 style={{
                   viewTransitionName:
                     isTransitioning && selected
