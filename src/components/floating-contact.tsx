@@ -162,24 +162,15 @@ export default function FloatingContact() {
 
   const handleOpenZalo = () => {
     if (hasMovedRef.current) return;
-    try {
-      openChat({
-        type: "oa",
-        id: "4318657068771012646",
-        message: "Xin chào Opodis Pharma, tôi cần tư vấn sản phẩm",
-        success: () => {},
-        fail: () => {
-          window.open("https://zalo.me/02837582741", "_blank");
-        },
-      });
-    } catch {
-      window.open("https://zalo.me/02837582741", "_blank");
-    }
+    window.open("https://zalo.me/0789394239", "_blank");
   };
 
   const handleOpenMessenger = () => {
     if (hasMovedRef.current) return;
-    window.open("https://m.me/opodispharma", "_blank");
+    window.open(
+      "https://www.messenger.com/t/678768355318156/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0",
+      "_blank"
+    );
   };
 
   // Danh sách 3 nút liên hệ nhanh

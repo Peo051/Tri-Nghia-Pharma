@@ -55,7 +55,7 @@ export default function FollowOAWidget({
           message: "Xin chào Opodis Pharma, tôi muốn quan tâm OA",
         });
       } catch {
-        window.open("https://zalo.me/02837582741", "_blank");
+        window.open("https://zalo.me/0789394239", "_blank");
       }
     }
   };

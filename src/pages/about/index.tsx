@@ -623,6 +623,42 @@ export default function AboutPage() {
             </span>
           </a>
 
+          {/* Zalo OA */}
+          <a
+            href="https://zalo.me/0789394239"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
+          >
+            <div className="flex flex-col min-w-0 pr-2">
+              <span className="text-[11px] font-medium text-gray-500">Zalo OA chính thức</span>
+              <span className="text-[14px] font-bold text-[#0068ff] truncate">
+                zalo.me/0789394239
+              </span>
+            </div>
+            <span className="text-[#0068ff] font-bold text-[13px] flex-none">
+              Chat Zalo ngay →
+            </span>
+          </a>
+
+          {/* Messenger */}
+          <a
+            href="https://www.messenger.com/t/678768355318156/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full flex items-center justify-between p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs active:scale-[0.985] transition-all group"
+          >
+            <div className="flex flex-col min-w-0 pr-2">
+              <span className="text-[11px] font-medium text-gray-500">Facebook Messenger</span>
+              <span className="text-[14px] font-bold text-[#9333ea] truncate">
+                Nhắn tin Messenger
+              </span>
+            </div>
+            <span className="text-[#9333ea] font-bold text-[13px] flex-none">
+              Nhắn tin ngay →
+            </span>
+          </a>
+
           {/* Hotline */}
           <a
             href="tel:02837582741"
